@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: bookstack
+  name: bookstack
+  namespace: bookstack
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bookstack
+  template:
+    metadata:
+      labels:
+        app: bookstack
+    spec:
+      containers:
+        - env:
+            - name: APP_URL
+              value: https://bookstack.aleixohome.lan
+            - name: DB_HOST
+              value: mysql.mysql.svc.cluster.local:3306
+          image: solidnerd/bookstack:22.04
+          name: bookstack-container
+          envFrom:
+            - secretRef:
+                name: bookstack-sec
+          ports:
+            - containerPort: 8080
+      restartPolicy: Always

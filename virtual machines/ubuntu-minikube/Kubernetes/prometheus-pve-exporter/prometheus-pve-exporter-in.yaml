@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: prometheus-pve-exporter-in
+  namespace: prometheus-pve-exporter
+  annotations:
+    # use the shared ingress-nginx
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  tls:
+  - hosts:
+    - prometheus-pve-exporter.aleixohome.lan
+    secretName: aleixohome-ssl
+  rules:
+  - host: prometheus-pve-exporter.aleixohome.lan
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: prometheus-pve-exporter-svc
+            port:
+              number: 9221

@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: prometheus-pve-exporter-sec
+  namespace: prometheus-pve-exporter
+type: Opaque
+data:
+  PVE_USER: 
+  PVE_PASSWORD: 
+  PVE_VERIFY_SSL: 

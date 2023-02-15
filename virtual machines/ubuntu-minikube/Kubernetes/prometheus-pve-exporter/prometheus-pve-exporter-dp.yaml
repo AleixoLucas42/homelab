@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: prometheus-pve-exporter
+  name: prometheus-pve-exporter-dp
+  namespace: prometheus-pve-exporter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prometheus-pve-exporter
+  template:
+    metadata:
+      labels:
+        app: prometheus-pve-exporter
+    spec:
+      containers:
+        - image: prompve/prometheus-pve-exporter
+          name: prometheus-pve-exporter
+          envFrom:
+            - secretRef:
+                name: prometheus-pve-exporter-sec
+          ports:
+            - containerPort: 9221
+      restartPolicy: Always
