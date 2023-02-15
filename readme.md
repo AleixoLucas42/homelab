@@ -24,15 +24,15 @@ Hello everyone, this is my small homelab, I decide to start with a very cheap ha
 
 ## Running systems
 - [OPNSENSE](virtual%20machines/opnsense)
-- [UBUNTU-MINIKUBE](virtual%20machines/ubuntu-minikube/readme.md)
-- [ADGUARD](virtual%20machines/ubuntu-minikube/Adguard/readme.md)
-- [DUPLICATI](virtual%20machines/ubuntu-minikube/duplicati/readme.md)
-- [BOOKSTACK](virtual%20machines/ubuntu-minikube/Kubernetes/bookstack/readme.md)
-- [GRAFANA](virtual%20machines/ubuntu-minikube/Kubernetes/grafana/readme.md)
-- [HASHICORP VAULT](virtual%20machines/ubuntu-minikube/Kubernetes/hasicorp%20vault/readme.md) -- there are a [backup script](virtual%20machines/ubuntu-minikube/Kubernetes/hasicorp%20vault/vault-backup.py) that can be usefull to you
-- [MYSQL](virtual%20machines/ubuntu-minikube/Kubernetes/mysql/readme.md)
-- [PROMETHEUS](virtual%20machines/ubuntu-minikube/Kubernetes/prometheus/readme.md)
-- [PROXMOX-PROMETHEUS-EXPORTER](virtual%20machines/ubuntu-minikube/Kubernetes/prometheus-pve-exporter/readme.md)
+- [UBUNTU-MINIKUBE](virtual%20machines/ubuntu-minikube/)
+- [ADGUARD](virtual%20machines/ubuntu-minikube/Adguard/)
+- [DUPLICATI](virtual%20machines/ubuntu-minikube/duplicati/)
+- [BOOKSTACK](virtual%20machines/ubuntu-minikube/Kubernetes/bookstack/)
+- [GRAFANA](virtual%20machines/ubuntu-minikube/Kubernetes/grafana/)
+- [HASHICORP VAULT](virtual%20machines/ubuntu-minikube/Kubernetes/hasicorp%20vault/) -- there are a [backup script](virtual%20machines/ubuntu-minikube/Kubernetes/hasicorp%20vault/vault-backup.py) that can be usefull to you
+- [MYSQL](virtual%20machines/ubuntu-minikube/Kubernetes/mysql/)
+- [PROMETHEUS](virtual%20machines/ubuntu-minikube/Kubernetes/prometheus/)
+- [PROXMOX-PROMETHEUS-EXPORTER](virtual%20machines/ubuntu-minikube/Kubernetes/prometheus-pve-exporter/)
 
 <hr>
 
