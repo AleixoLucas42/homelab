@@ -5,7 +5,7 @@ Hello everyone, this is my small homelab, I decide to start with a very cheap ha
 ## Topology
 
 [![topology](static/images/homelab.png)]()
-
+\* Nothing is outside my network or port-forwarded.
 <hr>
 
 ## Server Specs
@@ -23,7 +23,7 @@ Hello everyone, this is my small homelab, I decide to start with a very cheap ha
 <hr>
 
 ## Running systems
-- [OPNSENSE](virtual%20machines/opnsense/readme.md)
+- [OPNSENSE](virtual%20machines/opnsense)
 - [UBUNTU-MINIKUBE](virtual%20machines/ubuntu-minikube/readme.md)
 - [ADGUARD](virtual%20machines/ubuntu-minikube/Adguard/readme.md)
 - [DUPLICATI](virtual%20machines/ubuntu-minikube/duplicati/readme.md)
@@ -33,7 +33,6 @@ Hello everyone, this is my small homelab, I decide to start with a very cheap ha
 - [MYSQL](virtual%20machines/ubuntu-minikube/Kubernetes/mysql/readme.md)
 - [PROMETHEUS](virtual%20machines/ubuntu-minikube/Kubernetes/prometheus/readme.md)
 - [PROXMOX-PROMETHEUS-EXPORTER](virtual%20machines/ubuntu-minikube/Kubernetes/prometheus-pve-exporter/readme.md)
-
 
 <hr>
 
