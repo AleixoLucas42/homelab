@@ -1,0 +1,39 @@
+          limits:
+            memory: "512Mi"
+            cpu: "200m"
+
+        securityContext:
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true   
+          allowPrivilegeEscalation: false
+          seLinuxOptions:
+            level: "s0:c123,c456"
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            add:
+            - SYS_NICE
+            drop:
+            - KILL
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: grafana-netpolicy
+  namespace: grafana
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/instance: grafana-aleixohome
+  policyTypes:
+    - Ingress
+  ingress:
+    - from:
+        - ipBlock:
+            cidr: 172.17.0.0/16
+            except:
+              - 172.17.0.0/24
+  egress:           
+  - to:
+    - ipBlock:
+        cidr: 10.0.0.0/24
