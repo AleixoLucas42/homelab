@@ -4,7 +4,7 @@
 
         securityContext:
           readOnlyRootFilesystem: true
-          runAsNonRoot: true   
+          runAsNonRoot: true
           allowPrivilegeEscalation: false
           seLinuxOptions:
             level: "s0:c123,c456"

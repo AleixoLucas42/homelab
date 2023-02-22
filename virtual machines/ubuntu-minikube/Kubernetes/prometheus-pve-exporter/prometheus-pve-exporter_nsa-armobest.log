@@ -1,0 +1,75 @@
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+################################################################################
+ApiVersion: apps/v1
+Kind: Deployment
+Name: prometheus-pve-exporter-dp
+Namespace: prometheus-pve-exporter
+
+Controls: 20 (Failed: 2, action required: 4)
+
++----------+----------------------------+------------------------------------+---------------------------------+
+| SEVERITY |        CONTROL NAME        |                DOCS                |      ASSISTANT REMEDIATION      |
++----------+----------------------------+------------------------------------+---------------------------------+
+| High     | Check if signature exists  | https://hub.armosec.io/docs/c-0237 | prompve/prometheus-pve-exporter |
++----------+----------------------------+------------------------------------+---------------------------------+
+| Medium   | Ingress and Egress blocked | https://hub.armosec.io/docs/c-0030 |                                 |
++----------+----------------------------+------------------------------------+---------------------------------+
+
+Controls: 42 (Failed: 2, Passed: 30, Action Required: 10)
+Failed Resources by Severity: Critical — 0, High — 1, Medium — 1, Low — 0
+
++----------+-------------------------------------------------------+------------------+---------------+---------------------+
+| SEVERITY |                     CONTROL NAME                      | FAILED RESOURCES | ALL RESOURCES |    % RISK-SCORE     |
++----------+-------------------------------------------------------+------------------+---------------+---------------------+
+| Critical | API server insecure port is enabled                   |        0         |       0       |         0%          |
+| Critical | Disable anonymous access to Kubelet service           |        0         |       1       |         0%          |
+| Critical | Enforce Kubelet client TLS authentication             |        0         |       2       |         0%          |
+| High     | Forbidden Container Registries                        |        0         |       1       | Action Required **  |
+| High     | Resource limits                                       |        0         |       1       |         0%          |
+| High     | Applications credentials in configuration files       |        0         |       2       | Action Required **  |
+| High     | Host PID/IPC privileges                               |        0         |       1       |         0%          |
+| High     | HostNetwork access                                    |        0         |       1       |         0%          |
+| High     | Insecure capabilities                                 |        0         |       1       |         0%          |
+| High     | Privileged container                                  |        0         |       1       |         0%          |
+| High     | CVE-2021-25742-nginx-ingress-snippet-annotation-vu... |        0         |       0       |         0%          |
+| High     | Workloads with Critical vulnerabilities exposed to... |        0         |       0       |  Action Required *  |
+| High     | Workloads with RCE vulnerabilities exposed to exte... |        0         |       0       |  Action Required *  |
+| High     | CVE-2022-23648-containerd-fs-escape                   |        0         |       0       |         0%          |
+| High     | CVE-2022-47633-kyverno-signature-bypass               |        0         |       0       |         0%          |
+| High     | Verify image signature                                |        0         |       1       | Action Required **  |
+| High     | Check if signature exists                             |        1         |       1       |        100%         |
+| Medium   | Exec into container                                   |        0         |       0       |         0%          |
+| Medium   | Non-root containers                                   |        0         |       1       |         0%          |
+| Medium   | Allow privilege escalation                            |        0         |       1       |         0%          |
+| Medium   | Ingress and Egress blocked                            |        1         |       2       |         50%         |
+| Medium   | Automatic mapping of service account                  |        0         |       2       |         0%          |
+| Medium   | Cluster-admin binding                                 |        0         |       0       |         0%          |
+| Medium   | Container hostPort                                    |        0         |       1       |         0%          |
+| Medium   | Cluster internal networking                           |        0         |       1       |         0%          |
+| Medium   | Linux hardening                                       |        0         |       1       |         0%          |
+| Medium   | CVE-2021-25741 - Using symlink for arbitrary host ... |        0         |       0       |         0%          |
+| Medium   | Sudo in container entrypoint                          |        0         |       1       |         0%          |
+| Medium   | Portforwarding privileges                             |        0         |       0       |         0%          |
+| Medium   | No impersonation                                      |        0         |       0       |         0%          |
+| Medium   | Secret/ETCD encryption enabled                        |        0         |       0       | Action Required *** |
+| Medium   | Audit logs enabled                                    |        0         |       0       | Action Required *** |
+| Medium   | Images from allowed registry                          |        0         |       1       | Action Required **  |
+| Medium   | CVE-2022-0185-linux-kernel-container-escape           |        0         |       0       |         0%          |
+| Medium   | CVE-2022-24348-argocddirtraversal                     |        0         |       0       |         0%          |
+| Medium   | Workloads with excessive amount of vulnerabilities    |        0         |       0       |  Action Required *  |
+| Medium   | CVE-2022-0492-cgroups-container-escape                |        0         |       1       |         0%          |
+| Low      | Immutable container filesystem                        |        0         |       1       |         0%          |
+| Low      | Network mapping                                       |        0         |       1       |         0%          |
+| Low      | Pods in default namespace                             |        0         |       1       |         0%          |
+| Low      | PSP enabled                                           |        0         |       0       | Action Required *** |
+| Low      | CVE-2022-3172-aggregated-API-server-redirect          |        0         |       0       |         0%          |
++----------+-------------------------------------------------------+------------------+---------------+---------------------+
+|          |                   RESOURCE SUMMARY                    |        1         |       8       |        7.56%        |
++----------+-------------------------------------------------------+------------------+---------------+---------------------+
+FRAMEWORKS: NSA (risk: 4.58), ArmoBest (risk: 7.56)
+
+* failed to pull image scanning data: credentials are not configured for any registry adaptor. for more information: https://hub.armosec.io/docs/configuration-of-image-vulnerabilities
+** Control missing configuration
+*** failed to get cloud provider, cluster: minikube
