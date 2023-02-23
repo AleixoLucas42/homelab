@@ -1,0 +1,514 @@
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+################################################################################
+ApiVersion: v1
+Kind: Pod
+Name: kube-apiserver-minikube
+Namespace: kube-system
+
+Controls: 24 (Failed: 3, action required: 4)
+
++----------+--------------------------------+------------------------------------+-------------------------------+
+| SEVERITY |          CONTROL NAME          |                DOCS                |     ASSISTANT REMEDIATION     |
++----------+--------------------------------+------------------------------------+-------------------------------+
+| Low      | PSP enabled                    | https://hub.armosec.io/docs/c-0068 | spec.containers[0].command[5] |
++----------+--------------------------------+------------------------------------+-------------------------------+
+| Medium   | Audit logs enabled             | https://hub.armosec.io/docs/c-0067 | spec.containers[0].command    |
++          +--------------------------------+------------------------------------+                               +
+|          | Secret/ETCD encryption enabled | https://hub.armosec.io/docs/c-0066 |                               |
++----------+--------------------------------+------------------------------------+-------------------------------+
+
+################################################################################
+ApiVersion: apps/v1
+Kind: StatefulSet
+Name: vault
+Namespace: vault
+
+Controls: 20 (Failed: 4, action required: 4)
+
++----------+--------------------------------+------------------------------------+------------------------------------------------------------------------------+
+| SEVERITY |          CONTROL NAME          |                DOCS                |                            ASSISTANT REMEDIATION                             |
++----------+--------------------------------+------------------------------------+------------------------------------------------------------------------------+
+| High     | Check if signature exists      | https://hub.armosec.io/docs/c-0237 | hashicorp/vault:1.12.1                                                       |
++----------+--------------------------------+------------------------------------+------------------------------------------------------------------------------+
+| Low      | Immutable container filesystem | https://hub.armosec.io/docs/c-0017 | spec.template.spec.containers[0].securityContext.readOnlyRootFilesystem=true |
++----------+--------------------------------+------------------------------------+------------------------------------------------------------------------------+
+| Medium   | Automatic mapping of service   | https://hub.armosec.io/docs/c-0034 | spec.template.spec.automountServiceAccountToken=false                        |
+|          | account                        |                                    |                                                                              |
++          +--------------------------------+------------------------------------+------------------------------------------------------------------------------+
+|          | Ingress and Egress blocked     | https://hub.armosec.io/docs/c-0030 |                                                                              |
++----------+--------------------------------+------------------------------------+------------------------------------------------------------------------------+
+
+################################################################################
+ApiVersion: apps/v1
+Kind: Deployment
+Name: prometheus-pve-exporter-dp
+Namespace: prometheus-pve-exporter
+
+Controls: 20 (Failed: 3, action required: 4)
+
++----------+--------------------------------+------------------------------------+-------------------------------------------------------+
+| SEVERITY |          CONTROL NAME          |                DOCS                |                 ASSISTANT REMEDIATION                 |
++----------+--------------------------------+------------------------------------+-------------------------------------------------------+
+| High     | Check if signature exists      | https://hub.armosec.io/docs/c-0237 | prompve/prometheus-pve-exporter                       |
++----------+--------------------------------+------------------------------------+-------------------------------------------------------+
+| Medium   | Automatic mapping of service   | https://hub.armosec.io/docs/c-0034 | spec.template.spec.automountServiceAccountToken=false |
+|          | account                        |                                    |                                                       |
++          +--------------------------------+------------------------------------+-------------------------------------------------------+
+|          | Ingress and Egress blocked     | https://hub.armosec.io/docs/c-0030 |                                                       |
++----------+--------------------------------+------------------------------------+-------------------------------------------------------+
+
+################################################################################
+ApiVersion: v1
+Kind: ServiceAccount
+Name: default
+Namespace: kubescape-host-scanner
+
+Controls: 1 (Failed: 1, action required: 0)
+
++----------+--------------------------------+------------------------------------+------------------------------------+
+| SEVERITY |          CONTROL NAME          |                DOCS                |       ASSISTANT REMEDIATION        |
++----------+--------------------------------+------------------------------------+------------------------------------+
+| Medium   | Automatic mapping of service   | https://hub.armosec.io/docs/c-0034 | automountServiceAccountToken=false |
+|          | account                        |                                    |                                    |
++----------+--------------------------------+------------------------------------+------------------------------------+
+
+################################################################################
+ApiVersion: v1
+Kind: Namespace
+Name: cert-manager
+
+Controls: 2 (Failed: 2, action required: 0)
+
++----------+-----------------------------+------------------------------------+-----------------------+
+| SEVERITY |        CONTROL NAME         |                DOCS                | ASSISTANT REMEDIATION |
++----------+-----------------------------+------------------------------------+-----------------------+
+| Low      | Network mapping             | https://hub.armosec.io/docs/c-0049 |                       |
++----------+-----------------------------+------------------------------------+-----------------------+
+| Medium   | Cluster internal networking | https://hub.armosec.io/docs/c-0054 |                       |
++----------+-----------------------------+------------------------------------+-----------------------+
+
+################################################################################
+ApiVersion: v1
+Kind: ServiceAccount
+Name: ingress-nginx-admission
+Namespace: ingress-nginx
+
+Controls: 1 (Failed: 1, action required: 0)
+
++----------+--------------------------------+------------------------------------+------------------------------------+
+| SEVERITY |          CONTROL NAME          |                DOCS                |       ASSISTANT REMEDIATION        |
++----------+--------------------------------+------------------------------------+------------------------------------+
+| Medium   | Automatic mapping of service   | https://hub.armosec.io/docs/c-0034 | automountServiceAccountToken=false |
+|          | account                        |                                    |                                    |
++----------+--------------------------------+------------------------------------+------------------------------------+
+
+################################################################################
+ApiVersion: apps/v1
+Kind: Deployment
+Name: bookstack
+Namespace: bookstack
+
+Controls: 20 (Failed: 4, action required: 4)
+
++----------+--------------------------------+------------------------------------+------------------------------------------------------------------------------+
+| SEVERITY |          CONTROL NAME          |                DOCS                |                            ASSISTANT REMEDIATION                             |
++----------+--------------------------------+------------------------------------+------------------------------------------------------------------------------+
+| High     | Check if signature exists      | https://hub.armosec.io/docs/c-0237 | solidnerd/bookstack:22.04                                                    |
++----------+--------------------------------+------------------------------------+------------------------------------------------------------------------------+
+| Low      | Immutable container filesystem | https://hub.armosec.io/docs/c-0017 | spec.template.spec.containers[0].securityContext.readOnlyRootFilesystem=true |
++----------+--------------------------------+------------------------------------+------------------------------------------------------------------------------+
+| Medium   | Automatic mapping of service   | https://hub.armosec.io/docs/c-0034 | spec.template.spec.automountServiceAccountToken=false                        |
+|          | account                        |                                    |                                                                              |
++          +--------------------------------+------------------------------------+------------------------------------------------------------------------------+
+|          | Ingress and Egress blocked     | https://hub.armosec.io/docs/c-0030 |                                                                              |
++----------+--------------------------------+------------------------------------+------------------------------------------------------------------------------+
+
+################################################################################
+ApiVersion: v1
+Kind: Namespace
+Name: kubescape-host-scanner
+
+Controls: 2 (Failed: 2, action required: 0)
+
++----------+-----------------------------+------------------------------------+-----------------------+
+| SEVERITY |        CONTROL NAME         |                DOCS                | ASSISTANT REMEDIATION |
++----------+-----------------------------+------------------------------------+-----------------------+
+| Low      | Network mapping             | https://hub.armosec.io/docs/c-0049 |                       |
++----------+-----------------------------+------------------------------------+-----------------------+
+| Medium   | Cluster internal networking | https://hub.armosec.io/docs/c-0054 |                       |
++----------+-----------------------------+------------------------------------+-----------------------+
+
+################################################################################
+ApiVersion: apps/v1
+Kind: Deployment
+Name: kube-prometheus-stack-operator
+Namespace: prometheus
+
+Controls: 20 (Failed: 3, action required: 4)
+
++----------+--------------------------------+------------------------------------+---------------------------------------------------------+
+| SEVERITY |          CONTROL NAME          |                DOCS                |                  ASSISTANT REMEDIATION                  |
++----------+--------------------------------+------------------------------------+---------------------------------------------------------+
+| High     | Check if signature exists      | https://hub.armosec.io/docs/c-0237 | quay.io/prometheus-operator/prometheus-operator:v0.62.0 |
++----------+--------------------------------+------------------------------------+---------------------------------------------------------+
+| Medium   | Automatic mapping of service   | https://hub.armosec.io/docs/c-0034 | spec.template.spec.automountServiceAccountToken=false   |
+|          | account                        |                                    |                                                         |
++          +--------------------------------+------------------------------------+---------------------------------------------------------+
+|          | Ingress and Egress blocked     | https://hub.armosec.io/docs/c-0030 |                                                         |
++----------+--------------------------------+------------------------------------+---------------------------------------------------------+
+
+################################################################################
+ApiVersion: v1
+Kind: Namespace
+Name: ingress-nginx
+
+Controls: 2 (Failed: 2, action required: 0)
+
++----------+-----------------------------+------------------------------------+-----------------------+
+| SEVERITY |        CONTROL NAME         |                DOCS                | ASSISTANT REMEDIATION |
++----------+-----------------------------+------------------------------------+-----------------------+
+| Low      | Network mapping             | https://hub.armosec.io/docs/c-0049 |                       |
++----------+-----------------------------+------------------------------------+-----------------------+
+| Medium   | Cluster internal networking | https://hub.armosec.io/docs/c-0054 |                       |
++----------+-----------------------------+------------------------------------+-----------------------+
+
+################################################################################
+ApiVersion: 
+Kind: Node
+Name: minikube
+
+Controls: 1 (Failed: 1, action required: 0)
+
++----------+---------------------------------------------+------------------------------------+-----------------------+
+| SEVERITY |                CONTROL NAME                 |                DOCS                | ASSISTANT REMEDIATION |
++----------+---------------------------------------------+------------------------------------+-----------------------+
+| Medium   | CVE-2022-0185-linux-kernel-container-escape | https://hub.armosec.io/docs/c-0079 | kernelVersion         |
++----------+---------------------------------------------+------------------------------------+-----------------------+
+
+################################################################################
+ApiVersion: v1
+Kind: ServiceAccount
+Name: default
+Namespace: cert-manager
+
+Controls: 1 (Failed: 1, action required: 0)
+
++----------+--------------------------------+------------------------------------+------------------------------------+
+| SEVERITY |          CONTROL NAME          |                DOCS                |       ASSISTANT REMEDIATION        |
++----------+--------------------------------+------------------------------------+------------------------------------+
+| Medium   | Automatic mapping of service   | https://hub.armosec.io/docs/c-0034 | automountServiceAccountToken=false |
+|          | account                        |                                    |                                    |
++----------+--------------------------------+------------------------------------+------------------------------------+
+
+################################################################################
+ApiVersion: apps/v1
+Kind: Deployment
+Name: vault-agent-injector
+Namespace: vault
+
+Controls: 20 (Failed: 4, action required: 4)
+
++----------+--------------------------------+------------------------------------+------------------------------------------------------------------------------+
+| SEVERITY |          CONTROL NAME          |                DOCS                |                            ASSISTANT REMEDIATION                             |
++----------+--------------------------------+------------------------------------+------------------------------------------------------------------------------+
+| High     | Check if signature exists      | https://hub.armosec.io/docs/c-0237 | hashicorp/vault-k8s:1.1.0                                                    |
++----------+--------------------------------+------------------------------------+------------------------------------------------------------------------------+
+| Low      | Immutable container filesystem | https://hub.armosec.io/docs/c-0017 | spec.template.spec.containers[0].securityContext.readOnlyRootFilesystem=true |
++----------+--------------------------------+------------------------------------+------------------------------------------------------------------------------+
+| Medium   | Automatic mapping of service   | https://hub.armosec.io/docs/c-0034 | spec.template.spec.automountServiceAccountToken=false                        |
+|          | account                        |                                    |                                                                              |
++          +--------------------------------+------------------------------------+------------------------------------------------------------------------------+
+|          | Ingress and Egress blocked     | https://hub.armosec.io/docs/c-0030 |                                                                              |
++----------+--------------------------------+------------------------------------+------------------------------------------------------------------------------+
+
+################################################################################
+ApiVersion: batch/v1
+Kind: Job
+Name: ingress-nginx-admission-create
+Namespace: ingress-nginx
+
+Controls: 20 (Failed: 6, action required: 4)
+
++----------+--------------------------------+------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| SEVERITY |          CONTROL NAME          |                DOCS                |                                                    ASSISTANT REMEDIATION                                                     |
++----------+--------------------------------+------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| High     | Check if signature exists      | https://hub.armosec.io/docs/c-0237 | k8s.gcr.io/ingress-nginx/kube-webhook-certgen:v1.1.1@sha256:64d8c73dca984af206adf9d6d7e46aa550362b1d7a01f3a0a91b20cc67868660 |
++          +--------------------------------+------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+|          | Resource limits                | https://hub.armosec.io/docs/c-0009 | spec.template.spec.containers[0].resources.limits.cpu=YOUR_VALUE                                                             |
+|          |                                |                                    | spec.template.spec.containers[0].resources.limits.memory=YOUR_VALUE                                                          |
++----------+--------------------------------+------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| Low      | Immutable container filesystem | https://hub.armosec.io/docs/c-0017 | spec.template.spec.containers[0].securityContext.readOnlyRootFilesystem=true                                                 |
++----------+--------------------------------+------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| Medium   | Automatic mapping of service   | https://hub.armosec.io/docs/c-0034 | spec.template.spec.automountServiceAccountToken=false                                                                        |
+|          | account                        |                                    |                                                                                                                              |
++          +--------------------------------+------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+|          | Ingress and Egress blocked     | https://hub.armosec.io/docs/c-0030 |                                                                                                                              |
++          +--------------------------------+------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+|          | Linux hardening                | https://hub.armosec.io/docs/c-0055 | spec.template.spec.containers[0].securityContext.seccompProfile=YOUR_VALUE                                                   |
+|          |                                |                                    | spec.template.spec.containers[0].securityContext.seLinuxOptions=YOUR_VALUE                                                   |
+|          |                                |                                    | spec.template.spec.containers[0].securityContext.capabilities.drop[0]=YOUR_VALUE                                             |
++----------+--------------------------------+------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+
+################################################################################
+ApiVersion: v1
+Kind: ServiceAccount
+Name: ingress-nginx
+Namespace: ingress-nginx
+
+Controls: 1 (Failed: 1, action required: 0)
+
++----------+--------------------------------+------------------------------------+------------------------------+
+| SEVERITY |          CONTROL NAME          |                DOCS                |    ASSISTANT REMEDIATION     |
++----------+--------------------------------+------------------------------------+------------------------------+
+| Medium   | Automatic mapping of service   | https://hub.armosec.io/docs/c-0034 | automountServiceAccountToken |
+|          | account                        |                                    |                              |
++----------+--------------------------------+------------------------------------+------------------------------+
+
+################################################################################
+ApiVersion: apps/v1
+Kind: Deployment
+Name: mysql
+Namespace: mysql
+
+Controls: 20 (Failed: 5, action required: 4)
+
++----------+--------------------------------+------------------------------------+------------------------------------------------------------------------------+
+| SEVERITY |          CONTROL NAME          |                DOCS                |                            ASSISTANT REMEDIATION                             |
++----------+--------------------------------+------------------------------------+------------------------------------------------------------------------------+
+| High     | Check if signature exists      | https://hub.armosec.io/docs/c-0237 | mysql:5.7.41-debian                                                          |
++----------+--------------------------------+------------------------------------+------------------------------------------------------------------------------+
+| Low      | Immutable container filesystem | https://hub.armosec.io/docs/c-0017 | spec.template.spec.containers[0].securityContext.readOnlyRootFilesystem=true |
++----------+--------------------------------+------------------------------------+------------------------------------------------------------------------------+
+| Medium   | Automatic mapping of service   | https://hub.armosec.io/docs/c-0034 | spec.template.spec.automountServiceAccountToken=false                        |
+|          | account                        |                                    |                                                                              |
++          +--------------------------------+------------------------------------+------------------------------------------------------------------------------+
+|          | Ingress and Egress blocked     | https://hub.armosec.io/docs/c-0030 |                                                                              |
++          +--------------------------------+------------------------------------+------------------------------------------------------------------------------+
+|          | Non-root containers            | https://hub.armosec.io/docs/c-0013 | spec.template.spec.containers[0].securityContext.runAsNonRoot=true           |
++----------+--------------------------------+------------------------------------+------------------------------------------------------------------------------+
+
+################################################################################
+ApiVersion: v1
+Kind: ServiceAccount
+Name: vault-agent-injector
+Namespace: vault
+
+Controls: 1 (Failed: 1, action required: 0)
+
++----------+--------------------------------+------------------------------------+------------------------------------+
+| SEVERITY |          CONTROL NAME          |                DOCS                |       ASSISTANT REMEDIATION        |
++----------+--------------------------------+------------------------------------+------------------------------------+
+| Medium   | Automatic mapping of service   | https://hub.armosec.io/docs/c-0034 | automountServiceAccountToken=false |
+|          | account                        |                                    |                                    |
++----------+--------------------------------+------------------------------------+------------------------------------+
+
+################################################################################
+ApiVersion: apps/v1
+Kind: DaemonSet
+Name: kube-prometheus-stack-prometheus-node-exporter
+Namespace: prometheus
+
+Controls: 20 (Failed: 6, action required: 4)
+
++----------+--------------------------------+------------------------------------+------------------------------------------------------------------------------+
+| SEVERITY |          CONTROL NAME          |                DOCS                |                            ASSISTANT REMEDIATION                             |
++----------+--------------------------------+------------------------------------+------------------------------------------------------------------------------+
+| High     | Check if signature exists      | https://hub.armosec.io/docs/c-0237 | quay.io/prometheus/node-exporter:v1.5.0                                      |
++          +--------------------------------+------------------------------------+------------------------------------------------------------------------------+
+|          | Host PID/IPC privileges        | https://hub.armosec.io/docs/c-0038 | spec.template.spec.hostPID                                                   |
++          +--------------------------------+------------------------------------+------------------------------------------------------------------------------+
+|          | HostNetwork access             | https://hub.armosec.io/docs/c-0041 | spec.template.spec.hostNetwork                                               |
++----------+--------------------------------+------------------------------------+------------------------------------------------------------------------------+
+| Low      | Immutable container filesystem | https://hub.armosec.io/docs/c-0017 | spec.template.spec.containers[0].securityContext.readOnlyRootFilesystem=true |
++----------+--------------------------------+------------------------------------+------------------------------------------------------------------------------+
+| Medium   | Container hostPort             | https://hub.armosec.io/docs/c-0044 | spec.template.spec.containers[0].ports[0].hostPort                           |
++          +--------------------------------+------------------------------------+------------------------------------------------------------------------------+
+|          | Ingress and Egress blocked     | https://hub.armosec.io/docs/c-0030 |                                                                              |
++----------+--------------------------------+------------------------------------+------------------------------------------------------------------------------+
+
+################################################################################
+ApiVersion: apps/v1
+Kind: Deployment
+Name: grafana-aleixohome
+Namespace: grafana
+
+Controls: 20 (Failed: 3, action required: 4)
+
++----------+--------------------------------+------------------------------------+------------------------------------------------------------------------------+
+| SEVERITY |          CONTROL NAME          |                DOCS                |                            ASSISTANT REMEDIATION                             |
++----------+--------------------------------+------------------------------------+------------------------------------------------------------------------------+
+| High     | Check if signature exists      | https://hub.armosec.io/docs/c-0237 | docker.io/bitnami/grafana:9.3.2-debian-11-r11                                |
++----------+--------------------------------+------------------------------------+------------------------------------------------------------------------------+
+| Low      | Immutable container filesystem | https://hub.armosec.io/docs/c-0017 | spec.template.spec.containers[0].securityContext.readOnlyRootFilesystem=true |
++----------+--------------------------------+------------------------------------+------------------------------------------------------------------------------+
+| Medium   | Ingress and Egress blocked     | https://hub.armosec.io/docs/c-0030 |                                                                              |
++----------+--------------------------------+------------------------------------+------------------------------------------------------------------------------+
+
+################################################################################
+ApiVersion: v1
+Kind: ServiceAccount
+Name: default
+Namespace: ingress-nginx
+
+Controls: 1 (Failed: 1, action required: 0)
+
++----------+--------------------------------+------------------------------------+------------------------------------+
+| SEVERITY |          CONTROL NAME          |                DOCS                |       ASSISTANT REMEDIATION        |
++----------+--------------------------------+------------------------------------+------------------------------------+
+| Medium   | Automatic mapping of service   | https://hub.armosec.io/docs/c-0034 | automountServiceAccountToken=false |
+|          | account                        |                                    |                                    |
++----------+--------------------------------+------------------------------------+------------------------------------+
+
+################################################################################
+ApiVersion: apps/v1
+Kind: Deployment
+Name: kube-prometheus-stack-kube-state-metrics
+Namespace: prometheus
+
+Controls: 20 (Failed: 2, action required: 4)
+
++----------+--------------------------------+------------------------------------+-------------------------------------------------------+
+| SEVERITY |          CONTROL NAME          |                DOCS                |                 ASSISTANT REMEDIATION                 |
++----------+--------------------------------+------------------------------------+-------------------------------------------------------+
+| Medium   | Automatic mapping of service   | https://hub.armosec.io/docs/c-0034 | spec.template.spec.automountServiceAccountToken=false |
+|          | account                        |                                    |                                                       |
++          +--------------------------------+------------------------------------+-------------------------------------------------------+
+|          | Ingress and Egress blocked     | https://hub.armosec.io/docs/c-0030 |                                                       |
++----------+--------------------------------+------------------------------------+-------------------------------------------------------+
+
+################################################################################
+ApiVersion: batch/v1
+Kind: Job
+Name: ingress-nginx-admission-patch
+Namespace: ingress-nginx
+
+Controls: 20 (Failed: 6, action required: 4)
+
++----------+--------------------------------+------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| SEVERITY |          CONTROL NAME          |                DOCS                |                                                    ASSISTANT REMEDIATION                                                     |
++----------+--------------------------------+------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| High     | Check if signature exists      | https://hub.armosec.io/docs/c-0237 | k8s.gcr.io/ingress-nginx/kube-webhook-certgen:v1.1.1@sha256:64d8c73dca984af206adf9d6d7e46aa550362b1d7a01f3a0a91b20cc67868660 |
++          +--------------------------------+------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+|          | Resource limits                | https://hub.armosec.io/docs/c-0009 | spec.template.spec.containers[0].resources.limits.cpu=YOUR_VALUE                                                             |
+|          |                                |                                    | spec.template.spec.containers[0].resources.limits.memory=YOUR_VALUE                                                          |
++----------+--------------------------------+------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| Low      | Immutable container filesystem | https://hub.armosec.io/docs/c-0017 | spec.template.spec.containers[0].securityContext.readOnlyRootFilesystem=true                                                 |
++----------+--------------------------------+------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| Medium   | Automatic mapping of service   | https://hub.armosec.io/docs/c-0034 | spec.template.spec.automountServiceAccountToken=false                                                                        |
+|          | account                        |                                    |                                                                                                                              |
++          +--------------------------------+------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+|          | Ingress and Egress blocked     | https://hub.armosec.io/docs/c-0030 |                                                                                                                              |
++          +--------------------------------+------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+|          | Linux hardening                | https://hub.armosec.io/docs/c-0055 | spec.template.spec.containers[0].securityContext.seccompProfile=YOUR_VALUE                                                   |
+|          |                                |                                    | spec.template.spec.containers[0].securityContext.seLinuxOptions=YOUR_VALUE                                                   |
+|          |                                |                                    | spec.template.spec.containers[0].securityContext.capabilities.drop[0]=YOUR_VALUE                                             |
++----------+--------------------------------+------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+
+################################################################################
+ApiVersion: apps/v1
+Kind: Deployment
+Name: ingress-nginx-controller
+Namespace: ingress-nginx
+
+Controls: 21 (Failed: 8, action required: 4)
+
++----------+----------------------------------------+------------------------------------+------------------------------------------------------------------------------+
+| SEVERITY |              CONTROL NAME              |                DOCS                |                            ASSISTANT REMEDIATION                             |
++----------+----------------------------------------+------------------------------------+------------------------------------------------------------------------------+
+| High     | Resource limits                        | https://hub.armosec.io/docs/c-0009 | spec.template.spec.containers[0].resources.limits.cpu=YOUR_VALUE             |
+|          |                                        |                                    | spec.template.spec.containers[0].resources.limits.memory=YOUR_VALUE          |
++----------+----------------------------------------+------------------------------------+------------------------------------------------------------------------------+
+| Low      | Immutable container filesystem         | https://hub.armosec.io/docs/c-0017 | spec.template.spec.containers[0].securityContext.readOnlyRootFilesystem=true |
++----------+----------------------------------------+------------------------------------+------------------------------------------------------------------------------+
+| Medium   | Allow privilege escalation             | https://hub.armosec.io/docs/c-0016 | spec.template.spec.containers[0].securityContext.allowPrivilegeEscalation    |
++          +----------------------------------------+------------------------------------+------------------------------------------------------------------------------+
+|          | Automatic mapping of service           | https://hub.armosec.io/docs/c-0034 | spec.template.spec.automountServiceAccountToken=false                        |
+|          | account                                |                                    |                                                                              |
++          +----------------------------------------+------------------------------------+------------------------------------------------------------------------------+
+|          | CVE-2022-0492-cgroups-container-escape | https://hub.armosec.io/docs/c-0086 | spec.template.spec.container[0].securityContext.allowPrivilegeEscalation     |
++          +----------------------------------------+------------------------------------+------------------------------------------------------------------------------+
+|          | Container hostPort                     | https://hub.armosec.io/docs/c-0044 | spec.template.spec.containers[0].ports[0].hostPort                           |
+|          |                                        |                                    | spec.template.spec.containers[0].ports[1].hostPort                           |
++          +----------------------------------------+------------------------------------+------------------------------------------------------------------------------+
+|          | Ingress and Egress blocked             | https://hub.armosec.io/docs/c-0030 |                                                                              |
++          +----------------------------------------+------------------------------------+------------------------------------------------------------------------------+
+|          | Non-root containers                    | https://hub.armosec.io/docs/c-0013 | spec.template.spec.containers[0].securityContext.allowPrivilegeEscalation    |
++----------+----------------------------------------+------------------------------------+------------------------------------------------------------------------------+
+
+################################################################################
+ApiVersion: apps/v1
+Kind: StatefulSet
+Name: prometheus-kube-prometheus-stack-prometheus
+Namespace: prometheus
+
+Controls: 20 (Failed: 3, action required: 4)
+
++----------+----------------------------+------------------------------------+---------------------------------------------------------------------+
+| SEVERITY |        CONTROL NAME        |                DOCS                |                        ASSISTANT REMEDIATION                        |
++----------+----------------------------+------------------------------------+---------------------------------------------------------------------+
+| High     | Check if signature exists  | https://hub.armosec.io/docs/c-0237 | quay.io/prometheus-operator/prometheus-config-reloader:v0.62.0      |
+|          |                            |                                    | quay.io/prometheus/prometheus:v2.41.0                               |
++          +----------------------------+------------------------------------+---------------------------------------------------------------------+
+|          | Resource limits            | https://hub.armosec.io/docs/c-0009 | spec.template.spec.containers[0].resources.limits.cpu=YOUR_VALUE    |
+|          |                            |                                    | spec.template.spec.containers[0].resources.limits.memory=YOUR_VALUE |
++----------+----------------------------+------------------------------------+---------------------------------------------------------------------+
+| Medium   | Ingress and Egress blocked | https://hub.armosec.io/docs/c-0030 |                                                                     |
++----------+----------------------------+------------------------------------+---------------------------------------------------------------------+
+
+Controls: 42 (Failed: 18, Passed: 17, Action Required: 7)
+Failed Resources by Severity: Critical — 0, High — 17, Medium — 43, Low — 13
+
++----------+-------------------------------------------------------+------------------+---------------+--------------------+
+| SEVERITY |                     CONTROL NAME                      | FAILED RESOURCES | ALL RESOURCES |    % RISK-SCORE    |
++----------+-------------------------------------------------------+------------------+---------------+--------------------+
+| Critical | API server insecure port is enabled                   |        0         |       1       |         0%         |
+| Critical | Disable anonymous access to Kubelet service           |        0         |       1       |         0%         |
+| Critical | Enforce Kubelet client TLS authentication             |        0         |       2       |         0%         |
+| High     | Forbidden Container Registries                        |        0         |      22       | Action Required *  |
+| High     | Resource limits                                       |        4         |      22       |        18%         |
+| High     | Applications credentials in configuration files       |        0         |      48       | Action Required *  |
+| High     | Host PID/IPC privileges                               |        1         |      22       |         5%         |
+| High     | HostNetwork access                                    |        1         |      22       |         5%         |
+| High     | Insecure capabilities                                 |        0         |      22       |         0%         |
+| High     | Privileged container                                  |        0         |      22       |         0%         |
+| High     | CVE-2021-25742-nginx-ingress-snippet-annotation-vu... |        0         |       1       |         0%         |
+| High     | Workloads with Critical vulnerabilities exposed to... |        0         |       0       | Action Required ** |
+| High     | Workloads with RCE vulnerabilities exposed to exte... |        0         |       0       | Action Required ** |
+| High     | CVE-2022-23648-containerd-fs-escape                   |        0         |       1       |         0%         |
+| High     | CVE-2022-47633-kyverno-signature-bypass               |        0         |       0       |         0%         |
+| High     | Verify image signature                                |        0         |      22       | Action Required *  |
+| High     | Check if signature exists                             |        11        |      22       |        50%         |
+| Medium   | Exec into container                                   |        0         |      82       |         0%         |
+| Medium   | Non-root containers                                   |        2         |      22       |         9%         |
+| Medium   | Allow privilege escalation                            |        1         |      22       |         5%         |
+| Medium   | Ingress and Egress blocked                            |        13        |      28       |        46%         |
+| Medium   | Automatic mapping of service account                  |        16        |      80       |        20%         |
+| Medium   | Cluster-admin binding                                 |        0         |      82       |         0%         |
+| Medium   | Container hostPort                                    |        2         |      22       |         9%         |
+| Medium   | Cluster internal networking                           |        3         |      13       |        23%         |
+| Medium   | Linux hardening                                       |        2         |      22       |         9%         |
+| Medium   | CVE-2021-25741 - Using symlink for arbitrary host ... |        0         |       0       |         0%         |
+| Medium   | Sudo in container entrypoint                          |        0         |      22       |         0%         |
+| Medium   | Portforwarding privileges                             |        0         |      82       |         0%         |
+| Medium   | No impersonation                                      |        0         |      82       |         0%         |
+| Medium   | Secret/ETCD encryption enabled                        |        1         |       1       |        100%        |
+| Medium   | Audit logs enabled                                    |        1         |       1       |        100%        |
+| Medium   | Images from allowed registry                          |        0         |      22       | Action Required *  |
+| Medium   | CVE-2022-0185-linux-kernel-container-escape           |        1         |       1       |        100%        |
+| Medium   | CVE-2022-24348-argocddirtraversal                     |        0         |       0       |         0%         |
+| Medium   | Workloads with excessive amount of vulnerabilities    |        0         |       0       | Action Required ** |
+| Medium   | CVE-2022-0492-cgroups-container-escape                |        1         |      22       |         5%         |
+| Low      | Immutable container filesystem                        |        9         |      22       |        41%         |
+| Low      | Network mapping                                       |        3         |      13       |        23%         |
+| Low      | Pods in default namespace                             |        0         |      22       |         0%         |
+| Low      | PSP enabled                                           |        1         |       1       |        100%        |
+| Low      | CVE-2022-3172-aggregated-API-server-redirect          |        0         |       2       |         0%         |
++----------+-------------------------------------------------------+------------------+---------------+--------------------+
+|          |                   RESOURCE SUMMARY                    |        24        |      214      |       7.69%        |
++----------+-------------------------------------------------------+------------------+---------------+--------------------+
+FRAMEWORKS: NSA (risk: 9.01), ArmoBest (risk: 7.69)
+
+* Control missing configuration
+** failed to pull image scanning data: credentials are not configured for any registry adaptor. for more information: https://hub.armosec.io/docs/configuration-of-image-vulnerabilities

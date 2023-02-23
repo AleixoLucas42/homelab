@@ -6,9 +6,12 @@ Kubescape is an open-source Kubernetes security platform. It includes risk analy
 curl -s https://raw.githubusercontent.com/kubescape/kubescape/master/install.sh | /bin/bash
 ```
 
-## Framework choosed
+## Framework chosen
 - NSA
 - ArmoBest
+
+## Risc score maximum
+- 15%
 
 ## Scan Command
 ```

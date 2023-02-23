@@ -2,6 +2,8 @@
             memory: "512Mi"
             cpu: "200m"
 ---
+automountServiceAccountToken: false
+---
         securityContext:
           readOnlyRootFilesystem: true
           runAsNonRoot: true
