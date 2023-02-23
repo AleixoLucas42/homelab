@@ -64,6 +64,18 @@ kubectl -n prometheus patch prometheus kube-prometheus-stack-prometheus -p '{"sp
 
 - Grafana dashboard to import is: 14314
 
+# Monitoring kubescape risk score grafana
+- add helm repository
+```
+helm repo add armo https://armosec.github.io/armo-helm/
+helm repo update
+```
+- Install kubescape
+```
+helm upgrade --install armo  armo/armo-cluster-components -n armo-system --create-namespace --set clusterName=`kubectl config current-context` --set armoKubescape.serviceMonitor.enabled=true --set armoKubescape.submit=false --set armoKubescape.enableHostScan=false --set armoKubescape.downloadArtifacts=false
+```
+
 # Useful links
 - [Prometheus getting started](https://prometheus.io/docs/prometheus/latest/getting_started/)
 - [Best pratices](https://prometheus.io/docs/practices/naming/)
+- [Kubescape grafana](https://hub.armosec.io/docs/prometheus-exporter)
