@@ -1,31 +1,65 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  labels:
-    app: bookstack
-  name: bookstack
-  namespace: bookstack
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
+apiVersion: v1
+items:
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    labels:
       app: bookstack
-  template:
-    metadata:
-      labels:
+    name: bookstack
+    namespace: bookstack
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
         app: bookstack
-    spec:
-      containers:
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: bookstack
+      spec:
+        containers:
         - env:
-            - name: APP_URL
-              value: https://bookstack.aleixohome.lan
-            - name: DB_HOST
-              value: mysql.mysql.svc.cluster.local:3306
-          image: solidnerd/bookstack:22.04
-          name: bookstack-container
+          - name: APP_URL
+            value: https://bookstack.aleixohome.lan
+          - name: DB_HOST
+            value: mysql.mysql.svc.cluster.local:3306
           envFrom:
-            - secretRef:
-                name: bookstack-sec
+          - secretRef:
+              name: bookstack-sec
+          image: solidnerd/bookstack:22.04
+          imagePullPolicy: IfNotPresent
+          name: bookstack-container
           ports:
-            - containerPort: 8080
-      restartPolicy: Always
+          - containerPort: 8080
+            protocol: TCP
+          resources:
+            limits:
+              cpu: 200m
+              memory: 512Mi
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              add:
+              - SYS_NICE
+              drop:
+              - KILL
+            runAsNonRoot: true
+            seLinuxOptions:
+              level: s0:c123,c456
+            seccompProfile:
+              type: RuntimeDefault
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
