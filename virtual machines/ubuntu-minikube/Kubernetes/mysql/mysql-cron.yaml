@@ -1,0 +1,32 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: mysql-bkp-cron
+  namespace: mysql
+spec:
+  schedule: "0 20 * * *" # Todos os dias as 17hs
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: mysql-bkp-cron
+            image: ubuntu:latest
+            env:
+              - name: DB_DATABASE
+                value: mysql.mysql.svc.cluster.local
+            envFrom:
+              - secretRef:
+                  name: mysql-sec
+            command:
+              - sh
+              - -c
+              - |
+                echo "Iniciando backup $DB_DATABASE..."
+                mkdir files && cd files
+                NOW=$(date +%Y-%m-%d-%H-%M)
+                mysqldump -uroot -h$DB_HOST -p$MYSQL_ROOT_PASSWORD $DB_DATABASE | gzip > $DB_DATABASE-$NOW.sql.gz || echo "Erro para realizar o backup"
+                tar -czvf $DB_DATABASE-files-backup-$NOW.tar.gz
+                echo "Upload backup to somewhere"
+                #WHERE
+          restartPolicy: OnFailure
