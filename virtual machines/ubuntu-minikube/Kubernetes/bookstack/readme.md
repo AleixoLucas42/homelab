@@ -13,6 +13,9 @@ kubectl apply -f bookstack-in.yaml
 - admin@admin.com
 - password
 
+## Backup
+There is a backup running inside a kubernetes cronjob on mysql namespace. The backup is up to google drive
+
 ## Important
 - You need to have a mysql to use bookstack
 - Make sure that the user and password for mysq is the same to mysql and bookstack secret

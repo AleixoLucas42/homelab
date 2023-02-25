@@ -4,17 +4,23 @@ metadata:
   name: mysql-bkp-cron
   namespace: mysql
 spec:
-  schedule: "0 20 * * *" # Todos os dias as 17hs
+  schedule: "0 23 * * *"
   jobTemplate:
     spec:
       template:
         spec:
           containers:
           - name: mysql-bkp-cron
-            image: ubuntu:latest
+            image: aleixolucas/homelab-mysql-bkp
             env:
-              - name: DB_DATABASE
+              - name: DB_HOST
                 value: mysql.mysql.svc.cluster.local
+              - name: DB_DATABASE
+                value: bookstack
+              - name: UBUNTU_MINIKUBE_USER
+                value: aleixohome
+              - name: UBUNTU_MINIKUBE_SERVER
+                value: 10.11.12.210
             envFrom:
               - secretRef:
                   name: mysql-sec
@@ -22,11 +28,14 @@ spec:
               - sh
               - -c
               - |
-                echo "Iniciando backup $DB_DATABASE..."
+                echo "Starting backup $DB_DATABASE..."
                 mkdir files && cd files
                 NOW=$(date +%Y-%m-%d-%H-%M)
+                echo "Dump..."
                 mysqldump -uroot -h$DB_HOST -p$MYSQL_ROOT_PASSWORD $DB_DATABASE | gzip > $DB_DATABASE-$NOW.sql.gz || echo "Erro para realizar o backup"
+                echo "Compressing $DB_DATABASE-$NOW.sql.gz"
                 tar -czvf $DB_DATABASE-files-backup-$NOW.tar.gz
-                echo "Upload backup to somewhere"
-                #WHERE
+                echo "Upload backup to $UBUNTU_MINIKUBE_SERVER/home/aleixohome/mysql-bkp"
+                sshpass -p $UBUNTU_MINIKUBE_USER_PASSWORD ssh -o StrictHostKeyChecking=no -l $UBUNTU_MINIKUBE_USER $UBUNTU_MINIKUBE_SERVER
+                sshpass -p $UBUNTU_MINIKUBE_USER_PASSWORD scp $DB_DATABASE-$NOW.sql.gz $UBUNTU_MINIKUBE_USER@$UBUNTU_MINIKUBE_SERVER:/home/aleixohome/mysql-bkp
           restartPolicy: OnFailure
