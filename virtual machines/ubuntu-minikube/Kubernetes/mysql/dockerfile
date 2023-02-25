@@ -1,0 +1,5 @@
+FROM gcr.io/google-containers/debian-base-amd64:v2.0.0
+
+RUN apt update && apt install -y \
+    sshpass \
+    default-mysql-client
