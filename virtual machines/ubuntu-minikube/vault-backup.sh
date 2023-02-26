@@ -1,4 +1,4 @@
 #!/bin/bash
 
 export $(cat /home/aleixohome/.env | xargs)
-/home/aleixohome/.local/bin/vault-dump -o vault > vault-backupfile.sh
+python3 vault-backup.py

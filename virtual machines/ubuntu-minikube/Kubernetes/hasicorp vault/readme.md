@@ -34,6 +34,9 @@ vault-dump -o vault | gpg --symmetric --cipher-algo AES25 > vault-backup.sh.enc
 vault secrets enable -path=secrets kv
 . <(gpg -qd vault-backup.sh.enc)
 bash vault-backup.sh
+
+
+The backup is running as my python script ***
 ```
 
 # Useful links

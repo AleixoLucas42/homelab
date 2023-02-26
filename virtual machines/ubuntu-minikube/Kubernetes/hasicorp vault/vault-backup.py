@@ -1,12 +1,12 @@
 #!/bin/python
 import requests, time, os
-
+requests.packages.urllib3.disable_warnings()
 
 ################CHANGE HERE####################
-base_url="" # Vault URL
-vault_token="" # Vault Token
+base_url=os.environ["VAULT_ADDR"] # Vault URL
+vault_token=os.environ["VAULT_TOKEN"] # Vault Token
 black_path_list=["cubbyhole/", "sys/", "identity/"]
-backup_file_name="name-backup.txt"
+backup_file_name="vault-bkp/vault-backup.txt" # also path
 ################CHANGE HERE####################
 
 # Common var
@@ -16,23 +16,28 @@ headers = {
 }
 
 def send_get(api):
-    return requests.request("GET", api, headers=headers, data=payload)
+    return requests.request("GET", api, headers=headers, data=payload, verify=False)
 
 def save_file_backup(path, secret):
     path=path.replace("metadata", "").replace("//", "/")
     print(f"Fazendo backup do item {path}")
-    resume_bkp = open(backup_file_name, 'r').read()
+    try:
+        resume_bkp = open(backup_file_name, 'r').read()
+    except:
+        with open(backup_file_name, 'w') as bkp_file:
+            bkp_file.close()
+            resume_bkp = open(backup_file_name, 'r').read()
     with open(backup_file_name, 'w') as bkp_file:
-        bkp_file.write(f'{resume_bkp}{path} = {secret} \n\n')
+        bkp_file.write(f'{resume_bkp}{path} = {secret} \n')
 
 def get_secret_version(value):
-    time.sleep(2)
+    time.sleep(3)
     api = f"{base_url}/v1/{value}"
     response = send_get(api)
     get_secret_data(value, response.json()['data']['current_version'])
 
 def get_secret_data(value, version):
-    time.sleep(2)
+    time.sleep(3)
     new_value = value.replace("meta", "")
     api = f"{base_url}/v1/{new_value}?version={version}"
     response = send_get(api)
@@ -52,7 +57,7 @@ def is_dir(value):
     return "/" in value[len(value) - 1]
 
 def get_sub_folder(value, is_root):
-    time.sleep(2)
+    time.sleep(3)
     if is_root:
         value=value+"metadata"
     api = f"{base_url}/v1/{value}?list=true"
