@@ -65,6 +65,3 @@ do
         sleep 15
     fi
 done
-
-# Add mapping /etc/hosts
-sudo echo "$(minikube ip) vault.aleixohome.lan" >> /etc/hosts 

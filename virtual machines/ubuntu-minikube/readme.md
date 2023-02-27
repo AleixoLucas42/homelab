@@ -10,9 +10,8 @@ This is a virtual machine that runs a kubernetes on minikube (because I have no 
 | IP | 10.11.12.210 |
 | DNS | ubuntu-minikube.aleixohome.lan |
 | ingress | minikube addons enable ingress |
-| CRONTAB | @reboot /home/aleixohome/startup.sh |
 | metrics-server | minikube addons enable metrics-server|
-| CRONTAB | @reboot /home/aleixohome/startup.sh |
+| CRONTAB | @reboot aleixohome /home/aleixohome/startup.sh |
 | CRONTAB | @daily /home/aleixohome/vault-backup.sh |
 
 ## Important
