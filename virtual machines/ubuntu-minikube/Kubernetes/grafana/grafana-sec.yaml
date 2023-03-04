@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: grafana-sec
+  namespace: grafana
+type: Opaque
+data:
+  GF_DATABASE_TYPE:
+  GF_DATABASE_HOST:
+  GF_DATABASE_NAME:
+  GF_DATABASE_USER:
+  GF_DATABASE_PASSWORD:
