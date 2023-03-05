@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: cardsgo-sec
+  namespace: cardsgo
+type: Opaque
+data:
+  database_host: 
+  database_user: 
+  database_psw: 
