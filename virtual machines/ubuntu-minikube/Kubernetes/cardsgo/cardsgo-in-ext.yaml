@@ -1,24 +1,24 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: bookstack-in
-  namespace: bookstack
+  name: cardsgo-in-ext
+  namespace: cardsgo
   annotations:
     # use the shared ingress-nginx
     kubernetes.io/ingress.class: "nginx"
 spec:
   tls:
   - hosts:
-    - bookstack.aleixohome.lan
-    secretName: aleixohome-ssl
+    - cardsgo.ddns.net
+    secretName: cardsgo-tls
   rules:
-  - host: bookstack.aleixohome.lan
+  - host: cardsgo.ddns.net
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: bookstack
+            name: cardsgo
             port:
-              number: 8080
+              number: 80

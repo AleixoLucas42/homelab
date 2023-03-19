@@ -5,7 +5,7 @@ Hello everyone, this is my small homelab, I decide to start with a very cheap ha
 ## Topology
 
 [![topology](static/images/homelab.png)]()
-\* Nothing is outside my network or port-forwarded.
+\* There are a kubernetes container being exposed outside lan through port 8400 with a nginx reverse proxy.
 <hr>
 
 ## Server Specs
@@ -33,6 +33,8 @@ Hello everyone, this is my small homelab, I decide to start with a very cheap ha
 - [MYSQL](virtual%20machines/ubuntu-minikube/Kubernetes/mysql/)
 - [PROMETHEUS](virtual%20machines/ubuntu-minikube/Kubernetes/prometheus/)
 - [PROXMOX-PROMETHEUS-EXPORTER](virtual%20machines/ubuntu-minikube/Kubernetes/prometheus-pve-exporter/)
+- [KUBESCAPE](virtual%20machines/ubuntu-minikube/Kubernetes/kubescape/)
+- [CARDSGO](virtual%20machines/ubuntu-minikube/Kubernetes/cardsgo/)
 
 <hr>
 
