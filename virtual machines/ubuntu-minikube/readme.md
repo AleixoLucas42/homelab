@@ -22,6 +22,7 @@ This is a virtual machine that runs a kubernetes on minikube (because I have no 
 - I created ssh keys to connect
 - There are a cronjob to dump data from hashicorp vault and store in /home/aleixohome
 - Duplicati app is taking the dump file and backing up to google drive
+- I'm using LOKI to stream kubernetes logs on grafana
 
 # Created self-signed for Nginx ingress (k8s)
 Stored on vault.
@@ -31,7 +32,7 @@ Stored on vault.
 - Org name: ALEIXOHOME
 - Org unit name: HOMELAB
 - Common name: *.aleixohome.lan
-- E-mail: aleixo1lucas@gmail.com
+- E-mail: my-email@email.com
 ```
 # Create cert
 openssl req -newkey rsa:4096 \
@@ -55,5 +56,11 @@ kubectl -n $(kubens -c) create secret tls aleixohome-ssl \
 - Hashicorp Vault (k8s)
 - Prometheus (k8s)
 - Mysql (k8s)
+- Adguard exporter (k8s)
+- Proxmox exporter (k8s)
+- CardsGO (k8s)
+- Kubescape (k8s)
+- Bookstack (k8s)
+- Loki (k8s)
 - Adguard
 - Duplicati
