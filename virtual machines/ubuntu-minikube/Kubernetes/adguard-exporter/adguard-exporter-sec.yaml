@@ -5,6 +5,6 @@ metadata:
   namespace: adguard-exporter
 type: Opaque
 data:
-  adguard_password: QWFkNm9vcGFlMWllN21lZQ==
-  adguard_hostname: MTAuMTEuMTIuMjEw
-  adguard_username: YWxlaXhvaG9tZQ==
+  adguard_password: 
+  adguard_hostname: 
+  adguard_username: 
