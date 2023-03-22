@@ -23,7 +23,6 @@ This is a virtual machine that runs a kubernetes on minikube (because I have no 
 - There are a cronjob to dump data from hashicorp vault and store in /home/aleixohome
 - Duplicati app is taking the dump file and backing up to google drive
 
-
 # Created self-signed for Nginx ingress (k8s)
 Stored on vault.
 - Country name: BR

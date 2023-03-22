@@ -50,7 +50,7 @@ Hello everyone, this is my small homelab, I decide to start with a very cheap ha
 - Schedule: Monthly 2'st 00:00
 - Backup name: PROXMOX_ALEIXOHOME
 - Cypher: None
-- Destination: Drive:DUPLICATI/PROXMOX
+- Destination: Google Drive Folder: DUPLICATI/PROXMOX
 - Source: /mnt/storage1tb/dump
 
 ## Important things
@@ -65,3 +65,4 @@ Hello everyone, this is my small homelab, I decide to start with a very cheap ha
 - [Proxmox setup](https://www.proxmox.com/en/proxmox-ve/get-started)
 - [Proxmox Docs](https://www.proxmox.com/en/downloads/category/documentation-pve)
 - [Proxmox training](https://www.proxmox.com/en/training)
+- Server is 24/7 and light energy use went up 9%

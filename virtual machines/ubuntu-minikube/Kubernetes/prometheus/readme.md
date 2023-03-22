@@ -64,7 +64,7 @@ kubectl -n prometheus patch prometheus kube-prometheus-stack-prometheus -p '{"sp
 
 - Grafana dashboard to import is: 14314
 
-# Monitoring kubescape risk score grafana
+## Monitoring kubescape risk score grafana
 - add helm repository
 ```
 helm repo add armo https://armosec.github.io/armo-helm/
