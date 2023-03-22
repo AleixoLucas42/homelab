@@ -9,6 +9,7 @@ helm install grafana-aleixohome bitnami/grafana -n grafana
 kubectl get secret grafana-aleixohome-admin --namespace grafana -o jsonpath="{.data.GF_SECURITY_ADMIN_PASSWORD}" | base64 -d
 kubectl apply -f grafana-in.yaml
 ```
+
 # Useful links
 - [Download Grafana](https://grafana.com/grafana/download)
 - [Grafana Docs](https://grafana.com/docs/)
