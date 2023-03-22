@@ -1,5 +1,7 @@
 # Adguard prometheus exporter
 
+[![topology](../../../../static/images/adguard-monitoring.jpeg)]()
+
 ## Setup
 ```
 kubectl create ns adguard-exporter

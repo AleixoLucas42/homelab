@@ -8,6 +8,7 @@ ffmpeg \
 -framerate 10 -loop 1 -t 5 -i proxmox-monitoring.jpeg \
 -framerate 10 -loop 1 -t 5 -i nginx-monitoring.jpeg \
 -framerate 10 -loop 1 -t 5 -i kubescape-monitoring.jpeg \
+-framerate 10 -loop 1 -t 5 -i adguard-monitoring.jpeg \
 -filter_complex \
 "[1]format=rgba,fade=d=1:t=in:alpha=1,setpts=PTS-STARTPTS+4/TB[f0]; \
  [2]format=rgba,fade=d=1:t=in:alpha=1,setpts=PTS-STARTPTS+8/TB[f1]; \
