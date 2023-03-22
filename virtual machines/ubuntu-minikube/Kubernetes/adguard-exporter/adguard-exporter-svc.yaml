@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: adguard-exporter
+  annotations:
+    app: adguard-exporter
+  labels:
+    app: adguard-exporter
+  name: adguard-exporter-svc
+spec:
+  ports:
+  - name: http
+    port: 9617
+    targetPort: 9617
+  selector:
+    app: adguard-exporter

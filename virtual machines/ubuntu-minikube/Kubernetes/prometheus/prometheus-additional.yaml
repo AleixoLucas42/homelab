@@ -22,3 +22,6 @@
     - prometheus-pve-exporter-svc.prometheus-pve-exporter.svc.cluster.local:9221
   params:
     target: [10.11.12.253]
+- job_name: 'adguard-exporter'
+  static_configs:
+  - targets: ['adguard-exporter-svc.adguard-exporter.svc.cluster.local:9617']

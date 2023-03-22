@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: adguard-exporter-in
+  namespace: adguard-exporter
+  annotations:
+    # use the shared ingress-nginx
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  tls:
+  - hosts:
+    - adguard-exporter.aleixohome.lan
+    secretName: aleixohome-ssl
+  rules:
+  - host: adguard-exporter.aleixohome.lan
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: adguard-exporter-svc
+            port:
+              number: 9617

@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: adguard-exporter-sec
+  namespace: adguard-exporter
+type: Opaque
+data:
+  adguard_password: QWFkNm9vcGFlMWllN21lZQ==
+  adguard_hostname: MTAuMTEuMTIuMjEw
+  adguard_username: YWxlaXhvaG9tZQ==

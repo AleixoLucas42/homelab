@@ -2,7 +2,7 @@
 
 Hello everyone, this is my small homelab, I decide to start with a very cheap hardware, actually is a 2008 PC; but for sure it will grow up if everything going okay.
 
-## Topology
+## Topology / Monitoring
 
 [![topology](static/images/images.gif)]()
 \* There are a kubernetes container being exposed outside lan through port 8400 with a nginx reverse proxy.

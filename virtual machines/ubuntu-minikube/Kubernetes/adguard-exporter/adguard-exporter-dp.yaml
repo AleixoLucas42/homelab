@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: adguard-exporter
+  annotations:
+    app: adguard-exporter
+  labels:
+    app: adguard-exporter
+  name: adguard-exporter
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: adguard-exporter
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: adguard-exporter
+    spec:
+      containers:
+      - env:
+        - name: adguard_port
+          value: "8443"
+        - name: adguard_protocol
+          value: https
+        - name: interval
+          value: 30s
+        - name: log_limit
+          value: "10000"
+        - name: server_port
+          value: "9617"
+        envFrom:
+        - secretRef:
+            name: adguard-exporter-sec
+        image: ebrianne/adguard-exporter:latest
+        imagePullPolicy: IfNotPresent
+        name: adguard-exporter-container
+        ports:
+        - containerPort: 9617
+        resources:
+          limits:
+            cpu: 200m
+            memory: 512Mi
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            add:
+            - SYS_NICE
+            drop:
+            - KILL
+          seLinuxOptions:
+            level: s0:c123,c456
+          seccompProfile:
+            type: RuntimeDefault
+      restartPolicy: Always
