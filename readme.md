@@ -59,6 +59,7 @@ Hello everyone, this is my small homelab, I decide to start with a very cheap ha
 - Frontal USB disabled
 - Back USB data blocker
 - Server powered on fulltime and light energy use went up 9%
+- I still need to buy a UPS
 
 <hr>
 
