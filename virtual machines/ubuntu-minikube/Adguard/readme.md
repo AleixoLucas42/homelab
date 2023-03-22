@@ -12,12 +12,12 @@ AdGuard Home is a web-wide ad blocking and tracking DNS server. Its purpose is t
 - sudo /opt/AdGuardHome/AdGuardHome -s install
 
 ## Block list configured
-- [Bloqueia páginas e serviços de mineração](https://github.com/zangadoprojets/pi-hole-block-list/raw/main/Miningpages.txt)
-- [Bloqueia páginas com conteúdo XXX Porn](https://github.com/zangadoprojets/pi-hole-block-list/raw/main/Pornpages.txt)
-- [Bloqueia telemetria do SO Windows e outros Sistemas](https://github.com/zangadoprojets/pi-hole-block-list/raw/main/Telemetry.txt)
-- [Bloqueia domínios com vírus](https://github.com/zangadoprojets/pi-hole-block-list/raw/main/Malicious.txt)
-- [Bloqueia domínios com ransomware](https://github.com/zangadoprojets/pi-hole-block-list/raw/main/ransomware.txt)
-- [Bloqueia domínios com e-mail spam](https://github.com/zangadoprojets/pi-hole-block-list/raw/main/spam.mails.txt)
+- [Block minning services](https://github.com/zangadoprojets/pi-hole-block-list/raw/main/Miningpages.txt)
+- [Block pages XXX Porn](https://github.com/zangadoprojets/pi-hole-block-list/raw/main/Pornpages.txt)
+- [Block telemetry](https://github.com/zangadoprojets/pi-hole-block-list/raw/main/Telemetry.txt)
+- [Block domain with virus](https://github.com/zangadoprojets/pi-hole-block-list/raw/main/Malicious.txt)
+- [Block domain with ransomware](https://github.com/zangadoprojets/pi-hole-block-list/raw/main/ransomware.txt)
+- [Block domain with e-mail spam](https://github.com/zangadoprojets/pi-hole-block-list/raw/main/spam.mails.txt)
 - [Block Ads Youtube](https://github.com/zangadoprojets/pi-hole-block-list/raw/main/youtube.txt)
 - [Some of these list pack](https://firebog.net)
 

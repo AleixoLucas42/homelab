@@ -1,7 +1,7 @@
 # ubuntu-minikube
 
 This is a virtual machine that runs a kubernetes on minikube (because I have no resource to make a kubernetes cluster bare metal properly). There are another services running.
-
+[![topology](../../static/images/minikube-monitoring.jpeg)]()
 ## General Info:
 | kEY   |      VALUE      |
 |----------|:-------------:|

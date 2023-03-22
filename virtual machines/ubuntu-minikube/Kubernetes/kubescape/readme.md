@@ -1,6 +1,6 @@
 # Kubescape
 Kubescape is an open-source Kubernetes security platform. It includes risk analysis, security compliance, and misconfiguration scanning
-
+[![topology](../../../../static/images/kubescape-monitoring.jpeg)]()
 ## Setup
 ```
 curl -s https://raw.githubusercontent.com/kubescape/kubescape/master/install.sh | /bin/bash

@@ -1,6 +1,6 @@
 # Prometheus pve exporter
 This is an exporter that exposes information gathered from Proxmox VE node for use by the Prometheus monitoring system.
-
+[![topology](../../../../static/images/proxmox-monitoring.jpeg)]()
 ## Setup
 ```
 kubectl create ns prometheus-pve-exporter
