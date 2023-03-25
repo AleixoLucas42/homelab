@@ -16,7 +16,7 @@ spec:
               - name: DB_HOST
                 value: mysql.mysql.svc.cluster.local
               - name: DB_DATABASE
-                value: bookstack
+                value: bookstack,cardsgo,grafana
               - name: UBUNTU_MINIKUBE_USER
                 value: aleixohome
               - name: UBUNTU_MINIKUBE_SERVER
@@ -25,17 +25,22 @@ spec:
               - secretRef:
                   name: mysql-sec
             command:
-              - sh
+              - bash
               - -c
               - |
+                IFS=',' read -r -a databases <<< "$DB_DATABASE"
                 echo "Starting backup $DB_DATABASE..."
                 mkdir files && cd files
                 NOW=$(date +%Y-%m-%d-%H-%M)
-                echo "Dump..."
-                mysqldump -uroot -h$DB_HOST -p$MYSQL_ROOT_PASSWORD $DB_DATABASE | gzip > $DB_DATABASE-$NOW.sql.gz || echo "Erro para realizar o backup"
-                echo "Compressing $DB_DATABASE-$NOW.sql.gz"
-                tar -czvf $DB_DATABASE-files-backup-$NOW.tar.gz
-                echo "Upload backup to $UBUNTU_MINIKUBE_SERVER/home/aleixohome/mysql-bkp"
-                sshpass -p $UBUNTU_MINIKUBE_USER_PASSWORD ssh -o StrictHostKeyChecking=no -l $UBUNTU_MINIKUBE_USER $UBUNTU_MINIKUBE_SERVER
-                sshpass -p $UBUNTU_MINIKUBE_USER_PASSWORD scp $DB_DATABASE-$NOW.sql.gz $UBUNTU_MINIKUBE_USER@$UBUNTU_MINIKUBE_SERVER:/home/aleixohome/mysql-bkp
+                for base in "${databases[@]}"
+                do
+                    echo "Dumping $base..."
+                    mysqldump -uroot -h$DB_HOST -p$MYSQL_ROOT_PASSWORD $base | gzip > $base-$NOW.sql.gz || echo "Erro para realizar o backup"
+                    echo "Compressing $base-$NOW.sql.gz"
+                    tar -czvf $base-files-backup-$NOW.tar.gz
+                    echo "Upload backup to $UBUNTU_MINIKUBE_SERVER/home/aleixohome/mysql-bkp"
+                    sshpass -p $UBUNTU_MINIKUBE_USER_PASSWORD ssh -o StrictHostKeyChecking=no -l $UBUNTU_MINIKUBE_USER $UBUNTU_MINIKUBE_SERVER
+                    sshpass -p $UBUNTU_MINIKUBE_USER_PASSWORD scp $base-$NOW.sql.gz $UBUNTU_MINIKUBE_USER@$UBUNTU_MINIKUBE_SERVER:/home/aleixohome/mysql-bkp
+                    echo "Done dumping $base"
+                done
           restartPolicy: OnFailure
