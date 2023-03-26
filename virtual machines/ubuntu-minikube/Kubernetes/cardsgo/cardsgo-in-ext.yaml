@@ -33,6 +33,7 @@ metadata:
       location ~* "(boot\.ini|etc/passwd|self/environ)" { deny all; }
       location ~* "(thumbs?(_editor|open)?|tim(thumb)?)\.php" { deny all; }
       location ~* "(\'|\")(.*)(drop|insert|md5|select|union)" { deny all; }
+      location ~* "(\'|\")(.*)(DROP|INSERT|MD5|SELECT|UNION)" { deny all; }
       location ~* "(https?|ftp|php):/" { deny all; }
       location ~* "(=\\\'|=\\%27|/\\\'/?)\." { deny all; }
       location ~* "/(\$(\&)?|\*|\"|\.|,|&|&amp;?)/?$" { deny all; }
@@ -55,6 +56,15 @@ metadata:
         set $block_sql_injections 1;
       }
       if ($request_uri ~ "\b(select|drop|insert|sql|concat|md5|union)\b") {
+        set $block_sql_injections 1;
+      }
+      if ($request_uri ~ "\b(SELECT|DROP|INSERT|SQL|CONCAT|MD5|UNION)\b") {
+        set $block_sql_injections 1;
+      }
+      if ($request_body ~ "\b(select|drop|insert|sql|concat|md5|union)\b") {
+        set $block_sql_injections 1;
+      }
+      if ($request_body ~ "\b(SELECT|DROP|INSERT|SQL|CONCAT|MD5|UNION)\b") {
         set $block_sql_injections 1;
       }
       if ($block_sql_injections = 1) {
@@ -82,6 +92,9 @@ metadata:
         set $block_spam 1;
       }
       if ($request_uri ~ "\b(erections|hoodia|huronriveracres|impotence|levitra|libido)\b") {
+        set $block_spam 1;
+      }
+      if ($request_body ~ "\b(erections|hoodia|huronriveracres|impotence|levitra|libido)\b") {
         set $block_spam 1;
       }
       if ($request_uri ~ "\b(ambien|blue\spill|cialis|cocaine|ejaculation|erectile)\b") {
