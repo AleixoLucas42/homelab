@@ -42,8 +42,8 @@ items:
             protocol: TCP
           resources:
             limits:
-              cpu: 200m
-              memory: 512Mi
+              cpu: 128m
+              memory: 100Mi
           securityContext:
             allowPrivilegeEscalation: false
             capabilities:

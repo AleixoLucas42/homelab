@@ -42,8 +42,8 @@ spec:
         - containerPort: 9617
         resources:
           limits:
-            cpu: 200m
-            memory: 512Mi
+            cpu: 50m
+            memory: 100Mi
         securityContext:
           allowPrivilegeEscalation: false
           capabilities:
