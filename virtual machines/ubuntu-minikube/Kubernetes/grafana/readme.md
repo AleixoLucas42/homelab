@@ -10,6 +10,9 @@ kubectl get secret grafana-aleixohome-admin --namespace grafana -o jsonpath="{.d
 kubectl apply -f grafana-in.yaml
 ```
 
+## Backup
+There is a backup running inside a kubernetes cronjob on mysql namespace. The backup is up to google drive
+
 # Useful links
 - [Download Grafana](https://grafana.com/grafana/download)
 - [Grafana Docs](https://grafana.com/docs/)

@@ -38,6 +38,9 @@ Hello everyone, this is my small homelab, I decide to start with a very cheap ha
 
 <hr>
 
+## Monitoring
+- [Monitoring and alerts](Monitoring/)
+
 ## Backup
 - Retention: Keep monthly 1
 - Schedule: Monthly 1st 00:00

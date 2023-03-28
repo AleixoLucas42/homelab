@@ -7,5 +7,8 @@ kubectl create ns cardsgo
 kubectl create -f .
 ```
 
+## Backup
+There is a backup running inside a kubernetes cronjob on mysql namespace. The backup is up to google drive
+
 # Usefull links
 - [Cardsgo github](https://github.com/AleixoLucas42/cardsgo)
