@@ -35,6 +35,7 @@ All alert should be deliver by Grafana, using Telegram as contact point.
 | Nginx access outside Brazil| > 1 [Conn] |
 | Nginx 4xx status | > 10 [5min] |
 | Nginx SQL INJECTION | > 1 [5min] |
+| Nginx success rate | < 80% [5min] |
 | Proxmox CPU | > 80% [5min] |
 
 ## Grafana Dashboards
