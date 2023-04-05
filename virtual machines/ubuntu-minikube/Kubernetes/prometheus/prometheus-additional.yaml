@@ -25,3 +25,7 @@
 - job_name: 'adguard-exporter'
   static_configs:
   - targets: ['adguard-exporter-svc.adguard-exporter.svc.cluster.local:9617']
+- job_name: 'jaeger-kubernetes'
+  metrics_path: '/metrics'
+  static_configs:
+  - targets: ['jaeger-all-in-one.jaeger.svc.cluster.local:14269']
