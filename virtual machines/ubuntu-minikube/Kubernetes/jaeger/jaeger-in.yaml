@@ -1,8 +1,8 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: bookstack-in
-  namespace: bookstack
+  name: jaeger-in
+  namespace: jaeger
   annotations:
     # use the shared ingress-nginx
     kubernetes.io/ingress.class: "nginx"
@@ -10,16 +10,16 @@ metadata:
 spec:
   tls:
   - hosts:
-    - bookstack.aleixohome.lan
+    - jaeger.aleixohome.lan
     secretName: aleixohome-ssl
   rules:
-  - host: bookstack.aleixohome.lan
+  - host: jaeger.aleixohome.lan
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: bookstack
+            name: jaeger-all-in-one
             port:
-              number: 8080
+              number: 16686

@@ -11,6 +11,7 @@ metadata:
     nginx.ingress.kubernetes.io/auth-realm: 'Authentication Required - 403'
     nginx.ingress.kubernetes.io/enable-cors: "true"
     nginx.ingress.kubernetes.io/cors-allow-origin: "https://grafana.aleixohome.lan"
+    nginx.ingress.kubernetes.io/enable-opentracing: "true"
 spec:
   tls:
   - hosts:

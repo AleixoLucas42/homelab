@@ -25,6 +25,10 @@ The core of monitoring is Grafana, wich is running inside kubernetes. All the sy
 - There are a folder in Grafana for each system monitored. There are also a dashboard image reference in some markdown documentations.
 - In desaster case, the backup of bookstack is beeing done to google drive.
 
+## Jaeger
+- [Jaeger](../virtual%20machines/ubuntu-minikube/Kubernetes/jaeger/)
+- There are Jaeger configured in a minimal way to see requests on all nginx ingress
+
 ## Alerting
 All alert should be deliver by Grafana, using Telegram as contact point.
 | Alert | Threshold |

@@ -6,6 +6,7 @@ metadata:
   annotations:
     # use the shared ingress-nginx
     kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/enable-opentracing: "true"
 spec:
   tls:
   - hosts:
