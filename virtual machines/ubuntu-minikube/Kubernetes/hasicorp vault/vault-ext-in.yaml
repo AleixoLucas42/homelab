@@ -7,13 +7,14 @@ metadata:
     # use the shared ingress-nginx
     kubernetes.io/ingress.class: "nginx"
     nginx.ingress.kubernetes.io/enable-opentracing: "true"
+    nginx.ingress.kubernetes.io/whitelist-source-range: 10.11.12.0/24,192.168.192.0/24
 spec:
   tls:
   - hosts:
-    - vault.aleixohome.ddns.net
+    - vault-aleixohome.ddns.net
     secretName: aleixohome-ssl
   rules:
-  - host: vault.aleixohome.ddns.net
+  - host: vault-aleixohome.ddns.net
     http:
       paths:
       - path: /
