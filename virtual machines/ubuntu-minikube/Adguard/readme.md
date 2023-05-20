@@ -1,4 +1,4 @@
-# Adguard
+# ~~Adguard~~
 AdGuard Home is a web-wide ad blocking and tracking DNS server. Its purpose is to allow you to control your entire network and devices without having to install a program.
 
 ## Setup

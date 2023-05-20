@@ -56,11 +56,11 @@ kubectl -n $(kubens -c) create secret tls aleixohome-ssl \
 - Hashicorp Vault (k8s)
 - Prometheus (k8s)
 - Mysql (k8s)
-- Adguard exporter (k8s)
+- ~~Adguard exporter (k8s)~~
 - Proxmox exporter (k8s)
 - CardsGO (k8s)
 - Kubescape (k8s)
 - Bookstack (k8s)
 - Loki (k8s)
-- Adguard
+- ~~Adguard~~
 - Duplicati

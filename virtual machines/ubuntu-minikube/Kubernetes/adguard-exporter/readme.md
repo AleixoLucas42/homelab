@@ -1,4 +1,4 @@
-# Adguard prometheus exporter
+# ~~Adguard prometheus exporter~~
 
 [![topology](../../../../static/images/adguard-monitoring.jpeg)]()
 

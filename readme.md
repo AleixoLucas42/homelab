@@ -25,7 +25,7 @@ Hello everyone, this is my small homelab, I decide to start with a very cheap ha
 ## Running systems
 - [OPNSENSE](virtual%20machines/opnsense/)
 - [UBUNTU-MINIKUBE](virtual%20machines/ubuntu-minikube/)
-- [ADGUARD](virtual%20machines/ubuntu-minikube/Adguard/)
+- ~~<del>[ADGUARD](virtual%20machines/ubuntu-minikube/Adguard/)~~
 - [DUPLICATI](virtual%20machines/ubuntu-minikube/duplicati/)
 - [BOOKSTACK](virtual%20machines/ubuntu-minikube/Kubernetes/bookstack/)
 - [GRAFANA](virtual%20machines/ubuntu-minikube/Kubernetes/grafana/)
