@@ -33,15 +33,13 @@ Stored on vault.
 - Org unit name: HOMELAB
 - Common name: *.aleixohome.lan
 - E-mail: my-email@email.com
+
+### Create cert
 ```
-# Create cert
-openssl req -newkey rsa:4096 \
-            -x509 \
-            -sha256 \
-            -days 365 \
-            -nodes \
-            -out aleixohome.crt \
-            -keyout aleixohome.key
+openssl genpkey -algorithm RSA -out aleixohome.key -pkeyopt rsa_keygen_bits:2048
+openssl req -new -key aleixohome.key -out csr.csr -subj "/CN=aleixohome.lan" -reqexts SAN -config <(printf "[SAN]\nsubjectAltName=DNS:aleixohome.lan,DNS:vault.aleixohome.lan,DNS:grafana.aleixohome.lan,DNS:jaeger.aleixohome.lan,DNS:prometheus.aleixohome.lan,DNS:bookstack.aleixohome.lan,DNS:prometheus-pve-exporter.aleixohome.lan")
+openssl x509 -req -signkey aleixohome.key -in csr.csr -out aleixohome.crt -extfile <(printf "subjectAltName=DNS:*.aleixohome.lan") -days 365
+openssl x509 -text -noout -in aleixohome.crt
 
 # Create kubernetes Secret
 kubectl -n $(kubens -c) create secret tls aleixohome-ssl \
