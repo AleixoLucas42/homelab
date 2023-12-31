@@ -1,4 +1,5 @@
-# ubuntu-minikube
+# ~~ubuntu-minikube~~
+**DEPRECATED:** due my resource issues, I had to change to [docker swarm](../fedora-server/readme.md)
 
 This is a virtual machine that runs a kubernetes on minikube (because I have no resource to make a kubernetes cluster bare metal properly). There are another services running.
 [![topology](../../static/images/minikube-monitoring.jpeg)]()
