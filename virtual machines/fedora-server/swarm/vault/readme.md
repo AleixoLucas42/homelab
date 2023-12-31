@@ -1,0 +1,1 @@
+https://opensourcegeeks.net/how-to-set-up-hashicorp-vault-secrets-manager-with-docker/

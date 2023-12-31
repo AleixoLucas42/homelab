@@ -1,0 +1,36 @@
+version: '3.8'
+services:
+  vault:
+    deploy:
+      resources:
+        limits:
+          cpus: '.1'
+          memory: 600M
+        reservations:
+          cpus: '.01'
+          memory: 50M
+    cap_add:
+      - IPC_LOCK
+    environment:
+      - 'VAULT_LOCAL_CONFIG={"storage": {"file": {"path": "/vault/file"}},
+        "listener": [{"tcp": { "address": "0.0.0.0:8200", "tls_disable":
+        true}}], "default_lease_ttl": "168h", "max_lease_ttl": "720h",
+        "ui": true}'
+    image: hashicorp/vault
+    command: server
+    networks:
+      - swarm-net
+    volumes:
+      - logs:/vault/logs
+      - file:/vault/file
+      - config:/vault/config
+volumes:
+  logs:
+    driver: local
+  file:
+    driver: local
+  config:
+    driver: local
+networks:
+  swarm-net:
+    external: true

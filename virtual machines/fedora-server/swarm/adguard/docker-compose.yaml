@@ -1,0 +1,31 @@
+version: '3.8'
+services:
+  adguardhome:
+    image: adguard/adguardhome
+    deploy:
+      resources:
+        limits:
+          cpus: '.1'
+          memory: 512M
+        reservations:
+          cpus: '.01'
+          memory: 50M
+    container_name: adguardhome
+    restart: unless-stopped
+    volumes:
+      - work:/opt/adguardhome/work
+      - config:/opt/adguardhome/conf
+    ports:
+      - 53:53/tcp
+      - 53:53/udp
+    networks:
+      - swarm-net
+networks:
+  swarm-net:
+    attachable: true
+    external: true
+volumes:
+  work:
+    driver: local
+  config:
+    driver: local

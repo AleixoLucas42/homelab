@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  nginx:
+    deploy:
+      resources:
+        limits:
+          cpus: '.1'
+          memory: 100M
+        reservations:
+          cpus: '.01'
+          memory: 50M
+    image: nginx
+    container_name: nginx
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./aleixohome.crt:/etc/nginx/cert/aleixohome.crt
+      - ./aleixohome.key:/etc/nginx/cert/aleixohome.key
+    networks:
+      - swarm-net
+    ports:
+      - 80:80
+      - 443:443
+networks:
+  swarm-net:
+    external: true

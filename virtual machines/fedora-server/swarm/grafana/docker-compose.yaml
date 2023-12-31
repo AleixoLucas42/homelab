@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    deploy:
+      resources:
+        limits:
+          cpus: '.2'
+          memory: 400M
+        reservations:
+          cpus: '.01'
+          memory: 50M
+    volumes:
+      - data:/var/lib/grafana
+    environment:
+      - GF_SECURITY_ADMIN_USER=
+      - GF_SECURITY_ADMIN_PASSWORD=
+      - GF_USERS_ALLOW_SIGN_UP=false
+    networks:
+      - swarm-net
+networks:
+  swarm-net:
+    external: true
+volumes:
+  data:
+    driver: local

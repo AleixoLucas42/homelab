@@ -1,0 +1,52 @@
+version: '3.8'
+services:
+  mysql:
+    container_name: cardsgo-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '.1'
+          memory: 512M
+        reservations:
+          cpus: '.01'
+          memory: 50M
+    volumes:
+      - data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=aengae1jee6leiPohgie
+      - MYSQL_DATABASE=cardsgo
+    image: 'mysql:8'
+    networks:
+      - swarm-net
+  cardsgo:
+    container_name: cardsgo
+    deploy:
+      resources:
+        limits:
+          cpus: '.1'
+          memory: 100M
+        reservations:
+          cpus: '.01'
+          memory: 50M
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://127.0.0.1:5000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    environment:
+      - database_psw=
+      - database_user=
+      - database_host=
+    depends_on:
+      - "mysql"
+    image: aleixolucas/cardsgo
+    ports:
+      - 8400:5000
+    networks:
+      - swarm-net
+volumes:
+  data:
+    driver: local
+networks:
+  swarm-net:
+    external: true
