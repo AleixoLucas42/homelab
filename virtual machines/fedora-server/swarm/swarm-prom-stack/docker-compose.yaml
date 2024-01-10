@@ -7,8 +7,7 @@ services:
       - /sys:/sys:ro
       - /var/lib/docker/:/var/lib/docker:ro
       - /dev/disk/:/dev/disk:ro
-    ports:
-      - 8080:8080
+      - ./cAdvisor.yml:/etc/prometheus/prometheus.yml:ro
     container_name: cadvisor
     privileged: true
     networks:
@@ -16,6 +15,13 @@ services:
     devices:
       - /dev/kmsg
     image: gcr.io/cadvisor/cadvisor
+  prometheus:
+    container_name: my-prometheus
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    image: prom/prometheus
+    networks:
+      - swarm-net
 networks:
   swarm-net:
     external: true
