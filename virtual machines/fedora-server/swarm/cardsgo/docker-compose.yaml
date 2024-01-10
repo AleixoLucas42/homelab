@@ -13,7 +13,7 @@ services:
     volumes:
       - data:/var/lib/mysql
     environment:
-      - MYSQL_ROOT_PASSWORD=aengae1jee6leiPohgie
+      - MYSQL_ROOT_PASSWORD=
       - MYSQL_DATABASE=cardsgo
     image: 'mysql:8'
     networks:
