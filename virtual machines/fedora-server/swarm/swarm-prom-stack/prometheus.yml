@@ -18,3 +18,11 @@ scrape_configs:
   - job_name: cadvisor_container
     static_configs:
       - targets: ["swarm-prom-stack_cadvisor:8080"]
+
+  - job_name: pve-exporter
+    metrics_path: '/pve'
+    static_configs:
+    - targets:
+      - pve-exporter_prometheus-pve-exporter:9221
+    params:
+      target: [10.11.12.253]

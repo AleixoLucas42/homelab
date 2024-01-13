@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+  prometheus-pve-exporter:
+    image: prompve/prometheus-pve-exporter
+    container_name: prometheus-pve-exporter
+    deploy:
+      resources:
+        limits:
+          cpus: '.2'
+          memory: 400M
+        reservations:
+          cpus: '.01'
+          memory: 50M
+    ports:
+      - 9221:9221
+    environment:
+      - PVE_USER=user@pam/pve
+      - PVE_PASSWORD=
+      - PVE_VERIFY_SSL=
+    networks:
+      - swarm-net
+networks:
+  swarm-net:
+    external: true
