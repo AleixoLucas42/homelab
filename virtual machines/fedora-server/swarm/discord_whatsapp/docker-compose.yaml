@@ -1,0 +1,52 @@
+version: '3.8'
+services:
+  whatsapp:
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://127.0.0.1:3000/ping"]
+      interval: 30s
+      timeout: 30s
+      retries: 3
+    deploy:
+      resources:
+        limits:
+          cpus: '.6'
+          memory: 400M
+        reservations:
+          cpus: '.1'
+          memory: 50M
+    container_name: whatsapp_web_api
+    image: chrishubert/whatsapp-web-api:latest
+    environment:
+      # - API_KEY=your_global_api_key_here  # OPTIONAL
+      - BASE_WEBHOOK_URL=http://localhost:3000/localCallbackExample
+      - ENABLE_LOCAL_CALLBACK_EXAMPLE=TRUE
+      - MAX_ATTACHMENT_SIZE=5000000 # IN BYTES
+      - SET_MESSAGES_AS_SEEN=TRUE
+      - DISABLED_CALLBACKS=message_ack
+      - ENABLE_SWAGGER_ENDPOINT=TRUE
+    networks:
+      - swarm-net
+    volumes:
+      - ./sessions:/usr/src/app/sessions # Mount the local ./sessions/ folder to the container's /usr/src/app/sessions folder
+
+  discord_bot:
+    deploy:
+      resources:
+        limits:
+          cpus: '.05'
+          memory: 50M
+        reservations:
+          cpus: '.1'
+          memory: 10M
+    image: aleixolucas/disc_wpp_bot
+    container_name: discord_bot
+    environment:
+      - DISC_TOKEN=MTE4MDMwMTY5OTk5NTQxMDUzMg.G3O_7L.wHZbyKKMUahshU9eEcMSq4r0CTi9d6aU4va5Z0
+      - CHAT_ID=5512997087068-1538170165@g.us
+    networks:
+      - swarm-net
+    depends_on:
+        - whatsapp
+networks:
+  swarm-net:
+    external: true
