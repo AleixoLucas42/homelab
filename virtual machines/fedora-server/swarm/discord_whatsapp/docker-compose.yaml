@@ -41,8 +41,8 @@ services:
     image: aleixolucas/disc_wpp_bot
     container_name: discord_bot
     environment:
-      - DISC_TOKEN=MTE4MDMwMTY5OTk5NTQxMDUzMg.G3O_7L.wHZbyKKMUahshU9eEcMSq4r0CTi9d6aU4va5Z0
-      - CHAT_ID=5512997087068-1538170165@g.us
+      - DISC_TOKEN=
+      - CHAT_ID=
     networks:
       - swarm-net
     depends_on:
