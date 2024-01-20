@@ -1,4 +1,4 @@
-version: "3.4"
+version: "3.8"
 
 configs:
   loki_config:
@@ -16,5 +16,10 @@ services:
       replicas: 1
     ports:
       - "3100:3100"
+    networks:
+      - swarm-net
     volumes:
       - ./local_bind_volume_dir:/data/loki
+networks:
+  swarm-net:
+    external: true
