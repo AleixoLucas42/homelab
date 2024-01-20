@@ -1,0 +1,20 @@
+version: "3.4"
+
+configs:
+  loki_config:
+    file: ./loki-local-config.yaml
+
+services:
+  loki:
+    image: grafana/loki:v1.3.0
+    command: -config.file=/etc/loki/loki-local-config.yaml
+    configs:
+      - source: loki_config
+        target: /etc/loki/loki-local-config.yaml
+    deploy:
+      mode: replicated
+      replicas: 1
+    ports:
+      - "3100:3100"
+    volumes:
+      - ./local_bind_volume_dir:/data/loki
