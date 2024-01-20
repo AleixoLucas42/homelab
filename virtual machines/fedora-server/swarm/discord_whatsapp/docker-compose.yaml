@@ -1,15 +1,10 @@
 version: '3.8'
 services:
   whatsapp:
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://127.0.0.1:3000/ping"]
-      interval: 30s
-      timeout: 30s
-      retries: 3
     deploy:
       resources:
         limits:
-          cpus: '.6'
+          cpus: '.8'
           memory: 400M
         reservations:
           cpus: '.1'
