@@ -26,3 +26,11 @@ scrape_configs:
       - pve-exporter_prometheus-pve-exporter:9221
     params:
       target: [10.11.12.253]
+
+  - job_name: 'opnsense-native'
+    metrics_path: '/metrics'
+    scrape_interval: 30s
+    scrape_timeout: 20s
+    static_configs:
+    - targets:
+      - 10.11.12.254:9100

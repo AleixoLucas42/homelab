@@ -23,4 +23,4 @@
 
 > git clone https://github.com/swarmstack/loki.git
 
-> docker stack deploy -c docker-compose.yml loki
+> docker stack deploy -c docker-compose-swarmstack.yml loki

@@ -1,4 +1,15 @@
-version: "3.8"
+version: "3.4"
+
+networks:
+  swarm-net:
+    external: true
+
+volumes:
+    loki-data:
+      driver: pxd
+      driver_opts:
+        repl: 2
+        size: 40
 
 configs:
   loki_config:
@@ -12,14 +23,18 @@ services:
       - source: loki_config
         target: /etc/loki/loki-local-config.yaml
     deploy:
+      labels:
+        prometheus.enable: "true"
+        prometheus.port: "3100"
+        prometheus.path: "/metrics"
       mode: replicated
+      placement:
+        constraints:
+          - node.Labels.storagegroup==RED
       replicas: 1
     ports:
       - "3100:3100"
     networks:
       - swarm-net
     volumes:
-      - ./local_bind_volume_dir:/data/loki
-networks:
-  swarm-net:
-    external: true
+      - loki-data:/data/loki
