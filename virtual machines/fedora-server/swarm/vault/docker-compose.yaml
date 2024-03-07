@@ -2,6 +2,9 @@ version: '3.8'
 services:
   vault:
     deploy:
+      placement:
+        constraints:
+          - node.hostname == fedora-swarm
       resources:
         limits:
           cpus: '.1'
