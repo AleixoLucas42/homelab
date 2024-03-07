@@ -21,11 +21,29 @@ services:
         target: /etc/nginx/cert/aleixohome.crt
       - source: aleixohome_key
         target: /etc/nginx/cert/aleixohome.key
+    volumes:
+      - certbot_www:/var/www/certbot/:ro
+      - certbot_conf:/etc/nginx/ssl/:ro
     networks:
       - swarm-net
     ports:
       - 80:80
       - 443:443
+  certbot:
+    deploy:
+      placement:
+        constraints:
+          - node.hostname == swarm-worker-oracle
+    container_name: certbot
+    depends_on:
+        - nginx
+    image: certbot/certbot:latest
+    volumes:
+    - certbot_www:/var/www/certbot/:rw
+    - certbot_conf:/etc/letsencrypt/:rw
+    command: certonly --webroot -w /var/www/certbot --force-renewal --email aleixo1lucas@gmail.com -d cardsgo.ddns.net --agree-tos
+    networks:
+      - swarm-net
 secrets:
   nginx_conf: #docker secret create nginx_conf nginx.conf
     external: true
@@ -36,3 +54,8 @@ secrets:
 networks:
   swarm-net:
     external: true
+volumes:
+  certbot_www:
+    driver: local
+  certbot_conf:
+    driver: local
