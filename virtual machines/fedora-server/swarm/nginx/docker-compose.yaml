@@ -2,6 +2,9 @@ version: '3.8'
 services:
   nginx:
     deploy:
+      placement:
+        constraints:
+          - node.hostname == swarm-worker-oracle
       resources:
         limits:
           cpus: '.1'
@@ -11,16 +14,12 @@ services:
           memory: 50M
     image: nginx
     container_name: nginx
-    # volumes:
-    #   - ./nginx.conf:/etc/nginx/conf.d/default.conf
-    #   - ./aleixohome.crt:/etc/nginx/cert/aleixohome.crt
-    #   - ./aleixohome.key:/etc/nginx/cert/aleixohome.key
     secrets:
       - source: nginx_conf
         target: /etc/nginx/conf.d/default.conf
       - source: aleixohome_crt
         target: /etc/nginx/cert/aleixohome.crt
-      - source: aleixohome_crt
+      - source: aleixohome_key
         target: /etc/nginx/cert/aleixohome.key
     networks:
       - swarm-net
