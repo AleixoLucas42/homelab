@@ -11,15 +11,29 @@ services:
           memory: 50M
     image: nginx
     container_name: nginx
-    volumes:
-      - ./nginx.conf:/etc/nginx/conf.d/default.conf
-      - ./aleixohome.crt:/etc/nginx/cert/aleixohome.crt
-      - ./aleixohome.key:/etc/nginx/cert/aleixohome.key
+    # volumes:
+    #   - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    #   - ./aleixohome.crt:/etc/nginx/cert/aleixohome.crt
+    #   - ./aleixohome.key:/etc/nginx/cert/aleixohome.key
+    secrets:
+      - source: nginx_conf
+        target: /etc/nginx/conf.d/default.conf
+      - source: aleixohome_crt
+        target: /etc/nginx/cert/aleixohome.crt
+      - source: aleixohome_crt
+        target: /etc/nginx/cert/aleixohome.key
     networks:
       - swarm-net
     ports:
       - 80:80
       - 443:443
+secrets:
+  nginx_conf: #docker secret create nginx_conf nginx.conf
+    external: true
+  aleixohome_crt: #docker secret create aleixohome_crt aleixohome.crt
+    external: true
+  aleixohome_key: #docker secret create aleixohome_key aleixohome.key
+    external: true
 networks:
   swarm-net:
     external: true
