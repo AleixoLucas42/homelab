@@ -1,0 +1,48 @@
+# To troubleshoot and get more log info enable ldap debug logging in grafana.ini
+# [log]
+# filters = ldap:debug
+
+[[servers]]
+host = "10.11.12.252"
+port = 389
+use_ssl = false
+start_tls = false
+tls_ciphers = []
+min_tls_version = ""
+ssl_skip_verify = false
+bind_dn = "administrator@aleixohome.lan"
+bind_password = '' # alooouuu
+timeout = 10
+
+# User search filter, for example "(cn=%s)" or "(sAMAccountName=%s)" or "(uid=%s)"
+search_filter = "(sAMAccountName=%s)"
+
+# An array of base dns to search through
+search_base_dns = ["dc=aleixohome,dc=lan"]
+
+
+# Specify names of the ldap attributes your ldap uses
+[servers.attributes]
+name = "givenName"
+surname = "sn"
+username = "sAMAccountName"
+member_of = "memberOf"
+email =  "userPrincipalName"
+
+# Map ldap groups to grafana org roles
+[[servers.group_mappings]]
+group_dn = "CN=gp_aleixohome,CN=Groups,DC=aleixohome,DC=lan"
+org_role = "Admin"
+# To make user an instance admin  (Grafana Admin) uncomment line below
+# grafana_admin = true
+# The Grafana organization database id, optional, if left out the default org (id 1) will be used
+# org_id = 1
+
+[[servers.group_mappings]]
+group_dn = "CN=gp_aleixohome,CN=Groups,DC=aleixohome,DC=lan"
+org_role = "Editor"
+
+[[servers.group_mappings]]
+# If you want to match all (or no ldap groups) then you can use wildcard
+group_dn = "*"
+org_role = "Viewer"

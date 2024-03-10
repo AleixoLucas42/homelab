@@ -4,6 +4,9 @@ services:
     image: grafana/grafana:latest
     container_name: grafana
     deploy:
+      placement:
+        constraints:
+          - node.hostname == fedora-swarm
       resources:
         limits:
           cpus: '.2'
@@ -16,10 +19,18 @@ services:
     environment:
       - GF_SECURITY_ADMIN_USER=
       - GF_SECURITY_ADMIN_PASSWORD=
-      - GF_SERVER_DOMAIN=https://grafana.aleixohome.lan/
+      - GF_SERVER_DOMAIN=grafana.aleixohome.lan
       - GF_USERS_ALLOW_SIGN_UP=false
+      - GF_AUTH_LDAP_ENABLED=true
+      - GF_AUTH_LDAP_CONFIG_FILE=/etc/grafana/ldap.toml
+    secrets:
+      - source: ldap_toml
+        target: /etc/grafana/ldap.toml
     networks:
       - swarm-net
+secrets:
+  ldap_toml: #docker secret create ldap_toml ldap.toml
+    external: true
 networks:
   swarm-net:
     external: true
