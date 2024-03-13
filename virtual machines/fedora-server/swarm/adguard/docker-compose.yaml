@@ -3,6 +3,10 @@ services:
   adguardhome:
     image: adguard/adguardhome
     deploy:
+    deploy:
+      placement:
+        constraints:
+          - node.hostname == fedora-swarm
       resources:
         limits:
           cpus: '.5'
