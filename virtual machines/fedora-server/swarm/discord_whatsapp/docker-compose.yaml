@@ -2,6 +2,9 @@ version: '3.8'
 services:
   whatsapp:
     deploy:
+      placement:
+        constraints:
+          - node.hostname == fedora-swarm
       resources:
         limits:
           cpus: '.8'
@@ -26,6 +29,9 @@ services:
 
   discord_bot:
     deploy:
+      placement:
+        constraints:
+          - node.hostname == fedora-swarm
       resources:
         limits:
           cpus: '.05'

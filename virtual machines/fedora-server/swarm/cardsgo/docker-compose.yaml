@@ -3,6 +3,9 @@ services:
   mysql:
     container_name: cardsgo-mysql
     deploy:
+      placement:
+        constraints:
+          - node.hostname == fedora-swarm
       resources:
         limits:
           cpus: '.1'
@@ -14,13 +17,16 @@ services:
       - data:/var/lib/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=
-      - MYSQL_DATABASE=cardsgo
+      - MYSQL_DATABASE=
     image: 'mysql:8'
     networks:
       - swarm-net
   cardsgo:
     container_name: cardsgo
     deploy:
+      placement:
+        constraints:
+          - node.hostname == fedora-swarm
       resources:
         limits:
           cpus: '.1'

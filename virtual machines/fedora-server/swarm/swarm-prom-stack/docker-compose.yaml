@@ -1,6 +1,10 @@
 version: "3.8"
 services:
   cadvisor:
+    deploy:
+      placement:
+        constraints:
+          - node.hostname == fedora-swarm
     volumes:
       - /:/rootfs:ro
       - /var/run:/var/run:ro
@@ -16,6 +20,10 @@ services:
       - /dev/kmsg
     image: gcr.io/cadvisor/cadvisor
   prometheus:
+    deploy:
+      placement:
+        constraints:
+          - node.hostname == fedora-swarm
     container_name: my-prometheus
     volumes:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml

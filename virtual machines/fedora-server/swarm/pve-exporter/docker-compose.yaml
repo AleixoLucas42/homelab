@@ -4,6 +4,9 @@ services:
     image: prompve/prometheus-pve-exporter
     container_name: prometheus-pve-exporter
     deploy:
+      placement:
+        constraints:
+          - node.hostname == fedora-swarm
       resources:
         limits:
           cpus: '.2'
