@@ -1,40 +1,25 @@
-version: "3.4"
+version: "3.8"
+
+volumes:
+  loki_data:
+    driver: local
 
 networks:
   swarm-net:
     external: true
 
-volumes:
-    loki-data:
-      driver: pxd
-      driver_opts:
-        repl: 2
-        size: 40
-
-configs:
-  loki_config:
-    file: ./loki-local-config.yaml
-
 services:
   loki:
-    image: grafana/loki:v1.3.0
-    command: -config.file=/etc/loki/loki-local-config.yaml
-    configs:
-      - source: loki_config
-        target: /etc/loki/loki-local-config.yaml
+    image: grafana/loki:3.0.0
     deploy:
-      labels:
-        prometheus.enable: "true"
-        prometheus.port: "3100"
-        prometheus.path: "/metrics"
-      mode: replicated
       placement:
         constraints:
-          - node.Labels.storagegroup==RED
+          - node.hostname == fedora-swarm
+      mode: replicated
       replicas: 1
     ports:
       - "3100:3100"
+    volumes:
+      - loki_data:/data/loki
     networks:
       - swarm-net
-    volumes:
-      - loki-data:/data/loki

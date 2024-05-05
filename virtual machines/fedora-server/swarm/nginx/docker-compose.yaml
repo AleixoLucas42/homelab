@@ -49,7 +49,7 @@ secrets:
     external: true
   aleixohome_crt: #docker secret create aleixohome_crt aleixohome.crt
     external: true
-  aleixohome_key: #docker secret create aleixohome_key aleixohome.key
+  aleixohome_key: #dock
     external: true
 networks:
   swarm-net:
