@@ -34,3 +34,10 @@ scrape_configs:
     static_configs:
     - targets:
       - 10.11.12.254:9100
+
+  - job_name: duplicati_backup
+    honor_labels: true
+    scrape_interval: 10m
+    scrape_timeout: 1m
+    static_configs:
+    - targets: ['duplicati-prometheus-exporter_duplicati-prometheus-exporter:5000']
