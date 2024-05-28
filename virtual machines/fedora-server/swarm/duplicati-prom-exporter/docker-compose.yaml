@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  duplicati-prometheus-exporter:
+    deploy:
+      placement:
+        constraints:
+          - node.hostname == fedora-swarm
+      resources:
+        limits:
+          cpus: '.2'
+          memory: 90M
+        reservations:
+          cpus: '.1'
+          memory: 10M
+    container_name: duplicati-prometheus-exporter
+    image: aleixolucas/duplicati-prometheus-exporter
+    networks:
+      - swarm-net
+networks:
+  swarm-net:
+    external: true
