@@ -1,0 +1,37 @@
+version: '3.8'
+services:
+  audiobookshelf:
+    volumes:
+      - config:/config
+      - metadata:/metadata
+      - audiobooks:/audiobooks
+      - podcasts:/podcasts
+    container_name: audiobookshelf
+    environment:
+      - TZ=America/Sao_paulo
+    image: ghcr.io/advplyr/audiobookshelf
+    deploy:
+      placement:
+        constraints:
+          - node.hostname == fedora-swarm
+      resources:
+        limits:
+          cpus: '.1'
+          memory: 200M
+        reservations:
+          cpus: '.01'
+          memory: 50M
+    networks:
+      - swarm-net
+networks:
+  swarm-net:
+    external: true
+volumes:
+  config:
+    driver: local
+  metadata:
+    driver: local
+  audiobooks:
+    driver: local
+  podcasts:
+    driver: local
