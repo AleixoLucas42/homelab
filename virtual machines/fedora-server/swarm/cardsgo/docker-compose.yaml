@@ -1,26 +1,5 @@
 version: '3.8'
 services:
-  mysql:
-    container_name: cardsgo-mysql
-    deploy:
-      placement:
-        constraints:
-          - node.hostname == fedora-swarm
-      resources:
-        limits:
-          cpus: '.1'
-          memory: 512M
-        reservations:
-          cpus: '.01'
-          memory: 50M
-    volumes:
-      - data:/var/lib/mysql
-    environment:
-      - MYSQL_ROOT_PASSWORD=
-      - MYSQL_DATABASE=
-    image: 'mysql:8'
-    networks:
-      - swarm-net
   cardsgo:
     container_name: cardsgo
     deploy:
@@ -43,16 +22,11 @@ services:
       - database_psw=
       - database_user=
       - database_host=
-    depends_on:
-      - "mysql"
     image: aleixolucas/cardsgo
     ports:
       - 8400:5000
     networks:
       - swarm-net
-volumes:
-  data:
-    driver: local
 networks:
   swarm-net:
     external: true
