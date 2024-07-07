@@ -41,3 +41,10 @@ scrape_configs:
     scrape_timeout: 1m
     static_configs:
     - targets: ['duplicati-prometheus-exporter_duplicati-prometheus-exporter:5000']
+
+  - job_name: loki_swarm
+    honor_labels: true
+    scrape_interval: 30s
+    scrape_timeout: 20s
+    static_configs:
+    - targets: ['loki_loki:3100']
