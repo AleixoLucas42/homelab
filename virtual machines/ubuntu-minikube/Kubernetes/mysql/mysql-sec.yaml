@@ -1,9 +1,0 @@
-apiVersion: v1
-kind: Secret
-metadata:
-  name: mysql-sec
-  namespace: mysql
-type: Opaque
-data:
-  MYSQL_ROOT_PASSWORD:
-  UBUNTU_MINIKUBE_USER_PASSWORD:
