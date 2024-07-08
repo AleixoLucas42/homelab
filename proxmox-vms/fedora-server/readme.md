@@ -1,7 +1,7 @@
 ## Fedora Server ([Docker Swarm](https://docs.docker.com/engine/swarm/))
 Docker Swarm is a container orchestration tool for clustering and scheduling Docker containers. With Swarm, IT administrators and developers can establish and manage a cluster of Docker nodes as a single virtual system. Docker Swarm lets developers join multiple physical or virtual machines into a cluster.
 
-[![topology](../../static/images/swarm-monitoring.png)]()
+[![grafana](../../static/images/swarm-monitoring.png)]()
 
 \* I'm running docker swarm because is lighter
 

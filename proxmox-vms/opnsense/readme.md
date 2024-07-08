@@ -2,7 +2,7 @@
 
 OPNSense is a BSD-licensed firewall based on FreeBSD and developed by Decisio, a Dutch company that builds hardware and sells embedded OPNsense packages. It is a fork of pfSense, and this one is also a fork of m0n0wall, and all of these are based on FreeBSD. It was released in January 2015.
 
-[![topology](../../static/images/opnsense-monitoring.png)]()
+[![grafana](../../static/images/opnsense-monitoring.png)]()
 
 ## General Info:
 | kEY   |      VALUE      |
