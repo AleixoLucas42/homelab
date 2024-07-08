@@ -19,10 +19,10 @@
 
 > docker node ls
 
-> docker node update --availability drain yxfnb84xz3yp9km865rbrt948 
+> docker node update --availability drain <node-id> 
 
 > systemctl restart docker
 
-> docker node update --availability active yxfnb84xz3yp9km865rbrt948
+> docker node update --availability active <node-id>
 
 > docker stack deploy -c docker-compose-swarmstack.yml loki
