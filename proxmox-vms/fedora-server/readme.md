@@ -40,7 +40,7 @@ You can find services configs on their folders.
   - There's a duplicati on proxmox to backup vms to Google Drive
 ## Duplicati Backup
 - Notification via e-mail
-- Retention: 10 Days
+- Retention: 10 Versions
 - Schedule: Daily 01:00 AM
 - Backup name: HASHICORP VAULT
 - Destination: Google Drive Folder
