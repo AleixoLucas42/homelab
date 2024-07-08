@@ -5,7 +5,7 @@ OPNSense is a BSD-licensed firewall based on FreeBSD and developed by Decisio, a
 [![grafana](../../static/images/opnsense-monitoring.png)]()
 
 ## General Info:
-| kEY   |      VALUE      |
+| KEY   |      VALUE      |
 |----------|:-------------:|
 | CPU | 2vcpu |
 | RAM |    2GB   |
