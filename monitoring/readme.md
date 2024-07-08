@@ -12,7 +12,7 @@ There are some operation that can not stop, otherwise it will stop operation and
 | fedora-server Virtual machine | Where's running the primary dns server and Docker Swarm |
 | Nginx | Nginx is exposed to internet so must have some monitoring and alerting due security stuff and **without nginx, none of swarm apps wil work**
 
-## [Grafana Dashboards](../virtual%20machines/fedora-server/swarm/grafana/dashboards/)
+## [Grafana Dashboards](../proxmox-vms/fedora-server/swarm/grafana/dashboards/)
 - opnSENSE
 - ~~Adguard~~
 - Proxmox
@@ -23,7 +23,7 @@ There are some operation that can not stop, otherwise it will stop operation and
 
 ## Monitoring system
 The core of monitoring is Grafana, wich is running inside docker swarm. All the systems that need to be monitored, should deliver data to Grafana somehow.
-- [Grafana](../virtual%20machines/fedora-server/swarm/grafana/)
+- [Grafana](../proxmox-vms/fedora-server/swarm/grafana/)
 - Docker Swarm logs is also in Grafana through Loki stack and datasource.
 
 ## Alerting

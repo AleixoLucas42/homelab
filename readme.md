@@ -22,18 +22,18 @@ Hello everyone, this is my small homelab, I made the server from a computer that
 <hr>
 
 ## Systems/apps running
-- [OPNSENSE](virtual%20machines/opnsense/)
-- [ADGUARD](virtual%20machines/fedora-server/swarm/adguard/)
-- [AUDIOBOOKSHELF](virtual%20machines/fedora-server/swarm/audiobookshelf/)
-- [CARDSGO](virtual%20machines/fedora-server/swarm/cardsgo/)
-- [DISCORD WHATSAPP BOT](virtual%20machines/fedora-server/swarm/discord_whatsapp/)
-- [DUPLICATI PROMETHEUS EXPORTER](virtual%20machines/fedora-server/swarm/duplicati-prom-exporter/)
-- [GRAFANA](virtual%20machines/fedora-server/swarm/grafana/)
-- [LOKI](virtual%20machines/fedora-server/swarm/loki/)
-- [NGINX](virtual%20machines/fedora-server/swarm/nginx/)
-- [PROXMOX PROMETHEUS EXPORTER](virtual%20machines/fedora-server/swarm/pve-exporter/)
-- [SWARM PROMETHEUS STACK](virtual%20machines/fedora-server/swarm/swarm-prom-stack/)
-- [HASHICORP VAULT](virtual%20machines/fedora-server/swarm/vault/)
+- [OPNSENSE](proxmox-vms/opnsense/)
+- [ADGUARD](proxmox-vms/fedora-server/swarm/adguard/)
+- [AUDIOBOOKSHELF](proxmox-vms/fedora-server/swarm/audiobookshelf/)
+- [CARDSGO](proxmox-vms/fedora-server/swarm/cardsgo/)
+- [DISCORD WHATSAPP BOT](proxmox-vms/fedora-server/swarm/discord_whatsapp/)
+- [DUPLICATI PROMETHEUS EXPORTER](proxmox-vms/fedora-server/swarm/duplicati-prom-exporter/)
+- [GRAFANA](proxmox-vms/fedora-server/swarm/grafana/)
+- [LOKI](proxmox-vms/fedora-server/swarm/loki/)
+- [NGINX](proxmox-vms/fedora-server/swarm/nginx/)
+- [PROXMOX PROMETHEUS EXPORTER](proxmox-vms/fedora-server/swarm/pve-exporter/)
+- [SWARM PROMETHEUS STACK](proxmox-vms/fedora-server/swarm/swarm-prom-stack/)
+- [HASHICORP VAULT](proxmox-vms/fedora-server/swarm/vault/)
 
 <hr>
 
