@@ -1,40 +1,39 @@
 # ALEIXOHOME LAB
 
-Hello everyone, this is my small homelab, I decide to start with a very cheap hardware, actually is a 2008 PC; but for sure it will grow up if everything going okay.
+Hello everyone, this is my small homelab, I made it from a computer that I got the server.
 
-## Topology / Monitoring
+## Topology
 
-[![topology](static/images/images.gif)]()
-\* There are a kubernetes container being exposed outside lan through port 8400 with a nginx reverse proxy.
-<hr>
+[![topology](static/images/homelab.png)]()
 
 ## Server Specs
 | KEY | VALUE |
 |--------|:-----------:|
-| Processor | Intel core2quad |
-| Brand | HP |
+| Processor | Intel(R) Core(TM) i5-7600 |
+| Brand | Custom |
 | Storage 1 | 1TB |
 | Storage 2 | 500GB |
+| Storage 3 | 500GB |
 | CPU | 4vcpu |
-| RAM | 8GB |
+| RAM | 16GB |
 | Net Iface | x2 Gbe |
 | SYSTEM | proxmox |
 
 <hr>
 
-## Running systems
+## Systems/apps running
 - [OPNSENSE](virtual%20machines/opnsense/)
-- [UBUNTU-MINIKUBE](virtual%20machines/ubuntu-minikube/)
-- ~~<del>[ADGUARD](virtual%20machines/ubuntu-minikube/Adguard/)~~
-- [DUPLICATI](virtual%20machines/ubuntu-minikube/duplicati/)
-- [BOOKSTACK](virtual%20machines/ubuntu-minikube/Kubernetes/bookstack/)
-- [GRAFANA](virtual%20machines/ubuntu-minikube/Kubernetes/grafana/)
-- [HASHICORP VAULT](virtual%20machines/ubuntu-minikube/Kubernetes/hasicorp%20vault/) -- there are a [backup script](virtual%20machines/ubuntu-minikube/Kubernetes/hasicorp%20vault/vault-backup.py) that can be usefull to you
-- [MYSQL](virtual%20machines/ubuntu-minikube/Kubernetes/mysql/)
-- [PROMETHEUS](virtual%20machines/ubuntu-minikube/Kubernetes/prometheus/)
-- [PROXMOX-PROMETHEUS-EXPORTER](virtual%20machines/ubuntu-minikube/Kubernetes/prometheus-pve-exporter/)
-- [KUBESCAPE](virtual%20machines/ubuntu-minikube/Kubernetes/kubescape/)
-- [CARDSGO](virtual%20machines/ubuntu-minikube/Kubernetes/cardsgo/)
+- [ADGUARD](virtual%20machines/fedora-server/swarm/adguard/)
+- [AUDIOBOOKSHELF](virtual%20machines/fedora-server/swarm/audiobookshelf/)
+- [CARDSGO](virtual%20machines/fedora-server/swarm/cardsgo/)
+- [DISCORD WHATSAPP BOT](virtual%20machines/fedora-server/swarm/discord_whatsapp/)
+- [DUPLICATI PROMETHEUS EXPORTER](virtual%20machines/fedora-server/swarm/duplicati-prom-exporter/)
+- [GRAFANA](virtual%20machines/fedora-server/swarm/grafana/)
+- [LOKI](virtual%20machines/fedora-server/swarm/loki/)
+- [NGINX](virtual%20machines/fedora-server/swarm/nginx/)
+- [PROXMOX PROMETHEUS EXPORTER](virtual%20machines/fedora-server/swarm/pve-exporter/)
+- [SWARM PROMETHEUS STACK](virtual%20machines/fedora-server/swarm/swarm-prom-stack/)
+- [HASHICORP VAULT](virtual%20machines/fedora-server/swarm/vault/)
 
 <hr>
 
@@ -52,7 +51,6 @@ Hello everyone, this is my small homelab, I decide to start with a very cheap ha
 - Retention: 1
 - Schedule: Monthly 2'st 00:00
 - Backup name: PROXMOX_ALEIXOHOME
-- Cypher: None
 - Destination: Google Drive Folder: DUPLICATI/PROXMOX
 - Source: /mnt/storage1tb/dump
 
