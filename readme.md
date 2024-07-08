@@ -1,6 +1,6 @@
 # ALEIXOHOME LAB
 
-Hello everyone, this is my small homelab, I made it from a computer that I got the server.
+Hello everyone, this is my small homelab, I made the server from a computer that I got.
 
 ## Topology
 
