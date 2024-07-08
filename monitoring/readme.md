@@ -1,4 +1,4 @@
-# Monitoring, Backup and Alerts
+# Monitoring and Alerts
 
 [![grafana](../static/images/proxmox-monitoring.png)]()
 
