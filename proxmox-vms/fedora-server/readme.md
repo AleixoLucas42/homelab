@@ -20,6 +20,8 @@ Docker Swarm is a container orchestration tool for clustering and scheduling Doc
 - There are an worker running on oracle cloud; cluster sync is beeing done through zerotier VPN managed by opnSENSE.
 - This oracle worker node is running an ubuntu server (aways free) and mainly runs nginx to provide an public ip to externalize anything that needs to be public.
 - The master node is the fedora server machine.
+- There's a internal network to deploy swarm stack apps.
+- I'm using docker swarm volumes in most of apps instead using local disk.
 
 ## Docker swarm stack
 You can find services configs on their folders.
