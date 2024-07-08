@@ -1,10 +1,11 @@
 # ALEIXOHOME LAB
 
-Hello everyone, this is my small homelab, I made the server from a computer that I got.
+Hello everyone, this is my small homelab, I made the server from a computer that my friend gave me.
 
 ## Topology
 
 [![topology](static/images/homelab.png)]()
+\* I'm running docker swarm because is lighter
 
 ## Server Specs
 | KEY | VALUE |
