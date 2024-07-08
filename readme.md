@@ -5,6 +5,7 @@ Hello everyone, this is my small homelab, I made the server from a computer that
 ## Topology
 
 [![topology](static/images/homelab.png)]()
+
 \* I'm running docker swarm because is lighter
 
 ## Server Specs
@@ -20,10 +21,15 @@ Hello everyone, this is my small homelab, I made the server from a computer that
 | Net Iface | x2 Gbe |
 | SYSTEM | proxmox |
 
-<hr>
 
 ## Systems/apps running
+### Virtual machines / LXC Container
+- [DOCKER SWARM](proxmox-vms/fedora-server/)
+- [trueNAS](proxmox-vms/trueNAS/)
+- [zentyal 8](proxmox-vms/zentyal-server/)
+- [LXC WITH MYSQL](proxmox-vms/zentyal-server/)
 - [OPNSENSE](proxmox-vms/opnsense/)
+### Docker swarm stack
 - [ADGUARD](proxmox-vms/fedora-server/swarm/adguard/)
 - [AUDIOBOOKSHELF](proxmox-vms/fedora-server/swarm/audiobookshelf/)
 - [CARDSGO](proxmox-vms/fedora-server/swarm/cardsgo/)
@@ -36,7 +42,6 @@ Hello everyone, this is my small homelab, I made the server from a computer that
 - [SWARM PROMETHEUS STACK](proxmox-vms/fedora-server/swarm/swarm-prom-stack/)
 - [HASHICORP VAULT](proxmox-vms/fedora-server/swarm/vault/)
 
-<hr>
 
 ## Monitoring
 - [Monitoring and alerts](Monitoring/)
