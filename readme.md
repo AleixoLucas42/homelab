@@ -66,7 +66,7 @@ Hello everyone, this is my small homelab, I made the server from a computer that
 - Configured chassis tampering alert
 - Frontal USB disabled
 - Back USB data blocker
-- Server powered on fulltime and light energy use went up 9%
+- Server powered on fulltime and energy bill usage get up 9%
 - I still need to buy a UPS
 
 <hr>
