@@ -12,8 +12,14 @@ There are some operation that can not stop, otherwise it will stop operation and
 | fedora-server Virtual machine | Where's running the primary dns server and Docker Swarm |
 | Nginx Security | Nginx is exposed to internet so must have some monitoring and alerting due security stuff |
 
-## DISASTER RECOVERY PLAN
-- In desaster case, the backup is beeing done to an internal storage and google drive.
+## Grafana Dashboards
+- opnSENSE
+- ~~Adguard~~
+- Proxmox
+- Nginx
+- Loki Swarm
+- Docker Swarm
+- Duplicati
 
 ## Monitoring system
 The core of monitoring is Grafana, wich is running inside docker swarm. All the systems that need to be monitored, should deliver data to Grafana somehow.
@@ -31,11 +37,5 @@ All alert should be deliver by Grafana, using Telegram as contact point.
 | Proxmox CPU | > 50% [1min] |
 | Proxmox RAM | > 90% [1min] |
 
-## Grafana Dashboards
-- opnSENSE
-- ~~Adguard~~
-- Proxmox
-- Nginx
-- Loki Swarm
-- Docker Swarm
-- Duplicati
+## DISASTER RECOVERY PLAN
+- In desaster case, the backup is beeing done to an internal storage and google drive.
