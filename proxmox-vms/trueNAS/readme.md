@@ -1,8 +1,7 @@
 ## [TRUENAS](https://www.truenas.com/docs/)
 TrueNAS is the branding for a family of network-attached storage (NAS) products produced by iXsystems. They include both free and open-source and commercial offerings, based on the OpenZFS file system and either FreeBSD or Linux. It is licensed under the terms of the BSD License and runs on both commodity x86-64 hardware and turnkey appliances offered by iXsystems. 
 
-[![grafana](../../static/images/)]()
-
+[![grafana](../../static/images/truenas-dashboard.png)]()
 
 ## Server Specs
 | KEY | VALUE |
