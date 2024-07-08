@@ -25,9 +25,9 @@ Hello everyone, this is my small homelab, I made the server from a computer that
 ## Systems/apps running
 ### Virtual machines / LXC Container
 - [DOCKER SWARM](proxmox-vms/fedora-server/)
-- [trueNAS](proxmox-vms/trueNAS/)
-- [zentyal 8](proxmox-vms/zentyal-server/)
-- [LXC WITH MYSQL](proxmox-vms/zentyal-server/)
+- [TRUENAS](proxmox-vms/trueNAS/)
+- [ZENTYAL 8](proxmox-vms/zentyal-server/)
+- [LXC - MYSQL](proxmox-vms/zentyal-server/)
 - [OPNSENSE](proxmox-vms/opnsense/)
 ### Docker swarm stack
 - [ADGUARD](proxmox-vms/fedora-server/swarm/adguard/)
@@ -57,7 +57,7 @@ Hello everyone, this is my small homelab, I made the server from a computer that
 - Retention: 1
 - Schedule: Monthly 2'st 00:00
 - Backup name: PROXMOX_ALEIXOHOME
-- Destination: Google Drive Folder: DUPLICATI/PROXMOX
+- Destination: Google Drive Folder
 - Source: /mnt/storage1tb/dump
 
 ## Important things
