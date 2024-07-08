@@ -10,7 +10,7 @@ There are some operation that can not stop, otherwise it will stop operation and
 | Host System (Proxmox) | This is where all systems are running |
 | opnSENSE Virtual Machine | Control all the internet traffic |
 | fedora-server Virtual machine | Where's running the primary dns server and Docker Swarm |
-| Nginx Security | Nginx is exposed to internet so must have some monitoring and alerting due security stuff |
+| Nginx | Nginx is exposed to internet so must have some monitoring and alerting due security stuff |
 
 ## [Grafana Dashboards](../virtual%20machines/fedora-server/swarm/grafana/dashboards/)
 - opnSENSE
