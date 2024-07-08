@@ -1,6 +1,6 @@
 # Monitoring, Backup and Alerts
 
-[![topology](../static/images/)]()
+[![grafana](../static/images/proxmox-monitoring.png)]()
 
 ## Critical operation
 There are some operation that can not stop, otherwise it will stop operation and production wokloads.
