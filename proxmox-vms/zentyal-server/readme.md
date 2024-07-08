@@ -12,6 +12,7 @@ Zentyal (previously known as eBox Platform) is a open source email and groupware
 | IP | 10.11.12.252 |
 | NETWORK | net0, vmbr1 bridge |
 | SYSTEM | Zentyal 8 |
+| WEB PORT | 8443 |
 | AUTH | LDAP (zentyal) |
 
 ## Group Policies
