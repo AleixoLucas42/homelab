@@ -14,6 +14,8 @@ services:
           memory: 10M
     container_name: duplicati-prometheus-exporter
     image: aleixolucas/duplicati-prometheus-exporter
+    ports:
+      - 8800:5000/tcp
     networks:
       - swarm-net
 networks:

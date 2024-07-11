@@ -1,6 +1,8 @@
 version: '3.8'
 services:
   audiobookshelf:
+    ports:
+      - 8600:80/tcp
     volumes:
       - config:/config
       - metadata:/metadata

@@ -25,6 +25,8 @@ services:
         constraints:
           - node.hostname == fedora-swarm
     container_name: my-prometheus
+    ports:
+      - 8300:9090/tcp
     volumes:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml
     image: prom/prometheus

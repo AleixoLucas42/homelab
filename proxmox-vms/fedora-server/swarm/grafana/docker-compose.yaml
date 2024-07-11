@@ -16,6 +16,8 @@ services:
           memory: 50M
     volumes:
       - data:/var/lib/grafana
+    ports:
+      - 8900:3000/tcp
     environment:
       - GF_SECURITY_ADMIN_USER=
       - GF_SECURITY_ADMIN_PASSWORD=

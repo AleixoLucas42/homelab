@@ -24,6 +24,8 @@ services:
       - ENABLE_SWAGGER_ENDPOINT=TRUE
     networks:
       - swarm-net
+    ports:
+      - 8700:3000/tcp
     volumes:
       - ./sessions:/usr/src/app/sessions # Mount the local ./sessions/ folder to the container's /usr/src/app/sessions folder
 

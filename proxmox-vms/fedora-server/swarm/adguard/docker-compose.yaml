@@ -22,6 +22,7 @@ services:
     ports:
       - 53:53/tcp
       - 53:53/udp
+      - 8500:80/tcp
     networks:
       - swarm-net
 networks:

@@ -23,6 +23,8 @@ services:
     command: server
     networks:
       - swarm-net
+    ports:
+      - 8100:8200/tcp
     volumes:
       - logs:/vault/logs
       - file:/vault/file
