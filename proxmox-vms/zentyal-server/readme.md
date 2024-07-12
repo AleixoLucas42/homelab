@@ -20,7 +20,7 @@ I'm using windows as gamestation so all windows are under zentyal domain.
 - Wallpaper
   - Changes wallpaper to all authenticated users
 - fileshare
-  - Map a smb drive that is provided by trueNAs
+  - Map a smb drive that is provided by trueNAS
 - security
   - Enforce BitLocker (Lot of configs)
   - Enforce remote desktop allow only to domain computers and same network level
