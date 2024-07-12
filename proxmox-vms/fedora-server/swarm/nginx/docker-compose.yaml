@@ -29,8 +29,14 @@ services:
     networks:
       - swarm-net
     ports:
-      - 80:80
-      - 443:443
+      - mode: host
+        protocol: tcp
+        published: 80
+        target: 8080
+      - mode: host
+        protocol: tcp
+        published: 443
+        target: 8443
   # certbot:
   #   deploy:
   #     placement:
