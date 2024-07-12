@@ -26,17 +26,20 @@ services:
     volumes:
       - certbot_www:/var/www/certbot/:ro
       - certbot_conf:/etc/nginx/ssl/:ro
+      - type: bind
+        source: /home/ubuntu/nginx/dbip4.dat #https://www.miyuru.lk/geoiplegacy
+        target: /etc/nginx/country.dat
     networks:
       - swarm-net
     ports:
       - mode: host
         protocol: tcp
         published: 80
-        target: 8080
+        target: 80
       - mode: host
         protocol: tcp
         published: 443
-        target: 8443
+        target: 443
   # certbot:
   #   deploy:
   #     placement:
