@@ -1,0 +1,28 @@
+pipeline {
+    agent any
+    stages {
+        stage('step-1-test-echo-text') {
+            agent {
+                docker {
+                    image 'ubuntu'
+                }
+            }
+            steps {
+                sh 'echo "teste só exibindo qualquer coisa"'
+            }
+        }
+        stage('step-2-test-echo-variable') {
+            agent {
+                docker {
+                    image 'ubuntu'
+                }
+            }
+            environment {
+                SECRET_TEXT = credentials('secret_value')
+            }
+            steps {
+                sh 'echo $SECRET_TEXT'
+            }
+        }
+    }
+}
