@@ -21,6 +21,7 @@ OPNSense is a BSD-licensed firewall based on FreeBSD and developed by Decisio, a
 - DD CLINET
 - Suricata
 - Nginx (cardsgo WAF)
+- CrowdSec
 
 ## Virtual Machine Backup
 - VM Backup is beeing done with proxmox backup.
