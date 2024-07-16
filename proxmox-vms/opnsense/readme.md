@@ -79,6 +79,6 @@ filters:
  - Alert.Remediation == true && Alert.GetScope() == "Ip"
 decisions:
  - type: ban
-   duration: 5m #duration of the ban set to 5 min, default is 4 hours, changed this for lab purposes.
+   duration: 120m
 on_success: break
 ```
