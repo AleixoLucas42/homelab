@@ -32,6 +32,16 @@ OPNSense is a BSD-licensed firewall based on FreeBSD and developed by Decisio, a
 
 
 ## CrowdSec integration with NAXSI error logs on  NGINX
+
+#### /usr/local/etc/crowdsec/acquis.yaml
+```yaml
+filenames:
+  - /var/log/nginx/cardsgo.ddns.net.error.log
+labels:
+  type:  nginx
+...
+
+```
 #### /usr/local/etc/crowdsec/parsers/s01-parse/opnsense_naxsi_logs.yaml
 ```yaml
 name: aleixohome/opnsense_naxsi_logs
@@ -56,7 +66,7 @@ statics:
 ```
 
 #### /usr/local/etc/crowdsec/scenarios/detect_naxsi.yaml
-```
+```yaml
 type: trigger
 name: aleixohome/opnsense_naxsi_waf_event
 description: "Detects if NAXSI has triggered a security event in accordance with its WAF policies"
@@ -72,7 +82,7 @@ scope:
 ```
 
 #### /usr/local/etc/crowdsec/profile.yaml
-```
+```yaml
 name: default_ip_remediation
 debug: true
 filters:
