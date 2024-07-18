@@ -21,7 +21,7 @@ services:
       # - API_KEY=your_global_api_key_here  # OPTIONAL
       - BASE_WEBHOOK_URL=http://localhost:3000/localCallbackExample
       - ENABLE_LOCAL_CALLBACK_EXAMPLE=TRUE
-      - MAX_ATTACHMENT_SIZE=5000000 # IN BYTES
+      - MAX_ATTACHMENT_SIZE=5000000
       - SET_MESSAGES_AS_SEEN=TRUE
       - DISABLED_CALLBACKS=message_ack
       - ENABLE_SWAGGER_ENDPOINT=TRUE
@@ -30,7 +30,7 @@ services:
     ports:
       - 8700:3000/tcp
     volumes:
-      - ./sessions:/usr/src/app/sessions # Mount the local ./sessions/ folder to the container's /usr/src/app/sessions folder
+      - ./sessions:/usr/src/app/sessions
 
   discord_bot:
     deploy:
