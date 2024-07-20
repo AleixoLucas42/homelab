@@ -21,14 +21,8 @@ services:
       - config:/opt/adguardhome/conf
     ports:
       - 8500:80/tcp
-      - mode: host
-        protocol: tcp
-        published: 53
-        target: 53
-      - mode: host
-        protocol: udp
-        published: 53
-        target: 53
+      - 53:53/tcp
+      - 53:53/udp
     networks:
       - swarm-net
 networks:
