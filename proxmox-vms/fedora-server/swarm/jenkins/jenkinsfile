@@ -1,27 +1,69 @@
 pipeline {
     agent any
+    environment {
+        //PIPELINE INFO
+        REPOSITORY_LINK = "https://github.com/AleixoLucas42/grafana_whatsapp_contact_point"
+        DOCKERHUB_REPOSITORY = "aleixolucas"
+        SWARM_SERVICE = "grafana2whatsapp_grafana2whatsapp"
+        
+        //SECRET VAULT
+        DOCKERHUB_USERNAME = credentials('DOCKERHUB_USERNAME')
+        DOCKERHUB_PASSWORD = credentials('DOCKERHUB_PASSWORD')
+    }
     stages {
-        stage('step-1-test-echo-text') {
-            agent {
-                docker {
-                    image 'ubuntu'
-                }
-            }
+        stage('prepare_environment') {
             steps {
-                sh 'echo "teste só exibindo qualquer coisa"'
+                script {
+                    def buildScript = '''#!/bin/bash
+                    workspace_folder=$(echo "${REPOSITORY_LINK}" | awk -F'/' '{print $NF}')
+                    rm -rf .git/ *
+                    git clone ${REPOSITORY_LINK}
+                    mv ${workspace_folder}/* ${workspace_folder}/.*  .
+                    '''
+                    sh buildScript
+                }
             }
         }
-        stage('step-2-test-echo-variable') {
-            agent {
-                docker {
-                    image 'ubuntu'
+        stage('docker_build') {
+            steps {
+                script {
+                    def buildScript = '''#!/bin/bash
+                    GIT_HASH=$(git log -1 --format="%H" | cut -c1-6 | tr -d '\n')
+                    REPO_NAME=$(git remote get-url origin | sed 's#.*/##' | sed 's/.git$//')
+                    DOCKERFILE=$(find . -type f -regex '.*[Dd]ockerfile')
+
+                    echo "[*] Running: docker build -t ${DOCKERHUB_REPOSITORY}/${REPO_NAME} -f ${DOCKERFILE} ."
+                    docker build -t ${DOCKERHUB_REPOSITORY}/${REPO_NAME} -f ${DOCKERFILE} .
+                    '''
+                    sh buildScript
                 }
             }
-            environment {
-                SECRET_TEXT = credentials('secret_value')
-            }
+        }
+        stage('docker_push') {
             steps {
-                sh 'echo $SECRET_TEXT'
+                script {
+                    def buildScript = '''#!/bin/bash
+                    GIT_HASH=$(git log -1 --format="%H" | cut -c1-6 | tr -d '\n')
+                    REPO_NAME=$(git remote get-url origin | sed 's#.*/##' | sed 's/.git$//')
+                    DOCKERFILE=$(find . -type f -regex '.*[Dd]ockerfile')
+
+                    docker login -u ${DOCKERHUB_USERNAME} -p ${DOCKERHUB_PASSWORD}
+
+                    echo "[*] Running: docker push ${DOCKERHUB_REPOSITORY}/${REPO_NAME}"
+                    docker push ${DOCKERHUB_REPOSITORY}/${REPO_NAME}
+                    '''
+                    sh buildScript
+                }
+            }
+        }
+        stage('update_swarm') {
+            steps {
+                script {
+                    def buildScript = '''#!/bin/bash
+                    docker service update --force ${SWARM_SERVICE}
+                    '''
+                    sh buildScript
+                }
             }
         }
     }
