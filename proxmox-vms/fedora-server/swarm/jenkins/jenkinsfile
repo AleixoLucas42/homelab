@@ -31,8 +31,8 @@ pipeline {
                     REPO_NAME=$(git remote get-url origin | sed 's#.*/##' | sed 's/.git$//')
                     DOCKERFILE=$(find . -type f -regex '.*[Dd]ockerfile')
 
-                    echo "[*] Running: docker build -t ${DOCKERHUB_REPOSITORY}/${REPO_NAME} -f ${DOCKERFILE} ."
-                    docker build -t ${DOCKERHUB_REPOSITORY}/${REPO_NAME} -f ${DOCKERFILE} .
+                    echo "[*] Running: docker build --no-cache -t ${DOCKERHUB_REPOSITORY}/${REPO_NAME} -f ${DOCKERFILE} ."
+                    docker build --no-cache -t ${DOCKERHUB_REPOSITORY}/${REPO_NAME} -f ${DOCKERFILE} .
                     '''
                     sh buildScript
                 }
