@@ -16,7 +16,7 @@ pipeline {
                 script {
                     def buildScript = '''#!/bin/bash
                     workspace_folder=$(echo "${REPOSITORY_LINK}" | awk -F'/' '{print $NF}')
-                    rm -rf .git/ *
+                    rm -rf .git/ .* *
                     git clone ${REPOSITORY_LINK}
                     mv ${workspace_folder}/* ${workspace_folder}/.*  .
                     '''
