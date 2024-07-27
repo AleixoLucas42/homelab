@@ -58,7 +58,7 @@ Hello everyone, this is my small homelab, I made the server from a computer that
 - Retention: 1
 - Schedule: Monthly 2'st 00:00
 - Backup name: PROXMOX_ALEIXOHOME
-- Destination: Google Drive Folder
+- Destination: Truenas HD
 - Source: /mnt/storage1tb/dump
 
 ## Important things
