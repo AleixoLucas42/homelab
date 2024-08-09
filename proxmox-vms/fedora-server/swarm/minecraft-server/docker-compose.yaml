@@ -1,0 +1,32 @@
+services:
+  mc:
+    deploy:
+      placement:
+        constraints:
+          - node.hostname == fedora-swarm
+      resources:
+        limits:
+          cpus: "2"
+          memory: 1512M
+    image: itzg/minecraft-server
+    tty: true
+    stdin_open: true
+    ports:
+      - "25565:25565"
+    environment:
+      EULA: "TRUE"
+      VERSION: "1.21.1"
+      DIFFICULTY: "hard"
+      MAX_PLAYERS: 5
+      PVP: "false"
+      SERVER_NAME: "homelab-minecraft-server"
+      ENABLE_AUTOSTOP: "TRUE"
+      AUTOSTOP_TIMEOUT_EST: 600
+      AUTOSTOP_TIMEOUT_INIT: 300
+    volumes:
+      - ./minecraft-data:/data
+    networks:
+      - swarm-net
+networks:
+  swarm-net:
+    external: true
