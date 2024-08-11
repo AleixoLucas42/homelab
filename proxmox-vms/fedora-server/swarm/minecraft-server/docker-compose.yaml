@@ -6,8 +6,7 @@ services:
           - node.hostname == fedora-swarm
       resources:
         limits:
-          cpus: "2"
-          memory: 1512M
+          memory: 2096M
     image: itzg/minecraft-server
     tty: true
     stdin_open: true
@@ -20,9 +19,9 @@ services:
       MAX_PLAYERS: 5
       PVP: "false"
       SERVER_NAME: "homelab-minecraft-server"
-      ENABLE_AUTOSTOP: "TRUE"
-      AUTOSTOP_TIMEOUT_EST: 600
-      AUTOSTOP_TIMEOUT_INIT: 300
+      MEMORY: "2G"
+      INIT_MEMORY: "2G"
+      MAX_MEMORY: "2G"
     volumes:
       - ./minecraft-data:/data
     networks:

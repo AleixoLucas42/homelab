@@ -6,3 +6,6 @@ Just a minecraft server to play with my friends.
 
 ## Minecraft Server
 > aleixohome.ddns.net:25565
+
+# REF
+- [Github](https://github.com/itzg/docker-minecraft-server)
