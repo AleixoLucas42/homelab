@@ -19,10 +19,6 @@ services:
         target: /etc/nginx/nginx.conf
       - source: nginx_conf
         target: /etc/nginx/conf.d/default.conf
-      - source: aleixohome_crt
-        target: /etc/nginx/cert/aleixohome.crt
-      - source: aleixohome_key
-        target: /etc/nginx/cert/aleixohome.key
     volumes:
       - certbot_www:/var/www/certbot/:ro
       - certbot_conf:/etc/nginx/ssl/:ro
@@ -40,29 +36,30 @@ services:
         protocol: tcp
         published: 443
         target: 443
-  # certbot:
-  #   deploy:
-  #     placement:
-  #       constraints:
-  #         - node.hostname == swarm-worker-oracle
-  #   container_name: certbot
-  #   depends_on:
-  #       - nginx
-  #   image: certbot/certbot:latest
-  #   volumes:
-  #   - certbot_www:/var/www/certbot/:rw
-  #   - certbot_conf:/etc/letsencrypt/:rw
-  #   command: certonly --webroot -w /var/www/certbot --force-renewal --email aleixo1lucas@gmail.com -d cardsgo.ddns.net --agree-tos
-  #   networks:
-  #     - swarm-net
+  certbot:
+    deploy:
+      placement:
+        constraints:
+          - node.hostname == swarm-worker-oracle
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 2
+        window: 432000s
+    container_name: certbot
+    depends_on:
+        - nginx
+    image: certbot/certbot:latest
+    volumes:
+    - certbot_www:/var/www/certbot/:rw
+    - certbot_conf:/etc/letsencrypt/:rw
+    command: certonly --webroot -w /var/www/certbot --force-renewal --email aleixo1lucas@gmail.com -d cardsgo.ddns.net --agree-tos
+    networks:
+      - swarm-net
 secrets:
   nginx_main_conf: #docker secret create nginx_main_conf nginx_main.conf
     external: true
   nginx_conf: #docker secret create nginx_conf nginx.conf
-    external: true
-  aleixohome_crt: #docker secret create aleixohome_crt aleixohome.crt
-    external: true
-  aleixohome_key: #docker secret create aleixohome_key aleixohome.key
     external: true
 networks:
   swarm-net:
