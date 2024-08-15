@@ -44,7 +44,7 @@ services:
       restart_policy:
         condition: on-failure
         delay: 5s
-        max_attempts: 2
+        max_attempts: 1
         window: 432000s
     container_name: certbot
     depends_on:
