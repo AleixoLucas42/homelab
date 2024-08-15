@@ -53,7 +53,7 @@ services:
     volumes:
     - certbot_www:/var/www/certbot/:rw
     - certbot_conf:/etc/letsencrypt/:rw
-    command: certonly --webroot -w /var/www/certbot --force-renewal --email aleixo1lucas@gmail.com -d cardsgo.ddns.net --agree-tos
+    command: certonly --webroot -w /var/www/certbot --renew-by-default --email aleixo1lucas@gmail.com -d cardsgo.ddns.net --agree-tos
     networks:
       - swarm-net
 secrets:
