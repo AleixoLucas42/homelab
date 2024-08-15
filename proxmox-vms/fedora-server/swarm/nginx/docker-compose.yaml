@@ -45,7 +45,7 @@ services:
         condition: on-failure
         delay: 5s
         max_attempts: 1
-        window: 432000s
+        window: 86400s
     container_name: certbot
     depends_on:
         - nginx
