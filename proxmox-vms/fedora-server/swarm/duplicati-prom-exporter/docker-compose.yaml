@@ -16,6 +16,8 @@ services:
     image: aleixolucas/duplicati-prometheus-exporter
     ports:
       - 8800:5000/tcp
+    environment:
+      - LOG_LEVEL=INFO
     networks:
       - swarm-net
 networks:
