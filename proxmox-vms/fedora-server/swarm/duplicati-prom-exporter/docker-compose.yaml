@@ -2,6 +2,8 @@ version: '3.8'
 services:
   duplicati-prometheus-exporter:
     deploy:
+      update_config:
+        order: start-first
       placement:
         constraints:
           - node.hostname == fedora-swarm

@@ -2,9 +2,9 @@ pipeline {
     agent any
     environment {
         //PIPELINE INFO
-        REPOSITORY_LINK = "https://github.com/AleixoLucas42/grafana_whatsapp_contact_point"
+        REPOSITORY_LINK = "https://github.com/AleixoLucas42/duplicati-prometheus-exporter"
         DOCKERHUB_REPOSITORY = "aleixolucas"
-        SWARM_SERVICE = "grafana2whatsapp_grafana2whatsapp"
+        SWARM_SERVICE = "duplicati-prometheus-exporter_duplicati-prometheus-exporter"
         
         //SECRET VAULT
         DOCKERHUB_USERNAME = credentials('DOCKERHUB_USERNAME')
@@ -31,8 +31,8 @@ pipeline {
                     REPO_NAME=$(git remote get-url origin | sed 's#.*/##' | sed 's/.git$//')
                     DOCKERFILE=$(find . -type f -regex '.*[Dd]ockerfile')
 
-                    echo "[*] Running: docker build --no-cache -t ${DOCKERHUB_REPOSITORY}/${REPO_NAME} -f ${DOCKERFILE} ."
-                    docker build --no-cache -t ${DOCKERHUB_REPOSITORY}/${REPO_NAME} -f ${DOCKERFILE} .
+                    echo "[*] Running: docker build --no-cache -t ${DOCKERHUB_REPOSITORY}/${REPO_NAME}:latest -f ${DOCKERFILE} ."
+                    docker build --no-cache -t ${DOCKERHUB_REPOSITORY}/${REPO_NAME}:latest -f ${DOCKERFILE} .
                     '''
                     sh buildScript
                 }
@@ -48,8 +48,8 @@ pipeline {
 
                     docker login -u ${DOCKERHUB_USERNAME} -p ${DOCKERHUB_PASSWORD}
 
-                    echo "[*] Running: docker push ${DOCKERHUB_REPOSITORY}/${REPO_NAME}"
-                    docker push ${DOCKERHUB_REPOSITORY}/${REPO_NAME}
+                    echo "[*] Running: docker push ${DOCKERHUB_REPOSITORY}/${REPO_NAME}:latest"
+                    docker push ${DOCKERHUB_REPOSITORY}/${REPO_NAME}:latest
                     '''
                     sh buildScript
                 }
@@ -59,7 +59,11 @@ pipeline {
             steps {
                 script {
                     def buildScript = '''#!/bin/bash
-                    docker service update --force ${SWARM_SERVICE}
+                    REPO_NAME=$(git remote get-url origin | sed 's#.*/##' | sed 's/.git$//')
+                    docker pull ${DOCKERHUB_REPOSITORY}/${REPO_NAME}:latest
+                    DIGEST=$(docker inspect --format='{{index .RepoDigests 0}}' ${DOCKERHUB_REPOSITORY}/${REPO_NAME}:latest | cut -d@ -f2)
+                    echo "[*] Running: docker service update --image ${DOCKERHUB_REPOSITORY}/${REPO_NAME}@${DIGEST} --force ${SWARM_SERVICE}"
+                    docker service update --image ${DOCKERHUB_REPOSITORY}/${REPO_NAME}@${DIGEST} --force ${SWARM_SERVICE}
                     '''
                     sh buildScript
                 }
