@@ -68,7 +68,7 @@ pipeline {
                     echo "[*] Running: docker service update --image ${DOCKERHUB_REPOSITORY}/${REPO_NAME}@${DIGEST} --force ${SWARM_SERVICE}"
                     docker service update --image ${DOCKERHUB_REPOSITORY}/${REPO_NAME}@${DIGEST} --force ${SWARM_SERVICE}
                     echo "[+] Scalling down application after update"
-                    docker service scale ${SWARM_SERVICE}=$((REPLICAS - 1))
+                    docker service scale ${SWARM_SERVICE}=$((REPLICAS))
                     '''
                     sh buildScript
                 }
