@@ -3,6 +3,8 @@ services:
   cardsgo:
     container_name: cardsgo
     deploy:
+      update_config:
+        order: start-first
       placement:
         constraints:
           - node.hostname == fedora-swarm

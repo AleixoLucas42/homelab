@@ -2,9 +2,9 @@ pipeline {
     agent any
     environment {
         //PIPELINE INFO
-        REPOSITORY_LINK = "https://github.com/AleixoLucas42/duplicati-prometheus-exporter"
+        REPOSITORY_LINK = "https://github.com/AleixoLucas42/cardsgo"
         DOCKERHUB_REPOSITORY = "aleixolucas"
-        SWARM_SERVICE = "duplicati-prometheus-exporter_duplicati-prometheus-exporter"
+        SWARM_SERVICE = "cardsgo_cardsgo"
         
         //SECRET VAULT
         DOCKERHUB_USERNAME = credentials('DOCKERHUB_USERNAME')
@@ -62,8 +62,13 @@ pipeline {
                     REPO_NAME=$(git remote get-url origin | sed 's#.*/##' | sed 's/.git$//')
                     docker pull ${DOCKERHUB_REPOSITORY}/${REPO_NAME}:latest
                     DIGEST=$(docker inspect --format='{{index .RepoDigests 0}}' ${DOCKERHUB_REPOSITORY}/${REPO_NAME}:latest | cut -d@ -f2)
+                    REPLICAS=$(docker service inspect cardsgo_cardsgo --format '{{.Spec.Mode.Replicated.Replicas}}')
+                    echo "[+] Scalling up application for no downtime"
+                    docker service scale ${SWARM_SERVICE}=$((REPLICAS + 1))
                     echo "[*] Running: docker service update --image ${DOCKERHUB_REPOSITORY}/${REPO_NAME}@${DIGEST} --force ${SWARM_SERVICE}"
                     docker service update --image ${DOCKERHUB_REPOSITORY}/${REPO_NAME}@${DIGEST} --force ${SWARM_SERVICE}
+                    echo "[+] Scalling down application after update"
+                    docker service scale ${SWARM_SERVICE}=$((REPLICAS - 1))
                     '''
                     sh buildScript
                 }
