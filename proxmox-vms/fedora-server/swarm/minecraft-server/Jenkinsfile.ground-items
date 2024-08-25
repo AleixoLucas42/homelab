@@ -20,7 +20,11 @@ pipeline {
                     echo "waiting ${SLEEP_AWAIT}"
                     sleep $SLEEP_AWAIT
 
-                    docker exec $(docker container ls | grep minecraft | awk '{print $1}') rcon-cli /tellraw @a '{"text": "§4[server]: Cleanning ground items"}'
+                    for i in {5..1..-1}; do
+                        message=$(printf '{"text": "§d[server]: Cleaning ground items in %d"}' "$i")
+                        docker exec $(docker container ls | grep minecraft | awk '{print $1}') rcon-cli /tellraw @a "$message"
+                        sleep 1
+                    done
                     '''
                     sh buildScript
                 }
@@ -30,6 +34,7 @@ pipeline {
             steps {
                 script {
                     def buildScript = '''#!/bin/bash
+                    docker exec $(docker container ls | grep minecraft | awk '{print $1}') rcon-cli /tellraw @a '{"text": "§4[server]: Cleanning ground items"}'
                     docker exec $(docker container ls | grep minecraft | awk '{print $1}') rcon-cli /kill "@e[type=item]"
                     docker exec $(docker container ls | grep minecraft | awk '{print $1}') rcon-cli /tellraw @a '{"text": "§a[server]: Ground items cleaned"}'
                     '''
