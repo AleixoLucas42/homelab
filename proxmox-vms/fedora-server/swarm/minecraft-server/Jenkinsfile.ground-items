@@ -1,0 +1,41 @@
+pipeline {
+    agent any
+    environment {
+        //PIPELINE INFO
+        SLEEP_AWAIT = "1m"
+    }
+    stages {
+        stage('message_and_await') {
+            steps {
+                script {
+                    def buildScript = '''#!/bin/bash
+                    for i in {5..2..-1}; do
+                        message=$(printf '{"text": "§d[server]: Clean ground items in %d minutes"}' "$i")
+                        docker exec $(docker container ls | grep minecraft | awk '{print $1}') rcon-cli /tellraw @a "$message"
+                        echo "waiting ${SLEEP_AWAIT}"
+                        sleep $SLEEP_AWAIT
+                    done
+
+                    docker exec $(docker container ls | grep minecraft | awk '{print $1}') rcon-cli /tellraw @a '{"text": "§c[server]: Clean ground items in 1 minute"}'
+                    echo "waiting ${SLEEP_AWAIT}"
+                    sleep $SLEEP_AWAIT
+
+                    docker exec $(docker container ls | grep minecraft | awk '{print $1}') rcon-cli /tellraw @a '{"text": "§4[server]: Cleanning ground items"}'
+                    '''
+                    sh buildScript
+                }
+            }
+        }
+        stage('clean_ground_items') {
+            steps {
+                script {
+                    def buildScript = '''#!/bin/bash
+                    docker exec $(docker container ls | grep minecraft | awk '{print $1}') rcon-cli /kill "@e[type=item]"
+                    docker exec $(docker container ls | grep minecraft | awk '{print $1}') rcon-cli /tellraw @a '{"text": "§a[server]: Ground items cleaned"}'
+                    '''
+                    sh buildScript
+                }
+            }
+        }
+    }
+}
