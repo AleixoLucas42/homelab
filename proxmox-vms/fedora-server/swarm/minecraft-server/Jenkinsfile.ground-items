@@ -10,13 +10,13 @@ pipeline {
                 script {
                     def buildScript = '''#!/bin/bash
                     for i in {5..2..-1}; do
-                        message=$(printf '{"text": "§d[server]: Clean ground items in %d minutes"}' "$i")
+                        message=$(printf '{"text": "§d[server]: Cleaning ground items in %d minutes"}' "$i")
                         docker exec $(docker container ls | grep minecraft | awk '{print $1}') rcon-cli /tellraw @a "$message"
                         echo "waiting ${SLEEP_AWAIT}"
                         sleep $SLEEP_AWAIT
                     done
 
-                    docker exec $(docker container ls | grep minecraft | awk '{print $1}') rcon-cli /tellraw @a '{"text": "§c[server]: Clean ground items in 1 minute"}'
+                    docker exec $(docker container ls | grep minecraft | awk '{print $1}') rcon-cli /tellraw @a '{"text": "§c[server]: Cleaning ground items in 1 minute"}'
                     echo "waiting ${SLEEP_AWAIT}"
                     sleep $SLEEP_AWAIT
 
