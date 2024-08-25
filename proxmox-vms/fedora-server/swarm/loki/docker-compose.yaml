@@ -10,6 +10,8 @@ networks:
 
 services:
   loki:
+    environment:
+      - TZ=America/Sao_Paulo
     image: grafana/loki:3.0.0
     deploy:
       placement:

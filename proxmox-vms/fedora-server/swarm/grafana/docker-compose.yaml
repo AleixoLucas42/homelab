@@ -25,6 +25,7 @@ services:
       - GF_USERS_ALLOW_SIGN_UP=false
       - GF_AUTH_LDAP_ENABLED=true
       - GF_AUTH_LDAP_CONFIG_FILE=/etc/grafana/ldap.toml
+      - TZ=America/Sao_Paulo
     secrets:
       - source: ldap_toml
         target: /etc/grafana/ldap.toml

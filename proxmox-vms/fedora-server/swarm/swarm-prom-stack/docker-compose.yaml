@@ -18,6 +18,8 @@ services:
       - swarm-net
     devices:
       - /dev/kmsg
+    environment:
+      - TZ=America/Sao_Paulo
     image: gcr.io/cadvisor/cadvisor
   prometheus:
     deploy:
@@ -25,6 +27,8 @@ services:
         constraints:
           - node.hostname == fedora-swarm
     container_name: my-prometheus
+    environment:
+      - TZ=America/Sao_Paulo
     ports:
       - 8300:9090/tcp
     volumes:

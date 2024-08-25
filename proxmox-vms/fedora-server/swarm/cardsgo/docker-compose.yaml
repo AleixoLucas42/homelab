@@ -24,6 +24,7 @@ services:
       - database_psw=
       - database_user=
       - database_host=
+      - TZ=America/Sao_Paulo
     image: aleixolucas/cardsgo
     ports:
       - 8400:5000

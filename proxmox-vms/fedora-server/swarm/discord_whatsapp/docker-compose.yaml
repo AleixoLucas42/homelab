@@ -25,6 +25,7 @@ services:
       - SET_MESSAGES_AS_SEEN=TRUE
       - DISABLED_CALLBACKS=message_ack
       - ENABLE_SWAGGER_ENDPOINT=TRUE
+      - TZ=America/Sao_Paulo
     networks:
       - swarm-net
     ports:
@@ -44,6 +45,8 @@ services:
         reservations:
           cpus: '.1'
           memory: 10M
+    environment:
+      - TZ=America/Sao_Paulo
     image: aleixolucas/disc_wpp_bot
     container_name: discord_bot
     environment:

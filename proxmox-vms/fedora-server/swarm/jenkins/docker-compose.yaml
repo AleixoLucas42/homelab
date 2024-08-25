@@ -9,11 +9,13 @@ services:
         limits:
           cpus: "2"
           memory: 1024M
+    environment:
+      - TZ=America/Sao_Paulo
     image: jenkins/jenkins:lts
     privileged: true
     user: root
     ports:
-      - 8080:8080
+      - 9000:8080
       # - 50000:50000
     container_name: jenkins
     volumes:

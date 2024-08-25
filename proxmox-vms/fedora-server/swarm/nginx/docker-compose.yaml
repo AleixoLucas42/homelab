@@ -12,6 +12,8 @@ services:
         reservations:
           cpus: '.01'
           memory: 50M
+    environment:
+      - TZ=America/Sao_Paulo
     image: nginx
     container_name: nginx
     secrets:

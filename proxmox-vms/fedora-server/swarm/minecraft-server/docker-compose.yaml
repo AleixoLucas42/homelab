@@ -22,6 +22,7 @@ services:
       MEMORY: "2G"
       INIT_MEMORY: "2G"
       MAX_MEMORY: "2G"
+      TZ: "America/Sao_Paulo"
     volumes:
       - ./minecraft-data:/data
     networks:

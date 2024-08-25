@@ -20,6 +20,7 @@ services:
       - PVE_USER=user@pam/pve
       - PVE_PASSWORD=
       - PVE_VERIFY_SSL=
+      - TZ=America/Sao_Paulo
     networks:
       - swarm-net
 networks:

@@ -20,6 +20,7 @@ services:
       - 8800:5000/tcp
     environment:
       - LOG_LEVEL=INFO
+      - TZ=America/Sao_Paulo
     networks:
       - swarm-net
 networks:
