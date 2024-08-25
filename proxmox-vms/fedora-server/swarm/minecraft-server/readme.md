@@ -16,7 +16,8 @@ Just a minecraft server to play with my friends.
 ## Minecraft Server
 > aleixohome.ddns.net:25565
 
-## Backup
+## Automations
+#### Backup
 There are a **duplicati** backup running every 3 hours, sending backup to TrueNAS. The restore is manual through Duplicati web interface. **You should restore permissions when you are restoring backup or else server container won't have permissions to read/write files restored.**
 
 # REF
