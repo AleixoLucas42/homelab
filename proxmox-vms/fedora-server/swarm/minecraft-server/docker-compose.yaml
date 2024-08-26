@@ -14,6 +14,7 @@ services:
       - "25565:25565"
     environment:
       EULA: "TRUE"
+      ENABLE_WHITELIST: "true"
       VERSION: "1.21.1"
       DIFFICULTY: "hard"
       MAX_PLAYERS: 5
