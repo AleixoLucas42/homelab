@@ -7,8 +7,11 @@ Just a minecraft server to play with my friends.
 ## Run command on minecraft server
 > docker exec -i $(docker container ls | grep minecraft | awk '{print $1}') rcon-cli
 
-## Send message do server
-> \/say \<message>
+## Example commands
+#### Send message do server
+- > \/say \<message>
+#### Remove ground items
+- > /kill @e[type=item]
 
 ## Whitelist commands
 The server only accept players on whitelist, after add, make sure to reload whitelist.
@@ -18,9 +21,6 @@ The server only accept players on whitelist, after add, make sure to reload whit
 | Remove   | /whitelist remove [player-name] |
 | List     | /whitelist list                 |
 | Reload   | /whitelist reload               |
-
-## Remove ground items
-> /kill @e[type=item]
 
 ## Remote address
 DM me on [reddit](https://www.reddit.com/user/AleixoLucas/) if you want to join.
