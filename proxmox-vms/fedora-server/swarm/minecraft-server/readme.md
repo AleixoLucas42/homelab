@@ -27,6 +27,9 @@ DM me on [reddit](https://www.reddit.com/user/AleixoLucas/) if you want to join.
 > aleixohome.ddns.net:25565
 
 ## Automations
+#### Alerting
+- There is an alert on Grafana counting lines with specific erros like someone **trying to log in without being on whitelist.**
+
 #### Clean ground items
 - There is a [Jenkins pipeline](Jenkinsfile.ground-items) running every hour to clean ground items.
 
