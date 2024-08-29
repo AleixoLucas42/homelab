@@ -65,7 +65,8 @@ services:
         {
             "404": {"limit": 5, "window": 60},
             "403": {"limit": 3, "window": 60},
-            "401": {"limit": 3, "window": 60}
+            "401": {"limit": 3, "window": 60},
+            "400": {"limit": 2, "window": 60}
         }
       LOG_LEVEL: "ERROR"
       BLOCK_TTL: 7200
