@@ -1,0 +1,61 @@
+services:
+  server: # 10051
+    deploy:
+      placement:
+        constraints:
+          - node.hostname == swarm-worker-oracle
+      resources:
+        limits:
+          cpus: '.2'
+          memory: 300M
+        reservations:
+          cpus: '.01'
+          memory: 50M
+    image: zabbix/zabbix-server-mysql:7.0-alpine-latest
+    environment:
+      DB_SERVER_HOST: "10.11.12.248"
+      MYSQL_DATABASE: zabbix
+      MYSQL_USER: zabbix
+      MYSQL_PASSWORD: 
+    volumes:
+      - zabbix_server_data:/var/lib/zabbix
+    ports:
+      - 9101:10051
+    networks:
+      - swarm-net
+    restart: unless-stopped
+
+  web:
+    deploy:
+      placement:
+        constraints:
+          - node.hostname == swarm-worker-oracle
+      resources:
+        limits:
+          cpus: '.1'
+          memory: 300M
+        reservations:
+          cpus: '.01'
+          memory: 50M
+    image: zabbix/zabbix-web-nginx-mysql:7.0-alpine-latest
+    environment:
+      DB_SERVER_HOST: "10.11.12.248"
+      MYSQL_DATABASE: zabbix
+      MYSQL_USER: zabbix
+      MYSQL_PASSWORD: 
+      ZBX_SERVER_HOST: zabbix_server
+      PHP_TZ: America/Sao_Paulo
+    ports:
+      - 9100:8080
+    networks:
+      - swarm-net
+    depends_on:
+      - zabbix-server
+    restart: unless-stopped
+
+volumes:
+  zabbix_server_data:
+    driver: local
+networks:
+  swarm-net:
+    external: true
