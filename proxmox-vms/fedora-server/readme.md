@@ -32,6 +32,7 @@ You can find services configs on their folders.
 - [DUPLICATI PROMETHEUS EXPORTER](swarm/duplicati-prom-exporter/)
 - [GRAFANA](swarm/grafana/)
 - [LOKI](swarm/loki/)
+- [MINECRAFT SERVER](swarm/minecraft-server/)
 - [NGINX](swarm/nginx/)
 - [PROXMOX PROMETHEUS EXPORTER](swarm/pve-exporter/)
 - [SWARM PROMETHEUS STACK](swarm/swarm-prom-stack/)
