@@ -37,6 +37,8 @@ Hello everyone, this is my small homelab, I made the server from a computer that
 - [DISCORD WHATSAPP BOT](proxmox-vms/fedora-server/swarm/discord_whatsapp/)
 - [DUPLICATI PROMETHEUS EXPORTER](proxmox-vms/fedora-server/swarm/duplicati-prom-exporter/)
 - [GRAFANA](proxmox-vms/fedora-server/swarm/grafana/)
+- [JENKINS](proxmox-vms/fedora-server/swarm/jenkins/)
+- [MINECRAFT SERVER](proxmox-vms/fedora-server/swarm/minecraft-server/)
 - [LOKI](proxmox-vms/fedora-server/swarm/loki/)
 - [NGINX](proxmox-vms/fedora-server/swarm/nginx/)
 - [PROXMOX PROMETHEUS EXPORTER](proxmox-vms/fedora-server/swarm/pve-exporter/)
