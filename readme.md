@@ -16,6 +16,7 @@ Hello everyone, this is my small homelab, I made the server from a computer that
 | Storage 1 | 1TB |
 | Storage 2 | 500GB |
 | Storage 3 | 500GB |
+| Storage 4 | 240GB |
 | IP | 10.11.12.253 |
 | CPU | 4vcpu |
 | RAM | 16GB |
