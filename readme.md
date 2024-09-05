@@ -4,7 +4,7 @@ Hello everyone, this is my small homelab, I made the server from a computer that
 
 ## Topology
 
-[![topology](static/images/homelab.png)]()
+[![topology](static/images/homelab.jpg)]()
 
 \* I'm running docker swarm because is lighter
 
