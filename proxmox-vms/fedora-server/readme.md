@@ -33,6 +33,7 @@ You can find services configs on their folders.
 - [GRAFANA](swarm/grafana/)
 - [LOKI](swarm/loki/)
 - [MINECRAFT SERVER](swarm/minecraft-server/)
+- [JENKINS](swarm/jenkins/)
 - [NGINX](swarm/nginx/)
 - [PROXMOX PROMETHEUS EXPORTER](swarm/pve-exporter/)
 - [SWARM PROMETHEUS STACK](swarm/swarm-prom-stack/)
