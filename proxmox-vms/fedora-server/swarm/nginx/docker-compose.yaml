@@ -21,6 +21,8 @@ services:
         target: /etc/nginx/nginx.conf
       - source: nginx_conf
         target: /etc/nginx/conf.d/default.conf
+      - source: oracle-swarm
+        target: /etc/nginx/oracle-swarm
     volumes:
       - /home/ubuntu/nginx/access.log:/var/log/nginx/access.log:rw
       - /home/ubuntu/nginx/banned.conf:/etc/nginx/conf.d/banned.conf:ro
@@ -53,6 +55,10 @@ services:
           cpus: '.01'
           memory: 50M
     container_name: httpe2ban
+    secrets:
+      - source: oracle-swarm
+        target: /root/.ssh/oracle-swarm
+    entrypoint: ["/bin/sh", "-c", "cp /root/.ssh/oracle-swarm /root/.ssh/ssh-file && chmod 0600 /root/.ssh/ssh-file && python3 -u /httpe2ban/main.py"]
     volumes:
       - /home/ubuntu/nginx/access.log:/httpe2ban/access.log:ro
       - /home/ubuntu/nginx/banned.conf:/httpe2ban/banned.conf:rw
@@ -109,6 +115,8 @@ secrets:
   nginx_main_conf:
     external: true
   nginx_conf:
+    external: true
+  oracle-swarm:
     external: true
 networks:
   swarm-net:

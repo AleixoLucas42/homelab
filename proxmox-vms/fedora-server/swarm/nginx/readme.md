@@ -8,9 +8,7 @@ This nginx that receive requests for CardsGO (internet) and pass it to opnSENSE 
 
 > docker secret create nginx_conf nginx.conf
 
-> docker secret create aleixohome_crt aleixohome.crt
-
-> docker secret create aleixohome_key aleixohome.key
+> docker secret create oracle-swarm oracle-swarm
 
 > docker stack deploy -c docker-compose.yaml nginx
 
