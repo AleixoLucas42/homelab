@@ -1,3 +1,4 @@
+# not in production
 services:
   server: # 10051
     deploy:
