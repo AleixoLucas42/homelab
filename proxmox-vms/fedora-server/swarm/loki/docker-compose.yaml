@@ -1,5 +1,3 @@
-version: "3.8"
-
 volumes:
   loki_data:
     driver: local
@@ -19,6 +17,8 @@ services:
           - node.hostname == fedora-swarm
       mode: replicated
       replicas: 1
+    cap_drop:
+      - ALL
     ports:
       - "3100:3100"
     volumes:
