@@ -15,6 +15,8 @@ services:
         reservations:
           cpus: '.1'
           memory: 50M
+    cap_drop:
+      - ALL
     container_name: whatsapp_web_api
     image: chrishubert/whatsapp-web-api:latest
     environment:
@@ -45,6 +47,8 @@ services:
         reservations:
           cpus: '.1'
           memory: 10M
+    cap_drop:
+      - ALL
     environment:
       - TZ=America/Sao_Paulo
     image: aleixolucas/disc_wpp_bot
