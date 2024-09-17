@@ -12,6 +12,8 @@ services:
         reservations:
           cpus: '.01'
           memory: 50M
+    cap_drop:
+      - ALL
     image: zabbix/zabbix-server-mysql:7.0-alpine-latest
     environment:
       DB_SERVER_HOST: "10.11.12.248"
