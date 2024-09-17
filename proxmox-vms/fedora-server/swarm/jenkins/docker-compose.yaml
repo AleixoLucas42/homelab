@@ -9,6 +9,10 @@ services:
         limits:
           cpus: "2"
           memory: 1024M
+    cap_drop:
+      - ALL
+    cap_add:
+      - CAP_DAC_OVERRIDE
     environment:
       - TZ=America/Sao_Paulo
     image: jenkins/jenkins:lts
