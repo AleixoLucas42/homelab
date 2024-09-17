@@ -10,6 +10,8 @@ services:
       - podcasts:/podcasts
       - books:/books
     container_name: audiobookshelf
+    cap_drop:
+      - ALL
     environment:
       - TZ=America/Sao_paulo
     image: ghcr.io/advplyr/audiobookshelf
