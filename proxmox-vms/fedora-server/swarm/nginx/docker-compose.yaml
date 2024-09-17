@@ -1,4 +1,3 @@
-version: '3.8'
 services:
   nginx:
     deploy:
@@ -12,6 +11,13 @@ services:
         reservations:
           cpus: '.01'
           memory: 50M
+    cap_drop:
+      - ALL
+    cap_add:
+      - CAP_CHOWN
+      - CAP_DAC_OVERRIDE
+      - CAP_SETGID
+      - CAP_SETUID
     environment:
       - TZ=America/Sao_Paulo
     image: nginx
@@ -54,6 +60,8 @@ services:
         reservations:
           cpus: '.01'
           memory: 50M
+    cap_drop:
+      - ALL
     container_name: httpe2ban
     secrets:
       - source: oracle-swarm
@@ -103,6 +111,8 @@ services:
         max_attempts: 1
         window: 86400s
     container_name: certbot
+    cap_drop:
+      - ALL
     depends_on:
         - nginx
     image: certbot/certbot:latest
