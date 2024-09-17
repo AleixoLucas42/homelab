@@ -14,6 +14,8 @@ services:
         reservations:
           cpus: '.01'
           memory: 50M
+    cap_drop:
+      - ALL
     volumes:
       - data:/var/lib/grafana
     ports:
