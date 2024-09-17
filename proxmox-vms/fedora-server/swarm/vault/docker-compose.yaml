@@ -12,8 +12,13 @@ services:
         reservations:
           cpus: '.01'
           memory: 50M
+    cap_drop:
+      - ALL
     cap_add:
       - IPC_LOCK
+      - CAP_SETFCAP
+      - CAP_SETGID
+      - CAP_SETUID
     environment:
       - 'VAULT_LOCAL_CONFIG={"storage": {"file": {"path": "/vault/file"}},
         "listener": [{"tcp": { "address": "0.0.0.0:8200", "tls_disable":
