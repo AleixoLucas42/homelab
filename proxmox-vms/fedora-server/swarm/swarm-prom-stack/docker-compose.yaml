@@ -1,10 +1,11 @@
-version: "3.8"
 services:
   cadvisor:
     deploy:
       placement:
         constraints:
           - node.hostname == fedora-swarm
+    cap_drop:
+      - ALL
     volumes:
       - /:/rootfs:ro
       - /var/run:/var/run:ro
@@ -26,6 +27,8 @@ services:
       placement:
         constraints:
           - node.hostname == fedora-swarm
+    cap_drop:
+      - ALL
     container_name: my-prometheus
     environment:
       - TZ=America/Sao_Paulo
