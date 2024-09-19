@@ -84,7 +84,7 @@ services:
             "400": {"limit": 2, "window": 60},
             "200": {"limit": 50, "window": 120}
         }
-      LOG_LEVEL: "DEBUG"
+      LOG_LEVEL: "INFO"
       # BLOCK_TTL: 32400
       NGINX_LOG_JSON_MAP: >
         {
