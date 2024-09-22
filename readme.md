@@ -70,7 +70,7 @@ Hello everyone, this is my small homelab, I made the server from a computer that
 - Frontal USB disabled
 - Back USB data blocker
 - Server powered on fulltime and energy bill usage get up 9%
-- I still need to buy a UPS
+- There is a 600VA UPS
 
 <hr>
 
