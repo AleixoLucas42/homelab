@@ -75,7 +75,7 @@ services:
     image: aleixolucas/nginx-httpe2ban
     environment:
       TZ: "America/Sao_Paulo"
-      RUN_CMD_AFTER_BAN: "ssh -o 'StrictHostKeyChecking no' 10.0.0.47 && ssh -i /root/.ssh/ssh-file ubuntu@10.0.0.47 '/home/ubuntu/block_iptables.sh $IP"
+      # RUN_CMD_AFTER_BAN: "ssh -o 'StrictHostKeyChecking no' 10.0.0.47 && ssh -i /root/.ssh/ssh-file ubuntu@10.0.0.47 '/home/ubuntu/block_iptables.sh $IP"
       POLICY: >
         {
             "404": {"limit": 5, "window": 60},
