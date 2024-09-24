@@ -21,6 +21,11 @@ I'm using windows as gamestation so all windows are under zentyal domain.
   - Changes wallpaper to all authenticated users
 - fileshare
   - Map a smb drive that is provided by trueNAS
+- Application
+  - Install wazuh agent to authenticated users
+- File
+  - Custom hosts on authenticated users machine
+  - Remove threat file for Wazuh
 - security
   - Enforce BitLocker (Lot of configs)
   - Enforce remote desktop allow only to domain computers and same network level
