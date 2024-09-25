@@ -24,11 +24,15 @@ services:
       VERSION: "1.21.1"
       DIFFICULTY: "hard"
       MAX_PLAYERS: 5
+      INIT_MEMORY: "1G"
+      MAX_MEMORY: "2G"
+      MEMORY: "2G"
       PVP: "false"
       SERVER_NAME: "homelab-minecraft-server"
-      MEMORY: "2G"
-      INIT_MEMORY: "2G"
-      MAX_MEMORY: "2G"
+      ENABLE_AUTOSTOP: "true"
+      AUTOSTOP_TIMEOUT_INIT: 60
+      AUTOSTOP_TIMEOUT_EST: 60
+      AUTOSTOP_PERIOD: 7200
       TZ: "America/Sao_Paulo"
     volumes:
       - ./minecraft-data:/data
