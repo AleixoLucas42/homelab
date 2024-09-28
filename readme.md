@@ -30,6 +30,7 @@ Hello everyone, this is my small homelab, I made the server from a computer that
 - [TRUENAS](proxmox-vms/trueNAS/)
 - [ZENTYAL 8](proxmox-vms/zentyal-server/)
 - [LXC - MYSQL](proxmox-vms/lxc-mysql/)
+- [LXC - WAZUH](proxmox-vms/lxc-wazuh/)
 - [OPNSENSE](proxmox-vms/opnsense/)
 ### Docker swarm stack
 - [ADGUARD](proxmox-vms/fedora-server/swarm/adguard/)
