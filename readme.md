@@ -19,7 +19,7 @@ Hello everyone, this is my small homelab, I made the server from a computer that
 | Storage 4 | 240GB |
 | IP | 10.11.12.253 |
 | CPU | 4vcpu |
-| RAM | 16GB |
+| RAM | 24GB |
 | Net Iface | x2 Gbe |
 | SYSTEM | proxmox |
 
