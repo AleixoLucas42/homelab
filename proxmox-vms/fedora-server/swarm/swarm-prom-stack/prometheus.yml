@@ -48,3 +48,39 @@ scrape_configs:
     scrape_timeout: 20s
     static_configs:
     - targets: ['loki_loki:3100']
+
+  - job_name: 'blackbox_icmp'
+    metrics_path: /probe
+    params:
+      module: [icmp]
+    scrape_interval: 1m
+    scrape_timeout: 1m
+    static_configs:
+      - targets:
+        - cardsgo.ddns.net
+        - 192.168.192.57
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: blackbox-prom-exporter_blackbox-exporter:9115
+
+  - job_name: 'blackbox_http'
+    metrics_path: /probe
+    params:
+      module: [http_2xx]
+    scrape_interval: 1m
+    scrape_timeout: 1m
+    static_configs:
+      - targets:
+        - http://cardsgo.ddns.net
+        - https://cardsgo.ddns.net
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: blackbox-prom-exporter_blackbox-exporter:9115
