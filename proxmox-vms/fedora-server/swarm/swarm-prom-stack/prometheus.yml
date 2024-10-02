@@ -58,7 +58,6 @@ scrape_configs:
     static_configs:
       - targets:
         - https://cardsgo.ddns.net
-        - https://nutroclinic.ddns.net:9367
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
@@ -76,6 +75,7 @@ scrape_configs:
     static_configs:
       - targets:
         - 192.168.192.57
+        - nutroclinic.ddns.net
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
