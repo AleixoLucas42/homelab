@@ -1,0 +1,28 @@
+services:
+  blackbox-exporter:
+    image: quay.io/prometheus/blackbox-exporter:latest
+    container_name: blackbox_exporter
+    deploy:
+      placement:
+        constraints:
+          - node.hostname == fedora-swarm
+      resources:
+        limits:
+          cpus: '.2'
+          memory: 100M
+        reservations:
+          cpus: '.01'
+          memory: 50M
+    volumes:
+      - ./blackbox.yml:/config/blackbox.yml
+    cap_drop:
+      - ALL
+    cap_add:
+      - CAP_NET_RAW
+    environment:
+      - TZ=America/Sao_Paulo
+    networks:
+      - swarm-net
+networks:
+  swarm-net:
+    external: true
