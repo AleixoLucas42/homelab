@@ -57,7 +57,6 @@ scrape_configs:
     scrape_timeout: 1m
     static_configs:
       - targets:
-        - cardsgo.ddns.net
         - 192.168.192.57
     relabel_configs:
       - source_labels: [__address__]
@@ -75,7 +74,6 @@ scrape_configs:
     scrape_timeout: 1m
     static_configs:
       - targets:
-        - http://cardsgo.ddns.net
         - https://cardsgo.ddns.net
     relabel_configs:
       - source_labels: [__address__]
