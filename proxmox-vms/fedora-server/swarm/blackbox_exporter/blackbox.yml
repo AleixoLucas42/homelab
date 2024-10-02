@@ -3,6 +3,8 @@ modules:
     prober: http
     timeout: 5s
     http:
+      tls_config:      
+        insecure_skip_verify: true      
   tcp_connect:
     prober: tcp
     timeout: 5s
