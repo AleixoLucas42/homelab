@@ -3,7 +3,7 @@ netboot.xyz enables you to boot into many types of operating systems using light
 
 ## Setup
 - I had to change the [windows.ipxe](windows.ipxe) to make custom to my lab
-- I had to share a SMB from my TrueNAS to my swarm cluster and mount as volume to my netbootxyz container
+- I created a new SMB share on my TrueNAS and mount as CIFS in swarm cluster so my netbootxyz container can mount as volume
   - This way I can manipulate files from windows explorer, and also, when I pull some image in netbootxyz, the iso go to my SMB
 - I created a service account on my Zentyal server to connect this SMB as rw
 - I made this two files for init script to start windows setup from my SMB (you can check how they work on windows.ipxe file)
