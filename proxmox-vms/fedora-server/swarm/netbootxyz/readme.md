@@ -18,12 +18,28 @@ netboot.xyz enables you to boot into many types of operating systems using light
 echo Initializing network
 wpeinit
 
+echo.
+echo Select the folder where the setup.exe is located:
+echo 1 - Windows 10 22H2 English
+echo 2 - Windows 10 Enterprise 2016 LTSB
+set /p choice=Enter choice (1/2): 
+
+if "%choice%"=="1" set win_folder=win10_22h2_english
+if "%choice%"=="2" set win_folder=win10_enterprise_2016_ltsb
+
+if not defined win_folder (
+  win_folder=win10_22h2_english
+)
+
+echo.
 echo Connecting to Shared Drive
 net use \\10.11.12.247\netbootxyz /user:ALEIXOHOME\sa-netbootxyz password
 
-echo Starting installer
-\\10.11.12.247\netbootxyz\win\x64\win10_22h2_english\setup.exe
+echo.
+echo Starting installer from %win_folder%
+\\10.11.12.247\netbootxyz\win\x64\%win_folder%\setup.exe
 
+echo.
 echo Press any key to continue
 pause
 

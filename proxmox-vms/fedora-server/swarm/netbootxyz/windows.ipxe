@@ -27,7 +27,7 @@ iseq ${win_folder} win10_22h2_english && set win_folder win10_enterprise_2016_lt
 goto windows
 
 :arch_set
-iseq ${win_arch} x64_x86 && set win_arch x86 || set win_arch x64_x86
+iseq ${win_arch} x64 && set win_arch x86 || set win_arch x64
 goto windows
 
 :url_set
