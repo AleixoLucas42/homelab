@@ -4,7 +4,8 @@
 # https://www.microsoft.com
 
 set win_base_url http://netbootxyz.aleixohome.lan
-set win_arch x64_x86
+set memdisk ${win_base_url}/win/files/memdisk
+set win_arch x64
 set win_folder win10_22h2_english
 goto ${menu} ||
 
@@ -36,6 +37,9 @@ echo
 echo -n URL: ${} && read win_base_url
 echo
 echo netboot.xyz will attempt to load the following files:
+echo kernel ${win_base_url}/win/files/wimboot
+echo initrd ${win_base_url}/win/configs/auto.bat auto.bat
+echo initrd ${win_base_url}/win/configs/winpeshl.ini winpeshl.ini
 echo ${win_base_url}/win/${win_arch}/${win_folder}/bootmgr
 echo ${win_base_url}/win/${win_arch}/${win_folder}/bootmgr.efi
 echo ${win_base_url}/win/${win_arch}/${win_folder}/boot/bcd
@@ -50,7 +54,9 @@ isset ${win_base_url} && goto boot || echo URL not set... && goto url_set
 
 :boot
 imgfree
-kernel ${win_base_url}/win/wimboot
+kernel ${win_base_url}/win/files/wimboot
+initrd ${win_base_url}/win/configs/auto.bat auto.bat
+initrd ${win_base_url}/win/configs/winpeshl.ini winpeshl.ini
 initrd -n bootmgr     ${win_base_url}/win/${win_arch}/${win_folder}/bootmgr       bootmgr ||
 initrd -n bootmgr.efi ${win_base_url}/win/${win_arch}/${win_folder}/bootmgr.efi   bootmgr.efi ||      
 initrd -n bcd         ${win_base_url}/win/${win_arch}/${win_folder}/boot/bcd      bcd ||
