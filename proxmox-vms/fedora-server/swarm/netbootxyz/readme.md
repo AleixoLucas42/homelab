@@ -51,7 +51,7 @@ pause
 - https://app.netbootxyz.aleixohome.lan
 - https://netbootxyz.aleixohome.lan
 
-## This links helped me a lot to setup and understand 
+## These links helped me a lot to setup and understand 
 - [Official website](https://netboot.xyz/)
 - https://a-t-engineering.com/en/pxe-network-boot-using-netboot-xyz-under-docker/
 - https://technotim.live/posts/netbootxyz-tutorial/
