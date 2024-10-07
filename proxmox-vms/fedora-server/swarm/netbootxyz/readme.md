@@ -20,20 +20,22 @@ wpeinit
 
 echo.
 echo Select the folder where the setup.exe is located:
-echo 1 - Windows 10 22H2 English
-echo 2 - Windows 10 Enterprise 2016 LTSB
+echo 1 - win10_22h2_english
+echo 2 - win10_enterprise_2016_ltsb
 set /p choice=Enter choice (1/2): 
 
 if "%choice%"=="1" set win_folder=win10_22h2_english
 if "%choice%"=="2" set win_folder=win10_enterprise_2016_ltsb
 
 if not defined win_folder (
+  echo.
+  echo Choosing default win10_22h2_english
   win_folder=win10_22h2_english
 )
 
 echo.
 echo Connecting to Shared Drive
-net use \\10.11.12.247\netbootxyz /user:ALEIXOHOME\sa-netbootxyz password
+net use \\10.11.12.247\netbootxyz /user:ALEIXOHOME\sa-netbootxyz thohwa0Eecahche
 
 echo.
 echo Starting installer from %win_folder%
