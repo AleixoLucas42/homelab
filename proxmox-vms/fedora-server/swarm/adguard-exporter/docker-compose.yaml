@@ -1,6 +1,6 @@
 services:
-  adguardhome:
-    image: adguard/adguardhome
+  adguardexporter:
+    image: ghcr.io/henrywhitaker3/adguard-exporter:latest
     deploy:
       placement:
         constraints:
@@ -17,25 +17,16 @@ services:
     cap_add:
       - CAP_DAC_OVERRIDE
       - CAP_NET_BIND_SERVICE
-    container_name: adguardhome
+    container_name: adguard_exporter
     environment:
       - TZ=America/Sao_Paulo
+      - ADGUARD_SERVERS=adguardhome_adguardhome
+      - ADGUARD_USERNAMES=
+      - ADGUARD_PASSWORDS=
     restart: unless-stopped
-    volumes:
-      - work:/opt/adguardhome/work
-      - config:/opt/adguardhome/conf
-    ports:
-      - 8500:80/tcp
-      - 53:53/tcp
-      - 53:53/udp
     networks:
       - swarm-net
 networks:
   swarm-net:
     attachable: true
     external: true
-volumes:
-  work:
-    driver: local
-  config:
-    driver: local

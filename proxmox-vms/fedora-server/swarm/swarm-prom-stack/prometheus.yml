@@ -82,3 +82,7 @@ scrape_configs:
         target_label: instance
       - target_label: __address__
         replacement: blackbox-prom-exporter_blackbox-exporter:9115
+
+  - job_name: 'adguard-exporter'
+    static_configs:
+      - targets: ['adguard_exporter_adguardhome:9618']
