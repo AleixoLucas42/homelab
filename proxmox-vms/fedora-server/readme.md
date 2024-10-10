@@ -26,6 +26,7 @@ Docker Swarm is a container orchestration tool for clustering and scheduling Doc
 ## Docker swarm stack
 You can find services configs on their folders.
 - [ADGUARD](swarm/adguard/)
+- [ADGUARD EXPORTER](swarm/adguard-exporter/)
 - [AUDIOBOOKSHELF](swarm/audiobookshelf/)
 - [CARDSGO](swarm/cardsgo/)
 - [DISCORD WHATSAPP BOT](swarm/discord_whatsapp/)
