@@ -34,6 +34,7 @@ Hello everyone, this is my small homelab, I made the server from a computer that
 - [OPNSENSE](proxmox-vms/opnsense/)
 ### Docker swarm stack
 - [ADGUARD](proxmox-vms/fedora-server/swarm/adguard/)
+- [ADGUARD EXPORTER](proxmox-vms/fedora-server/swarm/adguard-exporter/)
 - [AUDIOBOOKSHELF](proxmox-vms/fedora-server/swarm/audiobookshelf/)
 - [CARDSGO](proxmox-vms/fedora-server/swarm/cardsgo/)
 - [DISCORD WHATSAPP BOT](proxmox-vms/fedora-server/swarm/discord_whatsapp/)
@@ -46,6 +47,7 @@ Hello everyone, this is my small homelab, I made the server from a computer that
 - [PROXMOX PROMETHEUS EXPORTER](proxmox-vms/fedora-server/swarm/pve-exporter/)
 - [SWARM PROMETHEUS STACK](proxmox-vms/fedora-server/swarm/swarm-prom-stack/)
 - [HASHICORP VAULT](proxmox-vms/fedora-server/swarm/vault/)
+- [NETBOOTXYZ](proxmox-vms/fedora-server/swarm/netbootxyz/)
 
 
 ## Monitoring
