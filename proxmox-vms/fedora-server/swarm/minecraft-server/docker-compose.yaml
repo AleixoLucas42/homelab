@@ -20,7 +20,7 @@ services:
       - CAP_SETUID
     environment:
       EULA: "TRUE"
-      ENABLE_WHITELIST: "false"
+      ENABLE_WHITELIST: "true"
       VERSION: "1.21.1"
       DIFFICULTY: "hard"
       MAX_PLAYERS: 5
