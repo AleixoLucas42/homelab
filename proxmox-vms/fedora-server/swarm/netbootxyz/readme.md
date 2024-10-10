@@ -1,6 +1,8 @@
 ## NETBOOTXYZ
 netboot.xyz enables you to boot into many types of operating systems using lightweight tooling to get you up and running as soon as possible.
 
+![pxe](../../../../static/images/netbootxyz.gif)
+
 ## Setup
 - I had to change the [windows.ipxe](windows.ipxe) to make custom to my lab
 - I created a new SMB share on my TrueNAS and mount as CIFS in swarm cluster so my netbootxyz container can mount as volume
