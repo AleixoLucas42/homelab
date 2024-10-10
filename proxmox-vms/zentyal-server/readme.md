@@ -7,7 +7,7 @@ Zentyal (previously known as eBox Platform) is a open source email and groupware
 | KEY | VALUE |
 |--------|:-----------:|
 | CPU | 2vcpu |
-| RAM | 3GB |
+| RAM | 4GB |
 | SCSI DISK | 32GB |
 | IP | 10.11.12.252 |
 | NETWORK | net0, vmbr1 bridge |
@@ -42,4 +42,8 @@ I'm using windows as gamestation so all windows are under zentyal domain.
 
 ## Virtual Machine Backup
 - VM Backup is beeing done with proxmox backup.
-  - There's a duplicati on proxmox to backup vms to Google Drive
+  - There's a Duplicati on proxmox to backup vms to Google Drive
+## Zentyal Backup
+- Configured a Duplicat backup with run-script-before-required (`/usr/share/zentyal/make-backup`) and run-script-after
+  - So it generate a backup from internal zentyal script, Duplicati send to Google Drive and finally remove the backup file from filesystem.
+  - the backup was configured with 15 days retention.
