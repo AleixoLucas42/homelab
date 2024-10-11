@@ -7,7 +7,6 @@ set win_base_url http://netbootxyz.aleixohome.lan
 set memdisk ${win_base_url}/win/files/memdisk
 set win_folder win10_22h2_english
 set win_arch x64
-set win_folder win10_22h2_english
 goto ${menu} ||
 
 :windows
