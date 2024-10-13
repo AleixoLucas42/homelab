@@ -157,3 +157,15 @@ I'm just taking notes about how/what I've fixed in Configuration Assessment sect
 | 15830 | Ensure 'Turn on e-mail scanning' is set to 'Enabled'.                                                     | GPO        |
 | 15831 | Ensure 'Configure detection for potentially unwanted applications' is set to 'Enabled: Block'.            | GPO        |
 | 15833 | Ensure 'Enable news and interests on the taskbar' is set to 'Disabled'.                                   | GPO        |
+| 15865 | Ensure 'Configure Windows Defender SmartScreen' is set to 'Enabled: Warn and prevent bypass'.             | GPO        | 
+| 15867 | Ensure 'Prevent bypassing Windows Defender SmartScreen prompts for sites' is set to 'Enabled'.            | GPO        | 
+| 15868 | Ensure 'Enables or disables Windows Game Recording and Broadcasting' is set to 'Disabled'.                | GPO        | 
+| 15869 | Ensure 'Allow suggested apps in Windows Ink Workspace' is set to 'Disabled'.                              | GPO        | 
+| 15870 | Ensure 'Allow Windows Ink Workspace' is set to 'Enabled: On, but disallow access above lock' OR [...]     | GPO        | 
+| 15874 | Ensure 'Sign-in and lock last interactive user automatically after a restart' is set to 'Disabled'.       | GPO        | 
+| 15879 | *Ensure 'Disallow Digest authentication' is set to 'Enabled'.                                             | GPO        | 
+| 15883 | Ensure 'Disallow WinRM from storing RunAs credentials' is set to 'Enabled'.                               | GPO        | 
+| 15884 | Ensure 'Allow Remote Shell Access' is set to 'Disabled'.                                                  | GPO        | 
+| 15887 | Ensure 'Prevent users from modifying settings' is set to 'Enabled'.                                       | GPO        | 
+| 15891 | Ensure 'Remove access to "Pause updates" feature' is set to 'Enabled'.                                    | GPO        | 
+| 15893 | Ensure 'Select when Preview Builds and Feature Updates are received' is set to 'Enabled: 180 or [...]     | GPO        | 
