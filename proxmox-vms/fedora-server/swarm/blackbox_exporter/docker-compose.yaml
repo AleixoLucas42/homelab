@@ -1,5 +1,8 @@
 services:
   blackbox-exporter:
+    dns:
+      - 10.11.12.210
+      - 8.8.8.8
     image: quay.io/prometheus/blackbox-exporter:latest
     container_name: blackbox_exporter
     deploy:

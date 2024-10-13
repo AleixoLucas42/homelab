@@ -136,3 +136,24 @@ I'm just taking notes about how/what I've fixed in Configuration Assessment sect
 | 15793 | Ensure 'Prevent the use of security questions for local accounts' is set to 'Enabled'.                    | GPO        |
 | 15794 | Ensure 'Allow Diagnostic Data' is set to 'Enabled: Diagnostic data off (not recommended)' or [...]        | REG        |
 | 15795 | Ensure 'Configure Authenticated Proxy usage for the Connected User Experience and Telemetry [...]         | GPO        |
+| 15796 | Ensure 'Disable OneSettings Downloads' is set to 'Enabled'.                                               | GPO        |
+| 15797 | Ensure 'Do not show feedback notifications' is set to 'Enabled'.                                          | GPO        |
+| 15798 | Ensure 'Enable OneSettings Auditing' is set to 'Enabled'.                                                 | GPO        |
+| 15799 | Ensure 'Limit Diagnostic Log Collection' is set to 'Enabled'.                                             | REG        |
+| 15800 | Ensure 'Limit Dump Collection' is set to 'Enabled'.                                                       | REG        |
+| 15801 | Ensure 'Toggle user control over Insider builds' is set to 'Disabled'.                                    | GPO        |
+| 15804 | Ensure 'Application: Specify the maximum log file size (KB)' is set to 'Enabled: 32,768 or greater'.      | GPO        |
+| 15806 | Ensure 'Security: Specify the maximum log file size (KB)' is set to 'Enabled: 196,608 or greater'.        | GPO        |
+| 15808 | Ensure 'Setup: Specify the maximum log file size (KB)' is set to 'Enabled: 32,768 or greater'.            | GPO        |
+| 15810 | Ensure 'System: Specify the maximum log file size (KB)' is set to 'Enabled: 32,768 or greater'.           | GPO        |
+| 15814 | Ensure 'Prevent the computer from joining a homegroup' is set to 'Enabled'.                               | GPO        |
+| 15815 | Ensure 'Turn off location' is set to 'Enabled'.                                                           | GPO        |
+| 15816 | Ensure 'Allow Message Service Cloud Sync' is set to 'Disabled'.                                           | GPO        |
+| 15820 | Ensure 'Configure Attack Surface Reduction rules' is set to 'Enabled'.                                    | GPO        |
+| 15821 | *Ensure 'Configure Attack Surface Reduction rules: Set the state for each ASR rule' is configured.        | GPO        |
+| 15823 | Ensure 'Enable file hash computation feature' is set to 'Enabled'.                                        | GPO        |
+| 15828 | Ensure 'Configure Watson events' is set to 'Disabled'.                                                    | GPO        |
+| 15829 | Ensure 'Scan removable drives' is set to 'Enabled'.                                                       | GPO        |
+| 15830 | Ensure 'Turn on e-mail scanning' is set to 'Enabled'.                                                     | GPO        |
+| 15831 | Ensure 'Configure detection for potentially unwanted applications' is set to 'Enabled: Block'.            | GPO        |
+| 15833 | Ensure 'Enable news and interests on the taskbar' is set to 'Disabled'.                                   | GPO        |
