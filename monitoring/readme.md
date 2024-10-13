@@ -14,7 +14,7 @@ There are some operation that can not stop, otherwise it will stop operation and
 
 ## [Grafana Dashboards](../proxmox-vms/fedora-server/swarm/grafana/dashboards/)
 - opnSENSE
-- ~~Adguard~~
+- Adguard
 - Proxmox
 - Nginx
 - Loki Swarm
@@ -29,6 +29,8 @@ The core of monitoring is Grafana, wich is running inside docker swarm. All the 
 ## Alerting
 All alert should be deliver by Grafana to [whatsapp contact point that I made](https://github.com/AleixoLucas42/grafana_whatsapp_contact_point) using webhook.
 
+![alerts](../static/images/grafana-alerts.png)
+
 | Alert | Threshold |
 |--------|:-----------:|
 | ~~Adguard resolver latency~~ | > 900ms |
@@ -37,6 +39,7 @@ All alert should be deliver by Grafana to [whatsapp contact point that I made](h
 | Nginx 4xx status | > 20 [5min] |
 | Proxmox CPU | > 50% [1min] |
 | Proxmox RAM | > 90% [1min] |
+\** I'm doing a lot of alerts, won't write all of then here.
 
 ## DISASTER RECOVERY PLAN
 - In desaster case, the backup is beeing done to an internal storage and google drive.
