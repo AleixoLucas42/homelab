@@ -3,6 +3,7 @@ I'm just taking notes about how/what I've fixed in Configuration Assessment sect
 
 
 ## CIS Microsoft Windows 10 Enterprise Benchmark v1.12.0
+\*I managed to reach 80% of compliance. Configurations done:
 
 | ID    |                                                   Title                                                   | Fix Method |
 | ----- | --------------------------------------------------------------------------------------------------------- | ---------- |
@@ -168,4 +169,38 @@ I'm just taking notes about how/what I've fixed in Configuration Assessment sect
 | 15884 | Ensure 'Allow Remote Shell Access' is set to 'Disabled'.                                                  | GPO        | 
 | 15887 | Ensure 'Prevent users from modifying settings' is set to 'Enabled'.                                       | GPO        | 
 | 15891 | Ensure 'Remove access to "Pause updates" feature' is set to 'Enabled'.                                    | GPO        | 
-| 15893 | Ensure 'Select when Preview Builds and Feature Updates are received' is set to 'Enabled: 180 or [...]     | GPO        | 
+| 15893 | Ensure 'Select when Preview Builds and Feature Updates are received' is set to 'Enabled: 180 or [...]     | GPO        |
+| 15622 | Ensure 'Windows Firewall: Domain: Settings: Display a notification' is set to 'No'.                       | GPO        |
+| 15630 | Ensure 'Windows Firewall: Private: Settings: Display a notification' is set to 'No'.                      | GPO        |
+| 15638 | Ensure 'Windows Firewall: Public: Settings: Display a notification' is set to 'No'.                       | GPO        |
+| 15647 | Ensure 'Audit Security Group Management' is set to include 'Success'.                                     | GPO        |
+| 15653 | Ensure 'Audit Logoff' is set to include 'Success'.                                                        | GPO        |
+| 15654 | Ensure 'Audit Logon' is set to 'Success and Failure'.                                                     | GPO        |
+| 15656 | Ensure 'Audit Special Logon' is set to include 'Success'.                                                 | GPO        |
+| 15661 | Ensure 'Audit Audit Policy Change' is set to include 'Success'.                                           | GPO        |
+| 15662 | Ensure 'Audit Authentication Policy Change' is set to include 'Success'.                                  | GPO        |
+| 15704 | Ensure 'Enable Font Providers' is set to 'Disabled'.                                                      | GPO        |
+| 15705 | Ensure 'Enable insecure guest logons' is set to 'Disabled'.                                               | GPO        |
+| 15726 | Ensure 'Turn On Virtualization Based Security' is set to 'Enabled'.                                       | GPO        |
+| 15727 | Ensure 'Turn On Virtualization Based Security: Select Platform Security Level' is set [...]               | GPO        |
+| 15728 | Ensure 'Turn On Virtualization Based Security: Virtualization Based Protection of Code[...]               | GPO        |
+| 15729 | Ensure 'Turn On Virtualization Based Security: Require UEFI Memory Attributes Table' is set [...]         | GPO        |
+| 15730 | Ensure 'Turn On Virtualization Based Security: Credential Guard Configuration' is set to [...]            | GPO        |
+| 15731 | Ensure 'Turn On Virtualization Based Security: Secure Launch Configuration' is set to 'Enabled'.          | GPO        |
+| 15732 | Ensure 'Prevent device metadata retrieval from the Internet' is set to 'Enabled'.                         | GPO        |
+| 15834 | Ensure 'Prevent the usage of OneDrive for file storage' is set to 'Enabled'.                              | GPO        |
+| 15836 | Ensure 'Do not allow passwords to be saved' is set to 'Enabled'.                                          | GPO        |
+| 15839 | Ensure 'Do not allow COM port redirection' is set to 'Enabled'.                                           | GPO        |
+| 15840 | Ensure 'Do not allow drive redirection' is set to 'Enabled'.                                              | GPO        |
+| 15842 | Ensure 'Do not allow LPT port redirection' is set to 'Enabled'.                                           | GPO        |
+| 15843 | Ensure 'Do not allow supported Plug and Play device redirection' is set to 'Enabled'.                     | GPO        |
+| 15844 | Ensure 'Always prompt for password upon connection' is set to 'Enabled'.                                  | GPO        |
+| 15846 | Ensure 'Require use of specific security layer for remote (RDP) connections' is set to 'Enabled: SSL'.    | GPO        |
+| 15849 | Ensure 'Set time limit for active but idle Remote Desktop Services sessions' is set to [...]              | GPO        |
+| 15850 | Ensure 'Set time limit for disconnected sessions' is set to 'Enabled: 1 minute'.                          | GPO        |
+| 15852 | Ensure 'Prevent downloading of enclosures' is set to 'Enabled'.                                           | GPO        |
+| 15853 | Ensure 'Allow Cloud Search' is set to 'Enabled: Disable Cloud Search'.                                    | GPO        |
+| 15854 | Ensure 'Allow Cortana' is set to 'Disabled'.                                                              | GPO        |
+| 15855 | Ensure 'Allow Cortana above lock screen' is set to 'Disabled'.                                            | GPO        |
+| 15857 | Ensure 'Allow search and Cortana to use location' is set to 'Disabled'.                                   | GPO        |
+| 15567 | Ensure 'User Account Control: Admin Approval Mode for the Built-in Administrator account'[...]            | GPO        |
