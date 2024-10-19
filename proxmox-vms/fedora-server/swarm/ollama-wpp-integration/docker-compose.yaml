@@ -1,0 +1,30 @@
+services:
+  ollama_wpp_integration:
+    deploy:
+      placement:
+        constraints:
+          - node.hostname == fedora-swarm
+      resources:
+        limits:
+          cpus: '.1'
+          memory: 50M
+        reservations:
+          cpus: '.01'
+          memory: 10M
+    environment:
+      - WHATSAPP_URL=http://localhost
+      - WHATSAPP_SESSION=ABC
+      - WHATSAPP_CHAT_ID=12345678@g.us
+      - WHATSAPP_NUMBER_ID=12345678@c.us
+      - OLLAMA_URL=http://localhost
+      - LOG_LEVEL=INFO
+      - OLLAMA_MODEL=llama3.2:1b
+      - OLLAMA_TOKEN=eyJhb0000000000000000000000000000.xyzxyzxyz
+    image: aleixolucas/ollama_wpp_integration
+    cap_drop:
+      - ALL
+    networks:
+      - swarm-net
+networks:
+  swarm-net:
+    external: true
