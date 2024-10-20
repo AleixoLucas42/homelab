@@ -49,7 +49,7 @@ Hello everyone, this is my small homelab, I made the server from a computer that
 - [SWARM PROMETHEUS STACK](proxmox-vms/fedora-server/swarm/swarm-prom-stack/)
 - [HASHICORP VAULT](proxmox-vms/fedora-server/swarm/vault/)
 - [NETBOOTXYZ](proxmox-vms/fedora-server/swarm/netbootxyz/)
-- [OPEN WEBUI](proxmox-vms/fedora-server/swarm/open-webui/)
+- [OPEN WEBUI](proxmox-vms/fedora-server/swarm/open-webu/)
 
 
 ## Monitoring
