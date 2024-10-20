@@ -9,7 +9,7 @@ Docker Swarm is a container orchestration tool for clustering and scheduling Doc
 | KEY | VALUE |
 |--------|:-----------:|
 | CPU | 2vcpu |
-| RAM | 6GB |
+| RAM | 8GB |
 | SCSI DISK | 50GB |
 | IP | 10.11.12.210 |
 | NETWORK | net0, vmbr1 bridge |
@@ -40,6 +40,7 @@ You can find services configs on their folders.
 - [SWARM PROMETHEUS STACK](swarm/swarm-prom-stack/)
 - [HASHICORP VAULT](swarm/vault/)
 - [NETBOOTXYZ](swarm/netbootxyz/)
+- [OPEN WEBUI](proxmox-vms/fedora-server/swarm/open-webu/)
 
 ## Virtual Machine Backup
 - VM Backup is beeing done with proxmox backup.

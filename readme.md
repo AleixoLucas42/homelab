@@ -31,6 +31,7 @@ Hello everyone, this is my small homelab, I made the server from a computer that
 - [ZENTYAL 8](proxmox-vms/zentyal-server/)
 - [LXC - MYSQL](proxmox-vms/lxc-mysql/)
 - [LXC - WAZUH](proxmox-vms/lxc-wazuh/)
+- [LXC - OLLAMA](proxmox-vms/lxc-ollama/)
 - [OPNSENSE](proxmox-vms/opnsense/)
 ### Docker swarm stack
 - [ADGUARD](proxmox-vms/fedora-server/swarm/adguard/)
@@ -48,10 +49,11 @@ Hello everyone, this is my small homelab, I made the server from a computer that
 - [SWARM PROMETHEUS STACK](proxmox-vms/fedora-server/swarm/swarm-prom-stack/)
 - [HASHICORP VAULT](proxmox-vms/fedora-server/swarm/vault/)
 - [NETBOOTXYZ](proxmox-vms/fedora-server/swarm/netbootxyz/)
+- [OPEN WEBUI](proxmox-vms/fedora-server/swarm/open-webui/)
 
 
 ## Monitoring
-- [Monitoring and alerts](Monitoring/)
+- [Monitoring and alerts](monitoring/)
 
 ## Backup
 - Retention: Keep monthly 1
