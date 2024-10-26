@@ -24,7 +24,7 @@ services:
     environment:
       EULA: "TRUE"
       ENABLE_WHITELIST: "true"
-      VERSION: "1.21.1"
+      VERSION: "1.21.3"
       DIFFICULTY: "hard"
       MAX_PLAYERS: 5
       INIT_MEMORY: "1G"
