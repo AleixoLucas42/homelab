@@ -53,8 +53,8 @@ scrape_configs:
     metrics_path: /probe
     params:
       module: [http_2xx]
-    scrape_interval: 1m
-    scrape_timeout: 1m
+    scrape_interval: 2m
+    scrape_timeout: 2m
     static_configs:
       - targets:
         - https://cardsgo.ddns.net
