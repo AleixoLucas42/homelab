@@ -23,5 +23,6 @@ services:
       - "3100:3100"
     volumes:
       - loki_data:/data/loki
+      - ./loki-config.yaml:/etc/loki/local-config.yaml
     networks:
       - swarm-net
