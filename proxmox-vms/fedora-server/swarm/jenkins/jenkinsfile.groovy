@@ -2,9 +2,9 @@ pipeline {
     agent any
     environment {
         //PIPELINE INFO
-        REPOSITORY_LINK = "https://github.com/AleixoLucas42/cardsgo"
+        REPOSITORY_LINK = "https://github.com/AleixoLucas42/nginx-httpe2ban"
         DOCKERHUB_REPOSITORY = "aleixolucas"
-        SWARM_SERVICE = "cardsgo_cardsgo"
+        SWARM_SERVICE = "nginx_nginx_httpe2ban"
         
         //SECRET VAULT
         DOCKERHUB_USERNAME = credentials('DOCKERHUB_USERNAME')
@@ -31,8 +31,8 @@ pipeline {
                     REPO_NAME=$(git remote get-url origin | sed 's#.*/##' | sed 's/.git$//')
                     DOCKERFILE=$(find . -type f -regex '.*[Dd]ockerfile')
 
-                    echo "[*] Running: docker build --no-cache -t ${DOCKERHUB_REPOSITORY}/${REPO_NAME}:latest -f ${DOCKERFILE} ."
-                    docker build --no-cache -t ${DOCKERHUB_REPOSITORY}/${REPO_NAME}:latest -f ${DOCKERFILE} .
+                    echo "[*] Running: docker build --no-cache -t ${DOCKERHUB_REPOSITORY}/${REPO_NAME}:latest -f ${DOCKERFILE} . --network=host"
+                    docker build --no-cache -t ${DOCKERHUB_REPOSITORY}/${REPO_NAME}:latest -f ${DOCKERFILE} . --network=host
                     '''
                     sh buildScript
                 }
