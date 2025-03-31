@@ -6,7 +6,7 @@ services:
         order: start-first
       placement:
         constraints:
-          - node.hostname == oracle-swarm-worker
+          - node.hostname == fedora-swarm
       resources:
         limits:
           cpus: '.1'
