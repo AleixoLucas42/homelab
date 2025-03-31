@@ -6,7 +6,7 @@ services:
         order: start-first
       placement:
         constraints:
-          - node.hostname == swarm-worker-oracle
+          - node.hostname == oracle-swarm-worker
       resources:
         limits:
           cpus: '.1'

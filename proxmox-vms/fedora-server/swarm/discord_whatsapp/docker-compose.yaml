@@ -38,7 +38,7 @@ services:
     deploy:
       placement:
         constraints:
-          - node.hostname == swarm-worker-oracle
+          - node.hostname == oracle-swarm-worker
       resources:
         limits:
           cpus: '.05'

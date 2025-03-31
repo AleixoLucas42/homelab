@@ -3,7 +3,7 @@ services:
     deploy:
       placement:
         constraints:
-          - node.hostname == swarm-worker-oracle
+          - node.hostname == oracle-swarm-worker
       resources:
         limits:
           cpus: '.1'
@@ -52,7 +52,7 @@ services:
     deploy:
       placement:
         constraints:
-          - node.hostname == swarm-worker-oracle
+          - node.hostname == oracle-swarm-worker
       resources:
         limits:
           cpus: '.1'
@@ -104,7 +104,7 @@ services:
     deploy:
       placement:
         constraints:
-          - node.hostname == swarm-worker-oracle
+          - node.hostname == oracle-swarm-worker
       restart_policy:
         condition: on-failure
         delay: 5s
