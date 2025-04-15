@@ -18,7 +18,7 @@ services:
       - WHATSAPP_NUMBER_ID=12345678@c.us
       - OLLAMA_URL=http://localhost
       - LOG_LEVEL=INFO
-      - OLLAMA_MODEL=llama3.2:1b
+      - OLLAMA_MODEL=qwen:7b
       - OLLAMA_TOKEN=eyJhb0000000000000000000000000000.xyzxyzxyz
     image: aleixolucas/ollama_wpp_integration
     cap_drop:
