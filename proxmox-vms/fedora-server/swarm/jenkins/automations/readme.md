@@ -1,0 +1,1 @@
+I'm using this automations to run jobs from my smartwatch as jenkins give us possibility to call a job from a webhook
