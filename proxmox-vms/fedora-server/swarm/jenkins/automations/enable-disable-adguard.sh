@@ -1,6 +1,7 @@
 #!/bin/bash
 
 echo "creds $ADGUARD_USER:$ADGUARD_PASSWORD"
+
 status=$(curl -sk --location --request GET "https://adguard.aleixohome.lan/control/status" \
     -u "$ADGUARD_USER:$ADGUARD_PASSWORD" \
     --header "Accept: application/json" \
