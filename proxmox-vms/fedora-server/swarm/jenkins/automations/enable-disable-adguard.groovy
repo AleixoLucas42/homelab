@@ -10,10 +10,8 @@ pipeline {
             steps {
                 script {
                     def buildScript = '''#!/bin/bash
-                    # Obtém o status atual usando -u para autenticação
-                    script_url="https://raw.githubusercontent.com/usuario/repositorio/branch/script.sh"
+                    script_url="https://raw.githubusercontent.com/AleixoLucas42/homelab/refs/heads/main/proxmox-vms/fedora-server/swarm/jenkins/automations/enable-disable-adguard.sh"
 
-                    # Baixando e executando o script
                     curl -sSL "$script_url" | bash
                     '''
                     sh buildScript
