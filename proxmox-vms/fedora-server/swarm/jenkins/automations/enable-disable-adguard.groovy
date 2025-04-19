@@ -6,7 +6,7 @@ pipeline {
         ADGUARD_PASSWORD = credentials('ADGUARD_PASSWORD')
     }
     stages {
-        stage('prepare_environment') {
+        stage('run_script') {
             steps {
                 script {
                     def buildScript = '''#!/bin/bash
