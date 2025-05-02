@@ -1,0 +1,25 @@
+services:
+  m5-stick-proxmox-metrics:
+    image: aleixolucas/m5-stick-proxmox-metrics
+    container_name: m5-stick-proxmox-metrics
+    deploy:
+      placement:
+        constraints:
+          - node.hostname == fedora-swarm
+      resources:
+        limits:
+          cpus: '.2'
+          memory: 100M
+        reservations:
+          cpus: '.01'
+          memory: 50M
+    cap_drop:
+      - ALL
+    environment:
+      - PROXMOX_HOST=""
+      - PASSWORD=""
+    networks:
+      - swarm-net
+networks:
+  swarm-net:
+    external: true
