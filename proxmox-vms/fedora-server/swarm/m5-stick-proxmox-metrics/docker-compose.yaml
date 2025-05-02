@@ -14,7 +14,7 @@ services:
           cpus: '.01'
           memory: 50M
     ports:
-      - 9500:9500
+      - 9500:8000
     cap_drop:
       - ALL
     environment:
