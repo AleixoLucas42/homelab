@@ -13,14 +13,14 @@ Hello everyone, this is my small homelab, I made the server from a computer that
 |--------|:-----------:|
 | Processor | Intel(R) Core(TM) i5-7600 |
 | Brand | Custom |
-| Storage 1 | 1TB |
-| Storage 2 | 500GB |
-| Storage 3 | 500GB |
-| Storage 4 | 240GB |
+| Storage 1 | M.2 128GB |
+| Storage 2 | HD 1TB |
+| Storage 3 | HD 500GB |
+| Storage 4 | SSD 240GB |
 | IP | 10.11.12.253 |
-| CPU | 4vcpu |
-| RAM | 24GB |
-| Net Iface | x2 Gbe |
+| CPU | 24 x Intel(R) Xeon(R) CPU E5-2650 v4 @ 2.20GHz  |
+| RAM | 32GB |
+| Net Iface | x4 Gbe |
 | SYSTEM | proxmox |
 
 
@@ -49,17 +49,19 @@ Hello everyone, this is my small homelab, I made the server from a computer that
 - [SWARM PROMETHEUS STACK](proxmox-vms/fedora-server/swarm/swarm-prom-stack/)
 - [HASHICORP VAULT](proxmox-vms/fedora-server/swarm/vault/)
 - [NETBOOTXYZ](proxmox-vms/fedora-server/swarm/netbootxyz/)
-- [OPEN WEBUI](proxmox-vms/fedora-server/swarm/open-webu/)
+- [OPEN WEBUI](proxmox-vms/fedora-server/swarm/open-webui/)
+- [BLACKBOX EXPORTER](proxmox-vms/fedora-server/swarm/blackbox_exporter)
+- [M5 Stick Proxmox metrics](proxmox-vms/fedora-server/swarm/m5-stick-proxmox-metrics)
 
 
 ## Monitoring
 - [Monitoring and alerts](monitoring/)
 
 ## Backup
-- Retention: Keep monthly 1
+- Retention: Keep weekly 1
 - Schedule: Monthly 1st 00:00
 - Node: All
-- Destination: /mnt/storage1tb/dump
+- Destination: Dedicated HD
 - *there are a duplicati app sending the backups to google drive
 
 ## Duplicati config

@@ -39,7 +39,7 @@ All alert should be deliver by Grafana to [whatsapp contact point that I made](h
 | Nginx 4xx status | > 20 [5min] |
 | Proxmox CPU | > 50% [1min] |
 | Proxmox RAM | > 90% [1min] |
-\** I'm doing a lot of alerts, won't write all of then here.
+\** I'm doing a lot of alerts, won't write all of them here.
 
 ## DISASTER RECOVERY PLAN
 - In desaster case, the backup is beeing done to an internal storage and google drive.
