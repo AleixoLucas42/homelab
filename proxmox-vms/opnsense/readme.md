@@ -50,7 +50,7 @@ filter: "evt.Parsed.program == 'nginx'"
 onsuccess: next_stage
 nodes:
  - grok:
-     pattern: '%{DATESTAMP:timestamp} \[error] %{NUMBER}\#%{NUMBER}: \*%{NUMBER} NAXSI_FMT: ip=%{IPORHOST}&server=%{IPORHOST:serverip}&uri=%{URIPATHPARAM:server_uri}&config=block&rid=%{DATA:rid}&cscore0=%{DATA:cscore0}&score0=%{NUMBER:score}&zone0=%{DATA:zone0}&id0=%{NUMBER:rule_id}&var_name0=%{DATA:var_name0}, client: %{IPORHOST:source_ip}, server: %{IPORHOST:server_hostname}, request: "%{DATA:request}", host: "%{DATA:host}"'
+     pattern: '%{DATESTAMP:timestamp} \[error\] %{NUMBER:pid}\#%{NUMBER:tid}: \*%{NUMBER:connection_id} NAXSI_FMT: ip=%{IP:source_ip}&server=%{IPORHOST:serverip}&uri=%{URIPATHPARAM:server_uri}&config=block&rid=%{DATA:rid}&cscore0=%{DATA:cscore0}&score0=%{NUMBER:score}&zone0=%{DATA:zone0}&id0=%{NUMBER:rule_id}&var_name0=%{DATA:var_name0}, client: %{IP:client_ip}, server: %{IPORHOST:server_hostname}, request: "%{DATA:request}", host: "%{DATA:host}"'
      apply_on: message
 statics:
  - meta: log_type
@@ -67,18 +67,17 @@ statics:
 
 #### /usr/local/etc/crowdsec/scenarios/detect_naxsi.yaml
 ```yaml
-type: trigger
+type: leaky
 name: aleixohome/opnsense_naxsi_waf_event
-description: "Detects if NAXSI has triggered a security event in accordance with its WAF policies"
+description: "Detects multiple NAXSI WAF events from the same IP"
 filter: evt.Meta.log_type == 'waf_attack_event'
 groupby: evt.Meta.source_ip
+leakspeed: 10s
+capacity: 5
 labels:
   service: nginx
   type: waf_security_event
   remediation: true
-scope:
-  type: Ip
-  expression: evt.Meta.source_ip
 ```
 
 #### /usr/local/etc/crowdsec/profile.yaml
