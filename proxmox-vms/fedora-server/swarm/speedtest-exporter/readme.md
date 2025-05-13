@@ -1,7 +1,7 @@
 # SPEEDTEST EXPORTER
 Speedtest exporter is a Prometheus exporter written in Python using the official Speedtest CLI made by Ookla.
 
-![grafana](../../../../static/images/proxmox-monitoring.png)
+![grafana](../../../../static/images/speedtest-exporter-dashboard.png)
 
 ## Deploy Stack
 
