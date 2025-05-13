@@ -1,0 +1,30 @@
+services:
+  speedtest-exporter:
+    image: miguelndecarvalho/speedtest-exporter
+    container_name: speedtest-exporter
+    dns:
+      - 10.11.12.210
+      - 8.8.8.8
+    healthcheck:
+      test: ["CMD", "true"]
+      interval: 10s
+      timeout: 5s
+      retries: 1
+    deploy:
+      placement:
+        constraints:
+          - node.hostname == fedora-swarm
+      resources:
+        limits:
+          cpus: '.2'
+          memory: 100M
+        reservations:
+          cpus: '.01'
+          memory: 50M
+    cap_drop:
+      - ALL
+    networks:
+      - swarm-net
+networks:
+  swarm-net:
+    external: true
