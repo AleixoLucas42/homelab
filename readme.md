@@ -51,7 +51,7 @@ Hello everyone, this is my small homelab, I made the server from a computer that
 - [NETBOOTXYZ](proxmox-vms/fedora-server/swarm/netbootxyz/)
 - [OPEN WEBUI](proxmox-vms/fedora-server/swarm/open-webui/)
 - [BLACKBOX EXPORTER](proxmox-vms/fedora-server/swarm/blackbox_exporter)
-- [M5 Stick Proxmox metrics](proxmox-vms/fedora-server/swarm/m5-stick-proxmox-metrics)
+- [M5 STICK PROXMOX METRICS](proxmox-vms/fedora-server/swarm/m5-stick-proxmox-metrics)
 - [SPEEDTEST EXPORTER](proxmox-vms/fedora-server/swarm/speedtest-exporter)
 
 
