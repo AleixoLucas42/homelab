@@ -1,0 +1,31 @@
+services:
+  intentio-api:
+    dns:
+      - 8.8.8.8
+    image: aleixoleonardo/intentio-api
+    container_name: leo-intentio-api
+    deploy:
+      placement:
+        constraints:
+          - node.hostname == fedora-swarm
+      resources:
+        limits:
+          cpus: '.2'
+          memory: 100M
+        reservations:
+          cpus: '.01'
+          memory: 50M
+    ports:
+      - 9600:3000
+    cap_drop:
+      - ALL
+    environment:
+      - MONGO_URI=
+      - JWT_SECRET=
+      - EMAIL_USER=
+      - EMAIL_PASS=
+    networks:
+      - swarm-net
+networks:
+  swarm-net:
+    external: true
