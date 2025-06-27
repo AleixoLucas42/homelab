@@ -2,10 +2,10 @@ pipeline {
     agent any
     environment {
         //PIPELINE INFO
-        GIT_REPOSITORY = "git@github.com:AleixoLeonardo/planit-api.git"
+        GIT_REPOSITORY = "git@github.com:AleixoLeonardo/intentio-api.git"
         DOCKERHUB_REPOSITORY = "aleixoleonardo"
-        SWARM_SERVICE = "leo-planit-api_planit-api"
-        REPO_FOLDER = "planit-api"
+        SWARM_SERVICE = "leo-intentio-api_intentio-api"
+        REPO_FOLDER = "intentio-api"
         
         //SECRET VAULT
         GITHUB_SSH_KEY = credentials('GITHUB_SSH_KEY')
@@ -55,7 +55,7 @@ pipeline {
                     echo "[+] Scalling up application for no downtime"
                     docker service scale ${SWARM_SERVICE}=$((REPLICAS + 1))
                     echo "[*] Running: docker service update --image ${DOCKERHUB_REPOSITORY}/${REPO_NAME}@${HASH} --force ${SWARM_SERVICE}"
-                    docker service update --image ${DOCKERHUB_REPOSITORY}/${REPO_NAME}@${DIGEST} --force ${SWARM_SERVICE}
+                    docker service update --image ${DOCKERHUB_REPOSITORY}/${REPO_NAME}:${HASH} --force ${SWARM_SERVICE}
                     echo "[+] Scalling down application after update"
                     docker service scale ${SWARM_SERVICE}=$((REPLICAS))
                     echo "[+] Removing old containers"
