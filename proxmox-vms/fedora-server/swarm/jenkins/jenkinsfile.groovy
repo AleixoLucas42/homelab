@@ -2,9 +2,9 @@ pipeline {
     agent any
     environment {
         //PIPELINE INFO
-        REPOSITORY_LINK = "https://github.com/AleixoLucas42/nginx-httpe2ban"
+        REPOSITORY_LINK = "https://github.com/AleixoLucas42/whatsapp_discord_bot"
         DOCKERHUB_REPOSITORY = "aleixolucas"
-        SWARM_SERVICE = "nginx_nginx_httpe2ban"
+        SWARM_SERVICE = "discord_wpp_bot_whatsapp_discord_bot"
         
         //SECRET VAULT
         DOCKERHUB_USERNAME = credentials('DOCKERHUB_USERNAME')
