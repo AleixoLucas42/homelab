@@ -8,4 +8,4 @@ This Discord Bot is sending whatsapp alerts when someone get in any voice chat o
 
 ## REF
 - [Discord BOT](https://github.com/AleixoLucas42/whatsapp_discord_bot)
-- [Whatsapp Rest](https://github.com/chrishubert/whatsapp-web-api.git)
+- [Whatsapp Rest](https://github.com/avoylenko/wwebjs-api)

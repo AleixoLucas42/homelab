@@ -22,7 +22,7 @@ services:
     cap_drop:
       - ALL
     container_name: whatsapp_web_api
-    image: chrishubert/whatsapp-web-api:v1.26.0
+    image: avoylenko/wwebjs-api:v1.31.0
     environment:
       # - API_KEY=your_global_api_key_here  # OPTIONAL
       - BASE_WEBHOOK_URL=http://localhost:3000/localCallbackExample
