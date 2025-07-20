@@ -25,11 +25,9 @@ services:
     image: avoylenko/wwebjs-api:v1.31.0
     environment:
       # - API_KEY=your_global_api_key_here  # OPTIONAL
-      - BASE_WEBHOOK_URL=http://localhost:3000/localCallbackExample
-      - ENABLE_LOCAL_CALLBACK_EXAMPLE=TRUE
+      - ENABLE_WEBHOOK=FALSE
       - MAX_ATTACHMENT_SIZE=9000000
       - SET_MESSAGES_AS_SEEN=FALSE
-      - DISABLED_CALLBACKS=message_ack
       - ENABLE_SWAGGER_ENDPOINT=TRUE
       - TZ=America/Sao_Paulo
     networks:
