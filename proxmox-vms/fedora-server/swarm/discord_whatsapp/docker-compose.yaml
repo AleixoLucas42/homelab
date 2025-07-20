@@ -15,10 +15,10 @@ services:
       resources:
         limits:
           cpus: '.8'
-          memory: 400M
+          memory: 1024M
         reservations:
           cpus: '.1'
-          memory: 50M
+          memory: 256M
     cap_drop:
       - ALL
     container_name: whatsapp_web_api
