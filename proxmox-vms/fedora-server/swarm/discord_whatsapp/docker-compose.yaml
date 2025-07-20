@@ -1,5 +1,10 @@
 services:
   whatsapp:
+    healthcheck:
+      test: ["CMD", "sh", "-c", "rm -f /usr/src/app/sessions/SingletonLock || true; echo ok"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
     dns:
       - 10.11.12.210
       - 8.8.8.8
@@ -17,13 +22,13 @@ services:
     cap_drop:
       - ALL
     container_name: whatsapp_web_api
-    image: chrishubert/whatsapp-web-api:latest
+    image: chrishubert/whatsapp-web-api:v1.26.0
     environment:
       # - API_KEY=your_global_api_key_here  # OPTIONAL
       - BASE_WEBHOOK_URL=http://localhost:3000/localCallbackExample
       - ENABLE_LOCAL_CALLBACK_EXAMPLE=TRUE
-      - MAX_ATTACHMENT_SIZE=5000000
-      - SET_MESSAGES_AS_SEEN=TRUE
+      - MAX_ATTACHMENT_SIZE=9000000
+      - SET_MESSAGES_AS_SEEN=FALSE
       - DISABLED_CALLBACKS=message_ack
       - ENABLE_SWAGGER_ENDPOINT=TRUE
       - TZ=America/Sao_Paulo
