@@ -1,0 +1,37 @@
+services:
+  n8n:
+    dns:
+      - 10.11.12.210
+      - 8.8.8.8
+    environment:
+      - TZ=America/Sao_Paulo
+    image: docker.n8n.io/n8nio/n8n
+    deploy:
+      placement:
+        constraints:
+          - node.hostname == fedora-swarm
+      mode: replicated
+      replicas: 1
+      resources:
+        limits:
+          cpus: '.4'
+          memory: 768M
+        reservations:
+          cpus: '.01'
+          memory: 50M
+    cap_drop:
+      - ALL
+    ports:
+      - "9800:5678"
+    volumes:
+      - n8n_data:/home/node/.n8n
+    networks:
+      - swarm-net
+
+networks:
+  swarm-net:
+    external: true
+
+volumes:
+  n8n_data:
+    driver: local
