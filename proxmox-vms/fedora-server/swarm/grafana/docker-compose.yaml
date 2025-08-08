@@ -1,5 +1,8 @@
 services:
   grafana:
+    dns:
+      - 10.11.12.210
+      - 8.8.8.8
     image: grafana/grafana:latest
     container_name: grafana
     deploy:
@@ -20,6 +23,13 @@ services:
     ports:
       - 8900:3000/tcp
     environment:
+      - GF_SMTP_ENABLED=true
+      - GF_SMTP_HOST=
+      - GF_SMTP_USER=
+      - GF_SMTP_PASSWORD=
+      - GF_SMTP_SKIP_VERIFY=
+      - GF_SMTP_FROM_ADDRESS=
+      - GF_SMTP_FROM_NAME=
       - GF_SECURITY_ADMIN_USER=
       - GF_SECURITY_ADMIN_PASSWORD=
       - GF_SERVER_DOMAIN=grafana.aleixohome.lan

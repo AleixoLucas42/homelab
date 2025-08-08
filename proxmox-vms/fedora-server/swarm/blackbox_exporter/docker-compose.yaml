@@ -16,6 +16,7 @@ services:
         reservations:
           cpus: '.01'
           memory: 50M
+    command: --config.file=/config/blackbox.yml
     volumes:
       - ./blackbox.yml:/config/blackbox.yml
     cap_drop:

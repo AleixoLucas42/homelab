@@ -26,9 +26,11 @@ services:
     environment:
       # - API_KEY=your_global_api_key_here  # OPTIONAL
       - ENABLE_WEBHOOK=FALSE
-      - MAX_ATTACHMENT_SIZE=9000000
+      - MAX_ATTACHMENT_SIZE=1000000000
+      - WEB_VERSION_CACHE_TYPE=remote
       - SET_MESSAGES_AS_SEEN=FALSE
       - ENABLE_SWAGGER_ENDPOINT=TRUE
+      - RECOVER_SESSIONS=TRUE
       - TZ=America/Sao_Paulo
     networks:
       - swarm-net

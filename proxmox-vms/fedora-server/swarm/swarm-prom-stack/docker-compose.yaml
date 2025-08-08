@@ -23,6 +23,9 @@ services:
       - TZ=America/Sao_Paulo
     image: gcr.io/cadvisor/cadvisor
   prometheus:
+    dns:
+      - 10.11.12.210
+      - 8.8.8.8
     deploy:
       placement:
         constraints:
