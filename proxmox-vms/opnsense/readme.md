@@ -91,3 +91,6 @@ decisions:
    duration: 120m
 on_success: break
 ```
+
+REF
+- https://docs.opnsense.org/manual/how-tos/maxmind_geo_ip.html
