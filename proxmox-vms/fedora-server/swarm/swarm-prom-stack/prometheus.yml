@@ -65,6 +65,22 @@ scrape_configs:
     static_configs:
       - targets:
         - https://cardsgo.ddns.net
+        - https://adguard.aleixohome.lan
+        - https://vault.aleixohome.lan
+        - https://proxmox.aleixohome.lan
+        - https://opnsense.aleixohome.lan
+        - https://grafana.aleixohome.lan
+        - https://prometheus.aleixohome.lan
+        - https://zentyal.aleixohome.lan
+        - https://duplicati-prom-exporter.aleixohome.lan
+        - https://audiobookshelf.aleixohome.lan
+        - https://truenas.aleixohome.lan
+        - https://jenkins.aleixohome.lan
+        - https://wazuh.aleixohome.lan
+        - https://netbootxyz.aleixohome.lan
+        - https://app.netbootxyz.aleixohome.lan
+        - https://m5-stick-proxmox-metrics.aleixohome.lan
+        - https://n8n.aleixohome.lan
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
