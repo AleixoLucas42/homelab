@@ -65,22 +65,50 @@ scrape_configs:
     static_configs:
       - targets:
         - https://cardsgo.ddns.net
-        - https://adguard.aleixohome.lan
-        - https://vault.aleixohome.lan
-        - https://proxmox.aleixohome.lan
-        - https://opnsense.aleixohome.lan
-        - https://grafana.aleixohome.lan
-        - https://prometheus.aleixohome.lan
-        - https://zentyal.aleixohome.lan
-        - https://duplicati-prom-exporter.aleixohome.lan
-        - https://audiobookshelf.aleixohome.lan
-        - https://truenas.aleixohome.lan
-        - https://jenkins.aleixohome.lan
-        - https://wazuh.aleixohome.lan
-        - https://netbootxyz.aleixohome.lan
-        - https://app.netbootxyz.aleixohome.lan
-        - https://m5-stick-proxmox-metrics.aleixohome.lan
-        - https://n8n.aleixohome.lan
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: blackbox-prom-exporter_blackbox-exporter:9115
+
+  - job_name: 'blackbox_http_internal_swarm_services'
+    metrics_path: /probe
+    params:
+      module: [http_2xx]
+    scrape_interval: 2m
+    scrape_timeout: 2m
+    static_configs:
+      - targets:
+        - http://adguard-exporter_adguard-exporter
+        - http://adguardhome_adguardhome
+        - http://audiobookshelf_audiobookshelf
+        - http://blackbox-prom-exporter_blackbox-exporter
+        - http://cardsgo_cardsgo
+        - http://discord_wpp_bot_whatsapp_discord_bot
+        - http://discord_wpp_bot_whatsapp_whatsapp
+        - http://duplicati-prometheus-exporter_duplicati-prometheus-exporter
+        - http://grafana2whatsapp_grafana2whatsapp
+        - http://grafana_grafana
+        - http://hashicorp-vault_vault
+        - http://jenkins_jenkins
+        - http://leo-intentio-api_intentio-api
+        - http://leo-planit-api_planit-api
+        - http://loki_loki
+        - http://m5-stick-proxmox-metrics_m5-stick-proxmox-metrics
+        - http://minecraft-server_mc
+        - http://n8n_n8n
+        - http://netbootxyz_netbootxyz
+        - http://nginx_certbot
+        - http://nginx_nginx
+        - http://nginx_nginx_httpe2ban
+        - http://ollama_open-webui_open-webui
+        - http://ollama_wpp_integration_ollama_wpp_integration
+        - http://pve-exporter_prometheus-pve-exporter
+        - http://speedtest-exporter_speedtest-exporter
+        - http://swarm-prom-stack_cadvisor
+        - http://swarm-prom-stack_prometheus
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
