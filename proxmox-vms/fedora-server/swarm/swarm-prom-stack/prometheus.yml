@@ -81,34 +81,16 @@ scrape_configs:
     scrape_timeout: 2m
     static_configs:
       - targets:
-        - http://adguard-exporter_adguard-exporter
         - http://adguardhome_adguardhome
         - http://audiobookshelf_audiobookshelf
-        - http://blackbox-prom-exporter_blackbox-exporter
-        - http://cardsgo_cardsgo
-        - http://discord_wpp_bot_whatsapp_discord_bot
-        - http://discord_wpp_bot_whatsapp_whatsapp
-        - http://duplicati-prometheus-exporter_duplicati-prometheus-exporter
-        - http://grafana2whatsapp_grafana2whatsapp
-        - http://grafana_grafana
-        - http://hashicorp-vault_vault
-        - http://jenkins_jenkins
-        - http://leo-intentio-api_intentio-api
-        - http://leo-planit-api_planit-api
-        - http://loki_loki
-        - http://m5-stick-proxmox-metrics_m5-stick-proxmox-metrics
-        - http://minecraft-server_mc
-        - http://n8n_n8n
-        - http://netbootxyz_netbootxyz
-        - http://nginx_certbot
-        - http://nginx_nginx
-        - http://nginx_nginx_httpe2ban
-        - http://ollama_open-webui_open-webui
-        - http://ollama_wpp_integration_ollama_wpp_integration
-        - http://pve-exporter_prometheus-pve-exporter
-        - http://speedtest-exporter_speedtest-exporter
-        - http://swarm-prom-stack_cadvisor
-        - http://swarm-prom-stack_prometheus
+        - http://duplicati-prometheus-exporter_duplicati-prometheus-exporter:5000/metrics
+        - http://grafana_grafana:3000
+        - http://hashicorp-vault_vault:8200
+        - http://jenkins_jenkins:8080/login
+        - http://m5-stick-proxmox-metrics_m5-stick-proxmox-metrics:8000
+        - http://n8n_n8n:5678
+        - http://pve-exporter_prometheus-pve-exporter:9221
+        - http://swarm-prom-stack_prometheus:9090
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
@@ -126,6 +108,8 @@ scrape_configs:
     static_configs:
       - targets:
         - 192.168.192.54
+        - 10.11.12.253
+        - 10.11.12.254
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
