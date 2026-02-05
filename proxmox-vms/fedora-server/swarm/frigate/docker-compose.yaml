@@ -1,0 +1,33 @@
+services:
+  frigate:
+    container_name: frigate
+    restart: unless-stopped
+    stop_grace_period: 30s
+    image: ghcr.io/blakeblackshear/frigate:stable
+    volumes:
+      - /mnt/frigate/config:/config
+      - /mnt/frigate/storage:/media/frigate
+    ports:
+      - "8971:8971"
+      - "8554:8554"
+    dns:
+      - 10.11.12.210
+      - 8.8.8.8
+    deploy:
+      placement:
+        constraints:
+          - node.hostname == fedora-swarm
+      resources:
+        limits:
+          cpus: '.9'
+          memory: 1024M
+        reservations:
+          cpus: '.02'
+          memory: 256M
+    environment:
+      - TZ=America/Sao_Paulo
+    networks:
+      - swarm-net
+networks:
+  swarm-net:
+    external: true
